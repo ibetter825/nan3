@@ -48,28 +48,30 @@
                 this.timer = setInterval(this.slide, 5000)//启动定时器
             },
             touchstart: function(e){
+                let _this = this
                 //触摸点列表
                 let touches = e.touches
                 if(touches.length > 1) return //多点触控不予处理
                 let touch = touches[0]//当前手指触控点
-                this.screenX = touch.screenX
-                this.screenY = touch.screenY
-                if(this.timer) clearInterval(this.timer)
+                _this.screenX = touch.screenX
+                _this.screenY = touch.screenY
+                if(_this.timer) clearInterval(_this.timer)
             },
             touchend: function(e){
+                let _this = this
                 let touches = e.changedTouches
                 if(touches.length > 1) return //多点触控不予处理
                 let touch = touches[0]//当前手指触控点
-                let startX = this.screenX
-                let startY = this.screenY
+                let startX = _this.screenX
+                let startY = _this.screenY
                 let endX = touch.screenX
                 let endY = touch.screenY
                 if(startX - endX > 0) //向左滑动
-                    this.count === -4 ? 0 : this.count--
+                    _this.count === -4 ? 0 : _this.count--
                 else
-                    this.count === 0 ? 0 : this.count++
-                if(this.timer) clearInterval(this.timer)
-                this.start()
+                    _this.count === 0 ? 0 : _this.count++
+                if(_this.timer) clearInterval(_this.timer)
+                _this.start()
             }
         },
         watch: {
@@ -80,7 +82,7 @@
                     _this.content.clz.tran2 = false
                     _this.count = 0
                 }else{
-                    _this.content.style.marginLeft = _this.count * 100 === 0 ? 0 : _this.count * 100 + '%'
+                    _this.content.style.marginLeft = _this.count === 0 ? _this.count * 100 : _this.count * 100 + '%'
                     if(n === -1)
                         _this.content.clz.tran2 = true
                 }
