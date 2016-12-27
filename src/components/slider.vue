@@ -1,11 +1,7 @@
 <template>
     <section class="slider relative">
         <ul :class="content.clz" :style="content.style" @touchstart.prevent="touchstart($event)" @touchend.prevent="touchend($event)">
-            <li><img src="/static/images/slider.gif"></li>
-            <li><img src="/static/images/slider.gif"></li>
-            <li><img src="/static/images/slider.gif"></li>
-            <li><img src="/static/images/slider.gif"></li>
-            <li><img src="/static/images/slider.gif"></li>
+            <li v-for="(item, index) in slider.data"><a :href="item.url"><img :src="item.img"></a></li>
             <div class="clear"></div>
         </ul>
         <ul class="slider-indicators">
@@ -17,6 +13,7 @@
 <script>
     //初始化完成以后需要开启定时器，动态播放轮转图
     module.exports = {
+        props: ['slider'],
         data(){
             return {
                 timer: false,

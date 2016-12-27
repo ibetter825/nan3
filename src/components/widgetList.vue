@@ -11,7 +11,7 @@
                 <li class="widget-cnt">
                     <section>
                         <div class="widget-list-img">
-                            <router-link to="goods/detail"><img src="/static/images/rmd.jpg" alt=""></router-link>
+                            <router-link :to="{ path: 'goods/detail', query: { plan: 'private' }}"><img src="/static/images/rmd.jpg" alt=""></router-link>
                         </div>
                         <div></div>
                         <div class="widget-list-info relative">

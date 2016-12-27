@@ -12,23 +12,7 @@
         </li>
     </ul>
     <!-- SLIDE -->
-    <section class="slider relative">
-        <ul class="slider-content">
-            <li><img src="/static/images/detail_0.jpg"></li>
-            <li><img src="/static/images/detail_1.jpg"></li>
-            <li><img src="/static/images/detail_2.jpg"></li>
-            <li><img src="/static/images/detail_3.jpg"></li>
-            <li><img src="/static/images/detail_2.jpg"></li>
-            <div class="clear"></div>
-        </ul>
-        <ul class="slider-indicators">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li class="selected"></li>
-        </ul>
-    </section>
+    <n3-slider :slider="slider"></n3-slider>
     <!-- MAIN -->
     <section class="main">
         <section class="header pd10-20 relative">
@@ -496,7 +480,6 @@
 </template>
 
 <script>
-    import top from '../../components/top.vue'
     import slider from '../../components/slider.vue'
     import nav from '../../components/nav.vue'
     import ad from '../../components/ad.vue'
@@ -509,7 +492,6 @@
             return {}
         },
         components: {
-          'n3-top': top,
           'n3-slider': slider,
           'n3-nav': nav,
           'n3-ad': ad,
@@ -517,6 +499,34 @@
           'n3-widget-card': widgetCard,
           'n3-widget-bulk': widgetBulk,
           'n3-footer': footer
+        },
+        computed:{
+            slider(){
+            return {
+              data: [
+                {
+                  url: '#',
+                  img: '/static/images/detail_0.jpg'
+                },
+                {
+                  url: '#',
+                  img: '/static/images/detail_1.jpg'
+                },
+                {
+                  url: '#',
+                  img: '/static/images/detail_2.jpg'
+                },
+                {
+                  url: '#',
+                  img: '/static/images/detail_3.jpg'
+                },
+                {
+                  url: '#',
+                  img: '/static/images/detail_2.jpg'
+                }
+              ]
+            }
+          }
         }
     }
 </script>
