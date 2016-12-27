@@ -487,46 +487,41 @@
     import widgetCard from '../../components/widgetCard.vue'
     import widgetBulk from '../../components/widgetBulk.vue'
     import footer from '../../components/footer.vue'
+    alert(1)
     module.exports = {
-        data(){
+        data() {
             return {}
         },
         components: {
-          'n3-slider': slider,
-          'n3-nav': nav,
-          'n3-ad': ad,
-          'n3-widget-list': widgetList,
-          'n3-widget-card': widgetCard,
-          'n3-widget-bulk': widgetBulk,
-          'n3-footer': footer
+            'n3-slider': slider,
+            'n3-nav': nav,
+            'n3-ad': ad,
+            'n3-widget-list': widgetList,
+            'n3-widget-card': widgetCard,
+            'n3-widget-bulk': widgetBulk,
+            'n3-footer': footer
         },
-        computed:{
-            slider(){
-            return {
-              data: [
-                {
-                  url: '#',
-                  img: '/static/images/detail_0.jpg'
-                },
-                {
-                  url: '#',
-                  img: '/static/images/detail_1.jpg'
-                },
-                {
-                  url: '#',
-                  img: '/static/images/detail_2.jpg'
-                },
-                {
-                  url: '#',
-                  img: '/static/images/detail_3.jpg'
-                },
-                {
-                  url: '#',
-                  img: '/static/images/detail_2.jpg'
+        computed: {
+            slider() {
+                return {
+                    data: [{
+                        url: '#',
+                        img: '/static/images/detail_0.jpg'
+                    }, {
+                        url: '#',
+                        img: '/static/images/detail_1.jpg'
+                    }, {
+                        url: '#',
+                        img: '/static/images/detail_2.jpg'
+                    }, {
+                        url: '#',
+                        img: '/static/images/detail_3.jpg'
+                    }, {
+                        url: '#',
+                        img: '/static/images/detail_2.jpg'
+                    }]
                 }
-              ]
             }
-          }
         }
     }
 </script>
