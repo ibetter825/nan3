@@ -487,7 +487,6 @@
     import widgetCard from '../../components/widgetCard.vue'
     import widgetBulk from '../../components/widgetBulk.vue'
     import footer from '../../components/footer.vue'
-    alert(1)
     module.exports = {
         data() {
             return {}
