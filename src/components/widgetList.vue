@@ -11,7 +11,7 @@
                 <li class="widget-cnt">
                     <section>
                         <div class="widget-list-img">
-                            <a href="view/goods/detail.html"><img src="/static/images/rmd.jpg" alt=""></a>
+                            <router-link to="goods/detail"><img src="/static/images/rmd.jpg" alt=""></router-link>
                         </div>
                         <div></div>
                         <div class="widget-list-info relative">
