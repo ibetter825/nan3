@@ -20,6 +20,7 @@
         data(){
             return {
                 timer: false,
+                limit: 5000,//定时器间隔
                 count: 0,
                 selected: 0,
                 content: {
@@ -45,7 +46,9 @@
                 this.count--
             },
             start: function(){
-                this.timer = setInterval(this.slide, 5000)//启动定时器
+                let _this = this
+                if(_this.timer) clearInterval(_this.timer)
+                _this.timer = setInterval(_this.slide, _this.limit)//启动定时器
             },
             touchstart: function(e){
                 let _this = this
@@ -70,7 +73,7 @@
                     _this.count === -4 ? 0 : _this.count--
                 else
                     _this.count === 0 ? 0 : _this.count++
-                if(_this.timer) clearInterval(_this.timer)
+                
                 _this.start()
             }
         },
@@ -83,8 +86,7 @@
                     _this.count = 0
                 }else{
                     _this.content.style.marginLeft = _this.count === 0 ? _this.count * 100 : _this.count * 100 + '%'
-                    if(n === -1)
-                        _this.content.clz.tran2 = true
+                    if(n === -1) _this.content.clz.tran2 = true
                 }
             }
         },
