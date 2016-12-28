@@ -35,7 +35,8 @@ button {
 html {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     font-size: 62.5%;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -169,11 +170,15 @@ select:-webkit-autofill {
 .divider {
     width: 100%;
     height: 10px;
+    line-height: 10px;
+    text-align: center;
+    font-size: 1.2rem;
     background: #FAF4F4;
 }
 
 .divider5 {
     height: 50px;
+    line-height: 50px;
 }
 
 .divider2 {
@@ -388,7 +393,16 @@ select:-webkit-autofill {
     -o-transition: all 5s;
 }
 /*过渡*/
-
+.slide-lr-enter-active {
+  transition: all .3s ease;
+}
+.slide-lr-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-lr-enter, .slide-lr-leave-active {
+  transform: translateX(-100%);
+  opacity: 0;
+}
 /*动画*/
 
 
@@ -1306,11 +1320,9 @@ select:-webkit-autofill {
     border-bottom-color: #FF5000;
     color: #FF5000;
 }
-.goods .info-cnt {
-    width: 300%;
-}
+
 .goods .info-cnt > li {
-    width: 33.33%;
+    width: 100%;
     float: left;
 }
 

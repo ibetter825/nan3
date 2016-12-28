@@ -1,5 +1,5 @@
 <template>
-  <div class="detail goods">
+  <div class="detail goods" @touchstart="m_ts('root', $event)" @touchmove="m_tm('root', $event)" @touchend="m_te('root', $event)">
       <ul class="top pd10 bg-white">
         <li class="back"><i class="iconfont icon-xiangzuojiantou f18"></i></li>
         <li>
@@ -126,9 +126,9 @@
                 <li><span class="pd5-10">进店看看</span></li>
             </ul>
         </section>
-        <div class="divider"></div>
+        <div class="divider divider5">------继续拖动查看图文详情------</div>
         <!--商品详情-->
-        <section class="goods-info">
+        <section v-if="info.show" class="goods-info">
             <ul class="info-tab">
                 <li :class="[tab.selected === 0 ? 'selected' : '']" @click="m_tab(0)">
                     <span class="block">图文详情</span>
@@ -140,9 +140,10 @@
                     <span class="block">店铺推荐</span>
                 </li>
             </ul>
-            <ul class="info-cnt tran05" @touchstart="m_ts($event)" @touchend="m_te($event)" :style="{marginLeft: (tab.selected * -100) + '%'}">
+            <ul class="info-cnt" @touchstart.stop="m_ts('tab', $event)" @touchend.stop="m_te('tab', $event)">
                 <!--图文详情-->
-                <li>
+                <transition name="slide-lr">
+                <li v-show="tab.selected === 0" class="">
                     <div class="pd5-0"><img src="/static/images/goods_info.jpg" alt=""></div>
                     <div class="divider"></div>
                     <div class="info-rmd">
@@ -233,8 +234,10 @@
                         </section>
                     </div>
                 </li>
+                </transition>
                 <!--产品参数-->
-                <li class="info-param pd10-20">
+                <transition name="slide-lr">
+                <li v-show="tab.selected === 1" class="info-param pd10-20 ">
                     <p>
                         <span>净含量</span>
                         <span>4000g</span>
@@ -264,8 +267,10 @@
                         <span>遂宁</span>
                     </p>
                 </li>
+                </transition>
                 <!--店铺推荐-->
-                <li class="shop-rmd">
+                <transition name="slide-lr">
+                <li v-show="tab.selected === 2" class="shop-rmd ">
                     <section class="widget widget-bulk widget-bulk-two">
                         <ul>
                             <li>
@@ -346,6 +351,7 @@
                         </ul>
                     </section>
                 </li>
+                </transition>
                 <div class="clear"></div>
             </ul>
             <div class="divider"></div>
@@ -474,19 +480,28 @@
         data() {
             let _this = this
             return {
-                tab: {
+                root: {//根目录
+                    touch: {
+                        screenX: 0,
+                        screenY: 0
+                    }
+                },
+                info: {//图文信息
+                    show: true
+                },
+                tab: {//图文信息中的tab切换
                     selected: 0,
                     touch: {
                         screenX: 0,
                         screenY: 0
                     }
                 },
-                viewer: {
+                viewer: {//图片查看器
                     show: false,
                     selected: 0,
                     data: []
                 },
-                slider: {
+                slider: {//轮播图
                     click: function(i){
                         _this.m_viewer(i)
                     },
@@ -508,9 +523,6 @@
             
         },
         methods: {
-            m_scroll: function(){
-                console.log('gundong')
-            },
             m_viewer: function(i){
                 this.viewer.selected = i
                 this.viewer.show = true
@@ -518,32 +530,74 @@
             m_tab: function(i){
                 this.tab.selected = i
             },
-            m_ts: function(e){
+            m_ts: function(el, e){
                 let _this = this
                 //触摸点列表
                 let touches = e.touches
                 if(touches.length > 1) return //多点触控不予处理
                 let touch = touches[0]//当前手指触控点
-                _this.tab.touch.screenX = touch.screenX
-                _this.tab.touch.screenY = touch.screenY
+                let x = touch.screenX
+                let y = touch.screenY
+                if(el === 'tab'){
+                    _this.tab.touch.screenX = x
+                    _this.tab.touch.screenY = y
+                }else if(el === 'root'){
+                    _this.root.touch.screenX = x
+                    _this.root.touch.screenY = y
+                }
             },
-            m_te: function(e){
+            m_tm: function(el, e){
+                
+            },
+            m_te: function(el, e){
                 let _this = this
                 let touches = e.changedTouches
                 if(touches.length > 1) return //多点触控不予处理
                 let touch = touches[0]//当前手指触控点
-                let startX = _this.tab.touch.screenX
-                let startY = _this.tab.touch.screenY
+                let startX = 0
+                let startY = 0
                 let endX = touch.screenX
                 let endY = touch.screenY
+               
+                if(el === 'tab'){
+                    startX = _this.tab.touch.screenX
+                    startY = _this.tab.touch.screenY
+                }else if(el === 'root'){
+                    startX = _this.root.touch.screenX
+                    startY = _this.root.touch.screenY
+                }
                 let dx = startX - endX
-                let dy = Math.abs(startY - endY)
+                let dy = startY - endY
+
+                let map = {
+                    root: {
+                        up: function(){
+                             console.log(document.documentElement.scrollTop)
+                        }
+                    },
+                    tab: {
+                        left: function(){
+                            _this.tab.selected === 2 ? '' : _this.tab.selected++ //左划
+                        },
+                        right: function(){
+                            _this.tab.selected === 0 ? '' : _this.tab.selected-- //右划
+                        }
+                    }
+                }
+
                 if(dx === 0 && dy === 0)
-                    return 
-                else if(dx > 0 && dy <= 10) //向左滑动
-                    _this.tab.selected === 2 ? '' : _this.tab.selected++
-                else if(dx < 0 && dy <= 10)
-                    _this.tab.selected === 0 ? '' : _this.tab.selected--
+                    map[el]['center'] ? map[el]['center']() : ''
+                else {
+                    e.preventdefault
+                    if(dx > 0 && Math.abs(dy) <= 20) //向左滑动
+                        map[el]['left'] ? map[el]['left']() : ''
+                    else if(dx < 0 && Math.abs(dy) <= 20)
+                        map[el]['right'] ? map[el]['right']() : ''
+                    else if(dy > 0 && Math.abs(dx) <= 20) //向下
+                        map[el]['up'] ? map[el]['up']() : ''
+                    else if(dy < 0 && Math.abs(dx) <= 20)//向上滑动
+                        map[el]['down'] ? map[el]['down']() : ''
+                }
             }
         },
         created: function(){

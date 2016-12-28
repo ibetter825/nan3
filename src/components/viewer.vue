@@ -24,7 +24,7 @@
                 content: {
                     clz: {
                         'viewer-content': true,
-                        tran1: true
+                        tran05: true
                     },
                     style: {
                         marginLeft: 0
