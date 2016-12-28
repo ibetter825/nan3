@@ -33,10 +33,6 @@ button {
 }
 
 html {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
     font-size: 62.5%;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -49,11 +45,6 @@ body {
     font-size: 1.4rem;
     font-family: "arial", "微软雅黑";
     background: #fff;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: relative;
 }
 
 a,
@@ -380,29 +371,39 @@ select:-webkit-autofill {
     -webkit-transition: all 1s;
     -o-transition: all 1s;
 }
+
 .tran2 {
     transition: all 2s;
     -moz-transition: all 2s;
     -webkit-transition: all 2s;
     -o-transition: all 2s;
 }
+
 .tran5 {
     transition: all 5s;
     -moz-transition: all 5s;
     -webkit-transition: all 5s;
     -o-transition: all 5s;
 }
+
+
 /*过渡*/
+
 .slide-lr-enter-active {
-  transition: all .3s ease;
+    transition: all .3s ease;
 }
+
 .slide-lr-leave-active {
-  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-.slide-lr-enter, .slide-lr-leave-active {
-  transform: translateX(-100%);
-  opacity: 0;
+
+.slide-lr-enter,
+.slide-lr-leave-active {
+    transform: translateX(-100%);
+    opacity: 0;
 }
+
+
 /*动画*/
 
 
@@ -450,6 +451,14 @@ select:-webkit-autofill {
 
 
 /*common*/
+
+.main {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
 
 .ad {
     width: 100%;
@@ -927,9 +936,11 @@ select:-webkit-autofill {
     text-align: center;
     height: 80px;
 }
+
 .sect-4 .sect-cnt li {
     width: 25%;
 }
+
 .sect .sect-cnt-icon {
     height: 50px;
     line-height: 50px;
@@ -946,6 +957,7 @@ select:-webkit-autofill {
 .sect .sect-cnt-icon .iconfont {
     font-size: 3.0rem;
 }
+
 .sect .sect-cnt-name {
     height: 30px;
 }
@@ -1321,7 +1333,7 @@ select:-webkit-autofill {
     color: #FF5000;
 }
 
-.goods .info-cnt > li {
+.goods .info-cnt>li {
     width: 100%;
     float: left;
 }

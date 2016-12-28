@@ -1,4 +1,6 @@
 <template>
+    
+    
   <div class="detail goods" @touchstart="m_ts('root', $event)" @touchmove="m_tm('root', $event)" @touchend="m_te('root', $event)">
       <ul class="top pd10 bg-white">
         <li class="back"><i class="iconfont icon-xiangzuojiantou f18"></i></li>
@@ -14,8 +16,7 @@
     <div class="divider divider5"></div>
     <!-- SLIDE -->
     <n3-slider :slider="slider"></n3-slider>
-    <!-- MAIN -->
-    <section class="main">
+    
         <section class="header pd10-20 relative">
             <h1 class="mg0 f18">
                 华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤
@@ -356,115 +357,117 @@
             </ul>
             <div class="divider"></div>
         </section>
-    </section>
-    <div class="divider divider5"></div>
-    <!-- ENDS MAIN -->
-    <footer class="footer">
-        <ul>
-            <li>
-                <a class="selected" href="../../index.html">
-                    <p><i class="iconfont icon-shouye"></i></p>
-                    <p><span>首页</span></p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <p><i class="iconfont icon-gouwuche"></i></p>
-                    <p><span>购物车</span></p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <p><i class="iconfont icon-jushoucang"></i></p>
-                    <p><span>收藏</span></p>
-                </a>
-            </li>
-            <li class="bg-orange">
-                <a href="" class="white">
-                    加入购物车
-                </a>
-            </li>
-            <li class="bg-red">
-                <a href="" class="white">
-                    立即购买
-                </a>
-            </li>
-        </ul>
-    </footer>
-    <!--弹出层 足迹-->
-    <div class="shade hide">
-        <section class="track black relative tran1">
-            <p class="track-title f16">我的足迹(2/20)</p>
-            <ul class="track-cnt absolute black">
+    
+        <div class="divider divider5"></div>
+        <!-- ENDS MAIN -->
+        <footer class="footer">
+            <ul>
                 <li>
-                    <div class="track-detail tran05">
-                        <p><img src="/static/images/detail_0.jpg"></p>
-                        <p><span class="block text-clip">华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤</span></p>
-                        <p class="orange f24">￥200</p>
-                    </div>
-                    <div class="track-shade tran05"></div>
+                    <a class="selected" href="../../index.html">
+                        <p><i class="iconfont icon-shouye"></i></p>
+                        <p><span>首页</span></p>
+                    </a>
                 </li>
                 <li>
-                    <div class="track-detail tran05">
-                        <p><img src="/static/images/detail_0.jpg"></p>
-                        <p><span class="block text-clip">华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤</span></p>
-                        <p class="orange f24">￥200</p>
-                    </div>
-                    <div class="track-shade tran05"></div>
+                    <a href="">
+                        <p><i class="iconfont icon-gouwuche"></i></p>
+                        <p><span>购物车</span></p>
+                    </a>
                 </li>
                 <li>
-                    <div class="track-detail tran05">
-                        <p><img src="/static/images/detail_0.jpg"></p>
-                        <p><span class="block text-clip">华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤</span></p>
-                        <p class="orange f24">￥200</p>
-                    </div>
-                    <div class="track-shade tran05"></div>
+                    <a href="">
+                        <p><i class="iconfont icon-jushoucang"></i></p>
+                        <p><span>收藏</span></p>
+                    </a>
                 </li>
-                <li>
-                    <div class="track-detail tran05">
-                        <p><img src="/static/images/detail_0.jpg"></p>
-                        <p><span class="block text-clip">华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤</span></p>
-                        <p class="orange f24">￥200</p>
-                    </div>
-                    <div class="track-shade tran05"></div>
+                <li class="bg-orange">
+                    <a href="" class="white">
+                        加入购物车
+                    </a>
+                </li>
+                <li class="bg-red">
+                    <a href="" class="white">
+                        立即购买
+                    </a>
                 </li>
             </ul>
-        </section>
-    </div>
-    <!--弹出层 购买-->
-    <div class="shade shade-darker hide">
-        <section class="action absolute tran1">
-            <div class="action-header">
-                <div class="relative">
-                    <img src="/static/images/detail_0.jpg" alt="">
+        </footer>
+        <!--弹出层 足迹-->
+        <div class="shade hide">
+            <section class="track black relative tran1">
+                <p class="track-title f16">我的足迹(2/20)</p>
+                <ul class="track-cnt absolute black">
+                    <li>
+                        <div class="track-detail tran05">
+                            <p><img src="/static/images/detail_0.jpg"></p>
+                            <p><span class="block text-clip">华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤</span></p>
+                            <p class="orange f24">￥200</p>
+                        </div>
+                        <div class="track-shade tran05"></div>
+                    </li>
+                    <li>
+                        <div class="track-detail tran05">
+                            <p><img src="/static/images/detail_0.jpg"></p>
+                            <p><span class="block text-clip">华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤</span></p>
+                            <p class="orange f24">￥200</p>
+                        </div>
+                        <div class="track-shade tran05"></div>
+                    </li>
+                    <li>
+                        <div class="track-detail tran05">
+                            <p><img src="/static/images/detail_0.jpg"></p>
+                            <p><span class="block text-clip">华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤</span></p>
+                            <p class="orange f24">￥200</p>
+                        </div>
+                        <div class="track-shade tran05"></div>
+                    </li>
+                    <li>
+                        <div class="track-detail tran05">
+                            <p><img src="/static/images/detail_0.jpg"></p>
+                            <p><span class="block text-clip">华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤</span></p>
+                            <p class="orange f24">￥200</p>
+                        </div>
+                        <div class="track-shade tran05"></div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <!--弹出层 购买-->
+        <div class="shade shade-darker hide">
+            <section class="action absolute tran1">
+                <div class="action-header">
+                    <div class="relative">
+                        <img src="/static/images/detail_0.jpg" alt="">
+                    </div>
+                    <div>
+                        <p class="orange f24"><span class="f16">￥</span>250</p>
+                        <p class="gray f12">库存2017件</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="orange f24"><span class="f16">￥</span>250</p>
-                    <p class="gray f12">库存2017件</p>
+                <div class="">
+                    <!--此处不同的商品内容不同-->
                 </div>
-            </div>
-            <div class="">
-                <!--此处不同的商品内容不同-->
-            </div>
-            <!--购买数量-->
-            <div class="action-count pd10">
-                <span class="fl">购买数量</span>
-                <span class="f16 fr">
-                    <i class="iconfont icon-jianhao disable"></i>
-                    <i class="buy-num">2</i>
-                    <i class="iconfont icon-jiahao1 light-gray"></i>
-                </span>
-            </div>
-            <ul class="action-btn white absolute">
-                <li class="bg-orange">加入购物车</li>
-                <li class="bg-red">立即购买</li>
-                <li class="confirm bg-red">确认</li>
-            </ul>
-        </section>
+                <!--购买数量-->
+                <div class="action-count pd10">
+                    <span class="fl">购买数量</span>
+                    <span class="f16 fr">
+                        <i class="iconfont icon-jianhao disable"></i>
+                        <i class="buy-num">2</i>
+                        <i class="iconfont icon-jiahao1 light-gray"></i>
+                    </span>
+                </div>
+                <ul class="action-btn white absolute">
+                    <li class="bg-orange">加入购物车</li>
+                    <li class="bg-red">立即购买</li>
+                    <li class="confirm bg-red">确认</li>
+                </ul>
+            </section>
+        </div>
+        <!--弹出层 图片查看器-->
+        <n3-viewer v-if="viewer.show" :viewer = "viewer"></n3-viewer>
     </div>
-    <!--弹出层 图片查看器-->
-    <n3-viewer v-if="viewer.show" :viewer = "viewer"></n3-viewer>
-  </div>
+    
+    
 </template>
 
 <script>
@@ -480,29 +483,29 @@
         data() {
             let _this = this
             return {
-                root: {//根目录
+                root: { //根目录
                     touch: {
                         screenX: 0,
                         screenY: 0
                     }
                 },
-                info: {//图文信息
+                info: { //图文信息
                     show: true
                 },
-                tab: {//图文信息中的tab切换
+                tab: { //图文信息中的tab切换
                     selected: 0,
                     touch: {
                         screenX: 0,
                         screenY: 0
                     }
                 },
-                viewer: {//图片查看器
+                viewer: { //图片查看器
                     show: false,
                     selected: 0,
                     data: []
                 },
-                slider: {//轮播图
-                    click: function(i){
+                slider: { //轮播图
+                    click: function(i) {
                         _this.m_viewer(i)
                     },
                     data: []
@@ -520,49 +523,49 @@
             'n3-viewer': viewer
         },
         computed: {
-            
+
         },
         methods: {
-            m_viewer: function(i){
+            m_viewer: function(i) {
                 this.viewer.selected = i
                 this.viewer.show = true
             },
-            m_tab: function(i){
+            m_tab: function(i) {
                 this.tab.selected = i
             },
-            m_ts: function(el, e){
+            m_ts: function(el, e) {
                 let _this = this
-                //触摸点列表
+                    //触摸点列表
                 let touches = e.touches
-                if(touches.length > 1) return //多点触控不予处理
-                let touch = touches[0]//当前手指触控点
+                if (touches.length > 1) return //多点触控不予处理
+                let touch = touches[0] //当前手指触控点
                 let x = touch.screenX
                 let y = touch.screenY
-                if(el === 'tab'){
+                if (el === 'tab') {
                     _this.tab.touch.screenX = x
                     _this.tab.touch.screenY = y
-                }else if(el === 'root'){
+                } else if (el === 'root') {
                     _this.root.touch.screenX = x
                     _this.root.touch.screenY = y
                 }
             },
-            m_tm: function(el, e){
-                
+            m_tm: function(el, e) {
+
             },
-            m_te: function(el, e){
+            m_te: function(el, e) {
                 let _this = this
                 let touches = e.changedTouches
-                if(touches.length > 1) return //多点触控不予处理
-                let touch = touches[0]//当前手指触控点
+                if (touches.length > 1) return //多点触控不予处理
+                let touch = touches[0] //当前手指触控点
                 let startX = 0
                 let startY = 0
                 let endX = touch.screenX
                 let endY = touch.screenY
-               
-                if(el === 'tab'){
+
+                if (el === 'tab') {
                     startX = _this.tab.touch.screenX
                     startY = _this.tab.touch.screenY
-                }else if(el === 'root'){
+                } else if (el === 'root') {
                     startX = _this.root.touch.screenX
                     startY = _this.root.touch.screenY
                 }
@@ -571,53 +574,53 @@
 
                 let map = {
                     root: {
-                        up: function(){
-                             console.log(document.documentElement.scrollTop)
+                        up: function() {
+                            console.log(document.body.scrollTop)
                         }
                     },
                     tab: {
-                        left: function(){
+                        left: function() {
                             _this.tab.selected === 2 ? '' : _this.tab.selected++ //左划
                         },
-                        right: function(){
+                        right: function() {
                             _this.tab.selected === 0 ? '' : _this.tab.selected-- //右划
                         }
                     }
                 }
 
-                if(dx === 0 && dy === 0)
+                if (dx === 0 && dy === 0)
                     map[el]['center'] ? map[el]['center']() : ''
                 else {
                     e.preventdefault
-                    if(dx > 0 && Math.abs(dy) <= 20) //向左滑动
+                    if (dx > 0 && Math.abs(dy) <= 20) //向左滑动
                         map[el]['left'] ? map[el]['left']() : ''
-                    else if(dx < 0 && Math.abs(dy) <= 20)
+                    else if (dx < 0 && Math.abs(dy) <= 20)
                         map[el]['right'] ? map[el]['right']() : ''
-                    else if(dy > 0 && Math.abs(dx) <= 20) //向下
+                    else if (dy > 0 && Math.abs(dx) <= 20) //向下
                         map[el]['up'] ? map[el]['up']() : ''
-                    else if(dy < 0 && Math.abs(dx) <= 20)//向上滑动
+                    else if (dy < 0 && Math.abs(dx) <= 20) //向上滑动
                         map[el]['down'] ? map[el]['down']() : ''
                 }
             }
         },
-        created: function(){
+        created: function() {
             let _this = this
             let imgs = [{
-                        url: '',
-                        img: '/static/images/detail_0.jpg'
-                    }, {
-                        url: '',
-                        img: '/static/images/detail_1.jpg'
-                    }, {
-                        url: '',
-                        img: '/static/images/detail_2.jpg'
-                    }, {
-                        url: '',
-                        img: '/static/images/detail_3.jpg'
-                    }, {
-                        url: '',
-                        img: '/static/images/detail_2.jpg'
-                    }]
+                url: '',
+                img: '/static/images/detail_0.jpg'
+            }, {
+                url: '',
+                img: '/static/images/detail_1.jpg'
+            }, {
+                url: '',
+                img: '/static/images/detail_2.jpg'
+            }, {
+                url: '',
+                img: '/static/images/detail_3.jpg'
+            }, {
+                url: '',
+                img: '/static/images/detail_2.jpg'
+            }]
             this.viewer.data = imgs
             this.slider.data = imgs
         }
