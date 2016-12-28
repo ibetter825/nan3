@@ -11,6 +11,7 @@
             圣诞树大户大叔的宿舍的
         </li>
     </ul>
+    <div class="divider divider5"></div>
     <!-- SLIDE -->
     <n3-slider :slider="slider"></n3-slider>
     <!-- MAIN -->
@@ -457,25 +458,7 @@
         </section>
     </div>
     <!--弹出层 图片查看器-->
-    <div class="shade shade-darkest hide">
-        <section class="viewer">
-            <ul class="viewer-content">
-                <li><img src="/static/images/detail_0.jpg"></li>
-                <li><img src="/static/images/detail_1.jpg"></li>
-                <li><img src="/static/images/detail_2.jpg"></li>
-                <li><img src="/static/images/detail_3.jpg"></li>
-                <li><img src="/static/images/detail_2.jpg"></li>
-                <div class="clear"></div>
-            </ul>
-            <ul class="viewer-indicators">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li class="selected"></li>
-            </ul>
-        </section>
-    </div>
+    <n3-viewer v-if="viewer.show" :viewer = "viewer"></n3-viewer>
   </div>
 </template>
 
@@ -487,9 +470,23 @@
     import widgetCard from '../../components/widgetCard.vue'
     import widgetBulk from '../../components/widgetBulk.vue'
     import footer from '../../components/footer.vue'
+    import viewer from '../../components/viewer.vue'
     module.exports = {
         data() {
-            return {}
+            let _this = this
+            return {
+                viewer: {
+                    show: false,
+                    selected: 0,
+                    data: []
+                },
+                slider: {
+                    click: function(i){
+                        _this.m_viewer(i)
+                    },
+                    data: []
+                }
+            }
         },
         components: {
             'n3-slider': slider,
@@ -498,29 +495,38 @@
             'n3-widget-list': widgetList,
             'n3-widget-card': widgetCard,
             'n3-widget-bulk': widgetBulk,
-            'n3-footer': footer
+            'n3-footer': footer,
+            'n3-viewer': viewer
         },
         computed: {
-            slider() {
-                return {
-                    data: [{
-                        url: '#',
+            
+        },
+        methods: {
+            m_viewer: function(i){
+                this.viewer.selected = i
+                this.viewer.show = true
+            }
+        },
+        created: function(){
+            let _this = this
+            let imgs = [{
+                        url: '',
                         img: '/static/images/detail_0.jpg'
                     }, {
-                        url: '#',
+                        url: '',
                         img: '/static/images/detail_1.jpg'
                     }, {
-                        url: '#',
+                        url: '',
                         img: '/static/images/detail_2.jpg'
                     }, {
-                        url: '#',
+                        url: '',
                         img: '/static/images/detail_3.jpg'
                     }, {
-                        url: '#',
+                        url: '',
                         img: '/static/images/detail_2.jpg'
                     }]
-                }
-            }
+            this.viewer.data = imgs
+            this.slider.data = imgs
         }
     }
 </script>
