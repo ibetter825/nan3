@@ -130,19 +130,19 @@
         <!--商品详情-->
         <section class="goods-info">
             <ul class="info-tab">
-                <li class="selected">
+                <li :class="[tab.selected === 0 ? 'selected' : '']" @click="m_tab(0)">
                     <span class="block">图文详情</span>
                 </li>
-                <li>
+                <li :class="[tab.selected === 1 ? 'selected' : '']" @click="m_tab(1)">
                     <span class="block">产品参数</span>
                 </li>
-                <li>
+                <li :class="[tab.selected === 2 ? 'selected' : '']" @click="m_tab(2)">
                     <span class="block">店铺推荐</span>
                 </li>
             </ul>
-            <ul class="info-cnt">
+            <ul class="info-cnt tran05" @touchstart="m_ts($event)" @touchend="m_te($event)" :style="{marginLeft: (tab.selected * -100) + '%'}">
                 <!--图文详情-->
-                <li class="">
+                <li>
                     <div class="pd5-0"><img src="/static/images/goods_info.jpg" alt=""></div>
                     <div class="divider"></div>
                     <div class="info-rmd">
@@ -234,7 +234,7 @@
                     </div>
                 </li>
                 <!--产品参数-->
-                <li class="hide info-param pd10-20">
+                <li class="info-param pd10-20">
                     <p>
                         <span>净含量</span>
                         <span>4000g</span>
@@ -265,16 +265,15 @@
                     </p>
                 </li>
                 <!--店铺推荐-->
-                <li class="hide shop-rmd">
-                    <div class="divider"></div>
+                <li class="shop-rmd">
                     <section class="widget widget-bulk widget-bulk-two">
                         <ul>
                             <li>
                                 <div class="widget-cnt">
                                     <div>
-                                        <a class="wrap-block relative" href="#">
+                                        <router-link :to="{ path: '/'}" class="wrap-block relative">
                                             <img src="/static/images/rmd.jpg" alt="">
-                                        </a>
+                                        </router-link>
                                         <p class="widget-bulk-info relative">
                                             <span class="f12">玉米/500g</span>
                                             <span>
@@ -475,6 +474,13 @@
         data() {
             let _this = this
             return {
+                tab: {
+                    selected: 0,
+                    touch: {
+                        screenX: 0,
+                        screenY: 0
+                    }
+                },
                 viewer: {
                     show: false,
                     selected: 0,
@@ -502,9 +508,42 @@
             
         },
         methods: {
+            m_scroll: function(){
+                console.log('gundong')
+            },
             m_viewer: function(i){
                 this.viewer.selected = i
                 this.viewer.show = true
+            },
+            m_tab: function(i){
+                this.tab.selected = i
+            },
+            m_ts: function(e){
+                let _this = this
+                //触摸点列表
+                let touches = e.touches
+                if(touches.length > 1) return //多点触控不予处理
+                let touch = touches[0]//当前手指触控点
+                _this.tab.touch.screenX = touch.screenX
+                _this.tab.touch.screenY = touch.screenY
+            },
+            m_te: function(e){
+                let _this = this
+                let touches = e.changedTouches
+                if(touches.length > 1) return //多点触控不予处理
+                let touch = touches[0]//当前手指触控点
+                let startX = _this.tab.touch.screenX
+                let startY = _this.tab.touch.screenY
+                let endX = touch.screenX
+                let endY = touch.screenY
+                let dx = startX - endX
+                let dy = Math.abs(startY - endY)
+                if(dx === 0 && dy === 0)
+                    return 
+                else if(dx > 0 && dy <= 10) //向左滑动
+                    _this.tab.selected === 2 ? '' : _this.tab.selected++
+                else if(dx < 0 && dy <= 10)
+                    _this.tab.selected === 0 ? '' : _this.tab.selected--
             }
         },
         created: function(){

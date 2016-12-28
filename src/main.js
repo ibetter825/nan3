@@ -8,7 +8,8 @@ import App from './App.vue'
 // 引用路由配置文件
 import routes from './config/routes'
 // 引用自定义存储方法文件
-import storage from './config/storage'
+import storage from './utils/storage'
+// 引用自定义存储方法文件
 // 将storage方法绑定到全局 使用方法为在vue实例中调用eg: this.$storage.ls()
 Vue.prototype.$storage = storage
 

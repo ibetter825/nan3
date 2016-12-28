@@ -1,7 +1,7 @@
 <template>
-    <div class="shade shade-darkest">
+    <div class="shade shade-darkest" @touchstart.prevent="touchstart($event)" @touchend.prevent="touchend($event)">
         <section class="viewer">
-            <ul :class="content.clz" :style="content.style"  @touchstart.prevent="touchstart($event)" @touchend.prevent="touchend($event)">
+            <ul :class="content.clz" :style="content.style">
                 <li v-for="(item, index) in viewer.data">
                 <img v-if="item.url === ''" :src="item.img">
             </li>

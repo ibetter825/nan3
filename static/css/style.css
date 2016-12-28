@@ -387,6 +387,7 @@ select:-webkit-autofill {
     -webkit-transition: all 5s;
     -o-transition: all 5s;
 }
+/*过渡*/
 
 /*动画*/
 
@@ -1293,10 +1294,6 @@ select:-webkit-autofill {
     cursor: pointer;
 }
 
-.goods .info-tab li:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
-
 .goods .info-tab span {
     border-right: 1px solid #EDEDED;
 }
@@ -1309,9 +1306,11 @@ select:-webkit-autofill {
     border-bottom-color: #FF5000;
     color: #FF5000;
 }
-
-.goods .info-cnt li {
-    width: 100%;
+.goods .info-cnt {
+    width: 300%;
+}
+.goods .info-cnt > li {
+    width: 33.33%;
     float: left;
 }
 
