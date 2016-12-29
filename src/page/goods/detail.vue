@@ -16,7 +16,6 @@
     <div class="divider divider5"></div>
     <!-- SLIDE -->
     <n3-slider :slider="slider"></n3-slider>
-    
         <section class="header pd10-20 relative">
             <h1 class="mg0 f18">
                 华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤
@@ -127,12 +126,9 @@
                 <li><span class="pd5-10">进店看看</span></li>
             </ul>
         </section>
-        <div id="ctnue" class="ctnue">
-            <div class="divider divider5">———————— 继续拖动查看图文详情 ————————</div>
-            <div v-if="ctnue.show"></div>
-        </div>
+        <div id="ctnue" class="divider divider5 tran05">———————— 继续拖动查看图文详情 ————————</div>
         <!--商品详情-->
-        <section v-if="info.show" class="goods-info bg-white" :style="info.style">
+        <section :class="{'goods-info': true, 'bg-white': true, 'tran05': true, 'slide-goods-info-hide': true, 'slide-goods-info': info.clz['slide-goods-info']}" :style="info.style">
             <ul class="info-tab bg-white">
                 <li :class="[tab.selected === 0 ? 'selected' : '']" @click="m_tab(0)">
                     <span class="block">图文详情</span>
@@ -144,7 +140,7 @@
                     <span class="block">店铺推荐</span>
                 </li>
             </ul>
-            <ul class="info-cnt" @touchstart.stop="m_ts('tab', $event)" @touchend.stop="m_te('tab', $event)">
+            <ul id="infoCnt" class="info-cnt" @touchstart.stop="m_ts('tab', $event)" @touchmove.stop="m_tm('tab', $event)" @touchend.stop="m_te('tab', $event)">
                 <!--图文详情-->
                 <transition name="slide-lr">
                 <li v-show="tab.selected === 0" class="">
@@ -358,7 +354,7 @@
                 </transition>
                 <div class="clear"></div>
             </ul>
-            <div class="divider"></div>
+            <div class="divider divider5"></div>
         </section>
     
         <div class="divider divider5"></div>
@@ -492,14 +488,11 @@
                         screenY: 0
                     }
                 },
-                ctnue: {
-                    show: false
-                },
                 info: { //图文信息
-                    show: true,
-                    style: {
-                        //position: 'relative'
+                    clz: {
+                        'slide-goods-info': false
                     },
+                    style: {}
                 },
                 tab: { //图文信息中的tab切换
                     selected: 0,
@@ -533,10 +526,12 @@
         },
         computed: {
             common(){
+                let ctnue = document.querySelector('#ctnue')
                 return {
-                    ct: document.querySelector('#ctnue').offsetTop, //继续下拉的位置
+                    ct: ctnue.offsetTop, //继续下拉div的位置
                     ch: document.body.clientHeight || document.documentElement.clientHeight, //网页可见区域高
-                    ah: window.screen.availHeight//屏幕可用工作区高度
+                    sah: window.screen.availHeight,//屏幕可用工作区高度
+                    sh: window.screen.height
                 }
             }
         },
@@ -565,9 +560,6 @@
                 }
             },
             m_tm: function(el, e) {
-
-            },
-            m_te: function(el, e) {
                 let _this = this
                 let touches = e.changedTouches
                 if (touches.length > 1) return //多点触控不予处理
@@ -589,19 +581,65 @@
 
                 let map = {
                     root: {
+                        up: function(){
+                            console.log('up')
+                            // let ctnue = document.querySelector('#ctnue')
+                            // ctnue.style.height = (50 + dy) + 'px'
+                        },
+                        down: function(){
+                            console.log('down')
+                        }
+                    },
+                    tab: {}
+                }
+                e.preventdefault
+                if (dx > 0 && Math.abs(dy) <= 20) //向左滑动
+                    map[el]['left'] ? map[el]['left']() : ''
+                else if (dx < 0 && Math.abs(dy) <= 20)
+                    map[el]['right'] ? map[el]['right']() : ''
+                else if (dy > 0) //向上
+                    map[el]['up'] ? map[el]['up']() : ''
+                else if (dy < 0) //向下滑动
+                    map[el]['down'] ? map[el]['down']() : ''
+            },
+            m_te: function(el, e) {
+                let _this = this
+                let touches = e.changedTouches
+                if (touches.length > 1) return //多点触控不予处理
+                let touch = touches[0] //当前手指触控点
+                let startX = 0
+                let startY = 0
+                let endX = touch.screenX
+                let endY = touch.screenY
+
+                if (el === 'tab') {
+                    startX = _this.tab.touch.screenX
+                    startY = _this.tab.touch.screenY
+                } else if (el === 'root') {
+                    startX = _this.root.touch.screenX
+                    startY = _this.root.touch.screenY
+                    // let ctnue = document.querySelector('#ctnue')
+                    // ctnue.style.height = '50px'
+                }
+                let dx = startX - endX
+                let dy = startY - endY
+
+                let map = {
+                    root: {
                         up: function() {
-                            // let bt = document.body.scrollTop || document.documentElement.scrollTop
-                            // //判断滚动的位置是否到了指定位置
-                            // let po = bt + _this.common.ah - 160
-                            // if(po > _this.common.ct){
-                            //     _this.ctnue.show ? _this.ctnue.show = false : '' //到达指定位置后隐藏替代层
-                            //     _this.info.show ? '' : _this.info.show = true
-                            //     _this.info.style.position = 'fixed'
-                            //     _this.info.style.top = '50px'
-                            // }
+                            let bt = document.body.scrollTop || document.documentElement.scrollTop
+                            //判断滚动的位置是否到了指定位置
+                            let po = bt + _this.common.sh
+                            if(po >= _this.common.ch - 10)//滑动到底部
+                                _this.info.clz['slide-goods-info'] = true
                         }
                     },
                     tab: {
+                        down: function(){
+                            let it = document.querySelector('#infoCnt').scrollTop
+                            if(it === 0)
+                                _this.info.clz['slide-goods-info'] = false
+                        },
                         left: function() {
                             _this.tab.selected === 2 ? '' : _this.tab.selected++ //左划
                         },
@@ -619,9 +657,9 @@
                         map[el]['left'] ? map[el]['left']() : ''
                     else if (dx < 0 && Math.abs(dy) <= 20)
                         map[el]['right'] ? map[el]['right']() : ''
-                    else if (dy > 0 && Math.abs(dx) <= 20) //向下
+                    else if (dy > 0) //向上
                         map[el]['up'] ? map[el]['up']() : ''
-                    else if (dy < 0 && Math.abs(dx) <= 20) //向上滑动
+                    else if (dy < 0) //向下滑动
                         map[el]['down'] ? map[el]['down']() : ''
                 }
             }
