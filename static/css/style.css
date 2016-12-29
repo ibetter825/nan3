@@ -165,13 +165,17 @@ select:-webkit-autofill {
     text-align: center;
     font-size: 1.2rem;
     background: #FAF4F4;
+    color: #B0B0B0;
 }
 
 .divider5 {
     height: 50px;
     line-height: 50px;
 }
-
+.divider10 {
+    height: 100px;
+    line-height: 100px;
+}
 .divider2 {
     height: 20px;
 }
@@ -1035,7 +1039,12 @@ select:-webkit-autofill {
 
 
 /*detail goods footer*/
-
+.detail .ctnue {
+    background: #FAF4F4;
+}
+.detail .ctnue div:not(.divider){
+    height: 700px;
+}
 .detail .footer {
     height: 50px;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0);
@@ -1304,9 +1313,14 @@ select:-webkit-autofill {
     color: #FF5000;
 }
 
+.goods .goods-info {
+    width: 100%;
+}
 .goods .info-tab {
     border-top: 1px solid #EDEDED;
     height: 50px;
+    width: 100%;
+    z-index: 1;
 }
 
 .goods .info-tab li {

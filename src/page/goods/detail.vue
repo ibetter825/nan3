@@ -127,10 +127,13 @@
                 <li><span class="pd5-10">进店看看</span></li>
             </ul>
         </section>
-        <div class="divider divider5">------继续拖动查看图文详情------</div>
+        <div id="ctnue" class="ctnue">
+            <div class="divider divider5">———————— 继续拖动查看图文详情 ————————</div>
+            <div v-if="ctnue.show"></div>
+        </div>
         <!--商品详情-->
-        <section v-if="info.show" class="goods-info">
-            <ul class="info-tab">
+        <section v-if="info.show" class="goods-info bg-white" :style="info.style">
+            <ul class="info-tab bg-white">
                 <li :class="[tab.selected === 0 ? 'selected' : '']" @click="m_tab(0)">
                     <span class="block">图文详情</span>
                 </li>
@@ -489,8 +492,14 @@
                         screenY: 0
                     }
                 },
+                ctnue: {
+                    show: false
+                },
                 info: { //图文信息
-                    show: true
+                    show: true,
+                    style: {
+                        //position: 'relative'
+                    },
                 },
                 tab: { //图文信息中的tab切换
                     selected: 0,
@@ -523,7 +532,13 @@
             'n3-viewer': viewer
         },
         computed: {
-
+            common(){
+                return {
+                    ct: document.querySelector('#ctnue').offsetTop, //继续下拉的位置
+                    ch: document.body.clientHeight || document.documentElement.clientHeight, //网页可见区域高
+                    ah: window.screen.availHeight//屏幕可用工作区高度
+                }
+            }
         },
         methods: {
             m_viewer: function(i) {
@@ -575,7 +590,15 @@
                 let map = {
                     root: {
                         up: function() {
-                            console.log(document.body.scrollTop)
+                            // let bt = document.body.scrollTop || document.documentElement.scrollTop
+                            // //判断滚动的位置是否到了指定位置
+                            // let po = bt + _this.common.ah - 160
+                            // if(po > _this.common.ct){
+                            //     _this.ctnue.show ? _this.ctnue.show = false : '' //到达指定位置后隐藏替代层
+                            //     _this.info.show ? '' : _this.info.show = true
+                            //     _this.info.style.position = 'fixed'
+                            //     _this.info.style.top = '50px'
+                            // }
                         }
                     },
                     tab: {
