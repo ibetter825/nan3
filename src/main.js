@@ -7,6 +7,7 @@ Vue.use(VueRouter)
 import App from './App.vue'
 // 引用路由配置文件
 import routes from './config/routes'
+
 // 引用自定义存储方法文件
 import storage from './utils/storage'
 // 引用自定义存储方法文件
