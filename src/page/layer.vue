@@ -1,20 +1,38 @@
 <template>
     <div>
-      <layer-mobile></layer-mobile>
+      <div>
+        <button type="button" @click="msg">消息框</button>
+      </div>
+      <layer-mobile v-if="layer.show"></layer-mobile>
     </div>
 </template>
 <script>
-  //layer弹出层
-  module.exports = {
-    data(){
-      return {}
-    },
-    computed: {
+    //layer弹出层
+    module.exports = {
+        data() {
+            return {
+                layer: {
+                    show: false //初始化设置为false,可异步加载该组件
+                }
+            }
+        },
+        computed: {
 
-    },
-    created: function(){
-      //初始化弹出层配置
-      this.$store.dispatch('layer_init', {content: '信息框', btn: '我知道了'});
+        },
+        methods: {
+            msg: function() {
+                if (!this.layer.show) this.layer.show = true //设置为true一步加载组件
+
+                this.$store.dispatch('layer_show', true)
+                    //初始化弹出层配置
+                this.$store.dispatch('layer_init', {
+                    skin: 'footer',
+                    content: '信息框'
+                });
+            }
+        },
+        created: function() {
+
+        }
     }
-  }
 </script>
