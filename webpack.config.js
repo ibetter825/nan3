@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
+    chunkFilename: '[id].build.js?[chunkhash]',//异步加载时非主文件的名称命名规则
     filename: 'build.js'
   },
   module: {
