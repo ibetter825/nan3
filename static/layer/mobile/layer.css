@@ -174,7 +174,7 @@
     height: 25px;
     margin-left: 8px;
     display: inline-block;
-    background-color: #fff;
+    background-color: #FF5000;
     border-radius: 100%;
     -webkit-animation: layui-m-anim-loading 1.4s infinite ease-in-out;
     animation: layui-m-anim-loading 1.4s infinite ease-in-out;

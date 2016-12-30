@@ -26,7 +26,8 @@
                 this.$store.dispatch('layer_show', true)
                     //初始化弹出层配置
                 this.$store.dispatch('layer_init', {
-                    type: 2
+                    type: 2,
+                    shade: false
                 });
             }
         },

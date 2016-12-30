@@ -43,10 +43,13 @@
         },
         methods: {
             autoClose: function() {
+                let _this = this
                 let time = this.options.time
                 if (time !== 0) { //存在定时关闭
-                    if (this.timer !== false) clearTimeout(this.timer)
-                    this.timer = setTimeout(this.yes, time)
+                    if (_this.timer !== false) clearTimeout(_this.timer)
+                    _this.timer = setTimeout(function() {
+                        _this.$store.dispatch('layer_show', false)
+                    }, time)
                 }
             },
             shadeClick: function() {
