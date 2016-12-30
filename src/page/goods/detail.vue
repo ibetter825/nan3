@@ -126,7 +126,7 @@
         </section>
         <div id="ctnue" class="divider divider5 tran05">———————— 继续拖动查看图文详情 ————————</div>
         <!--商品详情-->
-        <n3-info :info="info"></n3-info>
+        <n3-goods-info :info="info"></n3-goods-info>
         <div class="divider divider5"></div>
         <!-- ENDS MAIN -->
         <footer class="footer">
@@ -202,11 +202,6 @@
 </template>
 
 <script>
-    import slider from '../../components/slider.vue'
-    import footer from '../../components/footer.vue'
-    import viewer from '../../components/viewer.vue'
-    import info from '../../components/goods/info.vue'
-    import track from '../../components/track.vue'
     module.exports = {
         data() {
             let _this = this
@@ -238,13 +233,6 @@
                     data: []
                 }
             }
-        },
-        components: {
-            'n3-slider': slider,
-            'n3-footer': footer,
-            'n3-viewer': viewer,
-            'n3-info': info,
-            'n3-track': track
         },
         computed: {
             common(){

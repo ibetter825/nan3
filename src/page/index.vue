@@ -33,31 +33,11 @@
 </template>
 
 <script>
-    let slider = function(resolve) {
-        require(['../components/slider.vue'], resolve) //按需异步加载的配置方式
-    }
-    let nav = function(resolve) {
-        require(['../components/nav.vue'], resolve) //按需异步加载的配置方式
-    }
-    import ad from '../components/ad.vue'
-    import widgetList from '../components/widgetList.vue'
-    import widgetCard from '../components/widgetCard.vue'
-    import widgetBulk from '../components/widgetBulk.vue'
-    import footer from '../components/footer.vue'
     module.exports = {
         data() {
             return {
 
             }
-        },
-        components: {
-            'n3-slider': slider,
-            'n3-nav': nav,
-            'n3-ad': ad,
-            'n3-widget-list': widgetList,
-            'n3-widget-card': widgetCard,
-            'n3-widget-bulk': widgetBulk,
-            'n3-footer': footer
         },
         computed: {
             slider() {
