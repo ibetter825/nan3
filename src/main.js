@@ -13,6 +13,7 @@ import storage from './utils/storage'
 // 将storage方法绑定到全局 使用方法为在vue实例中调用eg: this.$storage.ls()
 Vue.prototype.$storage = storage
 
+
 const router = new VueRouter({
   routes
 })

@@ -33,8 +33,12 @@
 </template>
 
 <script>
-    import slider from '../components/slider.vue'
-    import nav from '../components/nav.vue'
+    let slider = function(resolve) {
+        require(['../components/slider.vue'], resolve) //按需异步加载的配置方式
+    }
+    let nav = function(resolve) {
+        require(['../components/nav.vue'], resolve) //按需异步加载的配置方式
+    }
     import ad from '../components/ad.vue'
     import widgetList from '../components/widgetList.vue'
     import widgetCard from '../components/widgetCard.vue'
