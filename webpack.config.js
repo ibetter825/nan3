@@ -2,7 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  //devtool: 'cheap-module-source-map',//用于生产环境，可减少打包后的文件大小 好像没什么用
+  devtool: 'cheap-module-source-map',//用于生产环境，可减少打包后的文件大小 好像没什么用
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),

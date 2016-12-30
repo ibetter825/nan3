@@ -1,4 +1,5 @@
 export default {
+    //n3組件
     'n3-ad': function(resolve) {
         require(['./n3/ad.vue'], resolve) //按需异步加载的配置方式
     },
@@ -28,5 +29,10 @@ export default {
     },
     'n3-goods-info': function(resolve) {
         require(['./n3/goods/info.vue'], resolve)
+    },
+
+    //layer-mobile組件
+    'layer-mobile': function(resolve) {
+        require(['./layer/mobile/layer.vue'], resolve)
     }
 }

@@ -7,6 +7,7 @@ Vue.use(VueRouter)
 import App from './App.vue'
 // 引用路由配置文件
 import routes from './config/routes'
+import store from './store/'
 
 // 引用自定义存储方法文件
 import storage from './utils/storage'
@@ -25,6 +26,7 @@ const router = new VueRouter({
   routes
 })
 new Vue({
+  store,
   router,
   el: '#app',
   render: h => h(App)
