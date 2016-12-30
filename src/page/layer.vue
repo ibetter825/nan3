@@ -26,8 +26,7 @@
                 this.$store.dispatch('layer_show', true)
                     //初始化弹出层配置
                 this.$store.dispatch('layer_init', {
-                    skin: 'footer',
-                    content: '信息框'
+                    type: 2
                 });
             }
         },
