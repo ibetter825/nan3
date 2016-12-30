@@ -1,6 +1,6 @@
 <template>
-    <div id="" class="layui-m-layer layui-m-layer0">
-        <div v-if="shade.show" class="layui-m-layershade"></div>
+    <div v-if="show" id="" class="layui-m-layer layui-m-layer0">
+        <div v-if="options.shade !== false" class="layui-m-layershade"></div>
         <div class="layui-m-layermain">
             <div class="layui-m-layersection">
                 <div class="layui-m-layerchild  layui-m-anim-scale">
@@ -13,18 +13,22 @@
 </template>
 <script>
     module.exports = {
-        props: ['options'],
         data() {
             return {
-                shade: {
-                    show: true
-                }
+                show: true
+            }
+        },
+        computed: {
+            state(){
+                return this.$store.state.layer
+            },
+            options(){
+                return this.$store.state.layer.options
             }
         },
         methods: {
             yes: function(){
-                let vm = this
-                vm.shade.show = false
+                this.show = false
             }
         }
     }
