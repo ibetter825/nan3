@@ -3,7 +3,7 @@
       <div>
         <button type="button" @click="msg">消息框</button>
       </div>
-      <layer-mobile v-if="layer.show" v-long.prevent = "{ methods: tap }"></layer-mobile>
+      <layer-mobile v-if="layer.show" v-long.prevent = "{ methods: tap }" v-left.prevent = "{ methods: left }"></layer-mobile>
     </div>
 </template>
 <script>
@@ -22,6 +22,12 @@
         methods: {
             tap: function() {
                 alert('tab')
+            },
+            long: function() {
+                alert('long')
+            },
+            left: function() {
+                alert('left');
             },
             msg: function() {
                 if (!this.layer.show) this.layer.show = true //设置为true一步加载组件
