@@ -5,3 +5,5 @@
 5.按需加载组件
 6.分类打包
 7.全局注册组件
+8.h5的worker
+10.本地储存 sessionStorage, localStorage, database

@@ -3,7 +3,7 @@
       <div>
         <button type="button" @click="msg">消息框</button>
       </div>
-      <layer-mobile v-if="layer.show"></layer-mobile>
+      <layer-mobile v-if="layer.show" v-tab.prevent="{ methods: tab }"></layer-mobile>
     </div>
 </template>
 <script>
@@ -20,6 +20,9 @@
 
         },
         methods: {
+            tab: function() {
+                alert('tab')
+            },
             msg: function() {
                 if (!this.layer.show) this.layer.show = true //设置为true一步加载组件
 
