@@ -31,6 +31,7 @@ Object.keys(components).forEach((key) => {
 })
 
 const router = new VueRouter({
+    mode: 'history', //配置成history可以去掉url地址上的#号
     routes
 })
 new Vue({
