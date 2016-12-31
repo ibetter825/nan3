@@ -1,10 +1,10 @@
 1.重新写
-2.弹出层
+2.弹出层 v
 3.触摸事件的插件 v
-4.组件分割
+4.注意实际开发的时候，各个模块的组件拆分
 5.按需加载组件 v
-6.分类打包 x
+6.分类打包 v
 7.全局注册组件 v
 8.h5的worker
-10.本地储存 sessionStorage, localStorage, database
+10.本地储存 sessionStorage v, localStorage v, database x, cookie v
 11.先造车轮子才行
