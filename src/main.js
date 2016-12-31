@@ -16,7 +16,9 @@ import storage from './utils/storage'
 Vue.prototype.$storage = storage
     //引入自定义v-tab指令
 import vtouch from './utils/vtouch'
-Vue.directive('touch', vtouch)
+Object.keys(vtouch).forEach((key) => {
+    Vue.directive(`${key}`, vtouch[key])
+})
 
 //引入公用组件的文件夹，文件夹里面的index.js存有所有组件的引用
 import components from './components/'

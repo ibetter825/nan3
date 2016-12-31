@@ -39,7 +39,7 @@ function isType(self, type) {
     return res
 }
 
-function touchstart(e, self, params) {
+function touchstart(e, self) {
     let touches = e.touches[0];
     let evObj = self.evObj;
     evObj.pageX = touches.pageX;
@@ -49,23 +49,20 @@ function touchstart(e, self, params) {
     self.time = +new Date();
 }
 
-function touchend(e, self, params) {
+function touchend(e, self, type) {
     let touches = e.changedTouches[0];
     let evObj = self.evObj;
     self.time = +new Date() - self.time;
     evObj.distanceX = evObj.pageX - touches.pageX;
     evObj.distanceY = evObj.pageY - touches.pageY;
     //事件类型 tap 点击, long 长点击, up 上滑, down 下滑, left 左滑, right 右滑
-    let type = params.type
-    if (type === undefined) type = 'tap'
     if (!isType(self, type)) return;
     //setTimeout(function() {
     self.handler(e);
     //}, 100)
 }
 
-
-export default {
+let bind = {
     bind: function(el, binding, vnode) {
         let value = binding.value;
         el.evObj = {};
@@ -87,7 +84,7 @@ export default {
                     e.stopPropagation();
                 if (binding.modifiers.prevent)
                     e.preventDefault();
-                touchstart(e, el, value);
+                touchstart(e, el);
             }, false);
             el.addEventListener('touchend', function(e) {
                 Object.defineProperties(e, { // 重写currentTarget对象 与jq相同
@@ -99,8 +96,17 @@ export default {
                     },
                 });
                 e.preventDefault();
-                return touchend(e, el, value);
+                return touchend(e, el, binding.name);
             }, false);
         }
     }
+}
+
+export default {
+    tap: bind,
+    long: bind,
+    left: bind,
+    right: bind,
+    up: bind,
+    down: bind
 }
