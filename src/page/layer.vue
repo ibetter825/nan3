@@ -3,7 +3,7 @@
       <div>
         <button type="button" @click="msg">消息框</button>
       </div>
-      <layer-mobile v-if="layer.show" v-tap.prevent="{ methods: tap }"></layer-mobile>
+      <layer-mobile v-if="layer.show" v-touch.prevent="{ methods: tap }"></layer-mobile>
     </div>
 </template>
 <script>

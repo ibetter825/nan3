@@ -15,8 +15,8 @@ import storage from './utils/storage'
 // 将storage方法绑定到全局 使用方法为在vue实例中调用eg: this.$storage.ls()
 Vue.prototype.$storage = storage
     //引入自定义v-tab指令
-import vtap from './utils/vtap'
-Vue.directive('tap', vtap)
+import vtouch from './utils/vtouch'
+Vue.directive('touch', vtouch)
 
 //引入公用组件的文件夹，文件夹里面的index.js存有所有组件的引用
 import components from './components/'
