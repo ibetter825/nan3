@@ -10,7 +10,7 @@ module.exports = {
         filename: 'build.js'
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({ name: 'build', filename: 'vendor.build.js' }) //将生成的文件拆分，需要在index.html中手动引入该.js,可以一定程度上减少build.js文件的大小
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.build.js' }) //将生成的文件拆分，需要在index.html中手动引入该.js,可以一定程度上减少build.js文件的大小
     ],
     module: {
         rules: [{
