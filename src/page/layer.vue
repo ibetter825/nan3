@@ -3,7 +3,7 @@
       <div>
         <button type="button" @click="msg">消息框</button>
       </div>
-      <layer-mobile v-if="layer.show" v-tab.prevent="{ methods: tab }"></layer-mobile>
+      <layer-mobile v-if="layer.show" v-tap.prevent="{ methods: tap }"></layer-mobile>
     </div>
 </template>
 <script>
@@ -20,7 +20,7 @@
 
         },
         methods: {
-            tab: function() {
+            tap: function() {
                 alert('tab')
             },
             msg: function() {
