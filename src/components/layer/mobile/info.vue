@@ -54,9 +54,9 @@
         },
         methods: {
             btnClick: function(type) {
+                this.$store.dispatch('layer_show', false)
                 let fn = this.options[type] //yes or no callback
                 if (fn !== null) fn()
-                this.$store.dispatch('layer_show', false)
             }
         }
     }

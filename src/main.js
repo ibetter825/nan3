@@ -12,10 +12,14 @@ import store from './store/'
 // 引用自定义存储方法文件
 import storage from './local/storage'
 // 引用自定义存储方法文件
-// 将storage方法绑定到全局 使用方法为在vue实例中调用eg: this.$localStorage()
+// 将storage方法绑定到全局 使用方法为在vue实例中调用 eg: this.$localStorage()
 Object.keys(storage).forEach((key) => {
     Vue.prototype[key] = storage[key]
 })
+
+//将弹出层封装为vue实例的方法，直接调用就可以了 eg: this.$layer(options)
+import layer from './local/layer'
+Vue.prototype.$layer = layer
 
 //引入自定义v-tab指令
 import vtouch from './local/vtouch'

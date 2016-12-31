@@ -13,6 +13,10 @@
       </div>
       <br/>
       <div>
+        <button type="button" @click="bottom2">底部对话框</button>
+      </div>
+      <br/>
+      <div>
         <button type="button" @click="loading">加载层</button>
       </div>
       <layer-mobile v-if="layer.show"></layer-mobile>
@@ -42,40 +46,47 @@
                 alert('left');
             },
             msg: function() {
-                this.$store.dispatch('layer_show', true)
-                    //初始化弹出层配置
-                this.$store.dispatch('layer_init', {
+                this.$layer({
                     title: '消息',
                     content: '这是弹出的消息'
-                });
+                })
             },
             tip: function() {
-                this.$store.dispatch('layer_show', true)
-                    //初始化弹出层配置
-                this.$store.dispatch('layer_init', {
+                this.$layer({
                     skin: 'msg',
                     shade: false,
                     content: '这是弹出的消息'
-                });
+                })
             },
             loading: function() {
-                this.$store.dispatch('layer_show', true)
-                    //初始化弹出层配置
-                this.$store.dispatch('layer_init', {
+                this.$layer({
                     type: 2
-                });
+                })
             },
             bottom: function() {
-                this.$store.dispatch('layer_show', true)
-                    //初始化弹出层配置
-                this.$store.dispatch('layer_init', {
+                this.$layer({
                     content: '一个没有任何按钮的底部提示',
                     skin: 'footer'
-                });
+                })
+            },
+            bottom2: function() {
+                let _this = this
+                this.$layer({
+                    content: '这是一个底部弹出的询问提示',
+                    btn: ['删除', '取消'],
+                    skin: 'footer',
+                    yes: function() {
+                        _this.$layer({
+                            skin: 'msg',
+                            shade: false,
+                            content: '这是弹出的消息'
+                        })
+                    }
+                })
             }
         },
         created: function() {
-            this.layer.show = true //设置为true异步加载组件
+            this.layer.show = true //设置为true异步加载组件，也可以不需要这个东西
         }
     }
 </script>
