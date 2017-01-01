@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: './dist/', //使用相对路径，不然放在服务器子目录下会出问题
+        publicPath: '/dist/', //使用相对路径./dist/，不然放在服务器子目录下会出问题，本地开发时使用绝对路径
         chunkFilename: '[id].build.js?[chunkhash]', //异步加载时非主文件的名称命名规则
         filename: 'build.js'
     },

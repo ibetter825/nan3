@@ -25,7 +25,8 @@
 
 .layui-m-layermain {
     display: table;
-    font-family: Helvetica, arial, sans-serif;
+    /*font-family: Helvetica, arial, sans-serif;*/
+    font-family: "arial", "微软雅黑";
     pointer-events: none
 }
 
