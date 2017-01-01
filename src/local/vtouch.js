@@ -72,7 +72,29 @@ function touchend(e, self, type) {
     if (!isType(self, type)) return;
     self.handler[type](e);
 }
+/**
+ * 阻止冒泡
+ */
+function stopPropagation(e) {
+    if (e && e.stopPropagation)
+        e.stopPropagation();
+    else
+        window.event.cancelBubble = true;
+}
+/**
+ * 阻止默认事件
+ */
+function preventDefault(e) {
+    if (e && e.preventDefault)
+        e.preventDefault();
+    else
+        window.event.returnValue = false;
+}
 
+function eventModifier(binding, e) {
+    if (binding.modifiers.stop) stopPropagation(e)
+    if (binding.modifiers.prevent) preventDefault(e)
+}
 let bind = {
     bind: function(el, binding, vnode) {
         if (!el.handler) el.handler = {}
@@ -93,18 +115,12 @@ let bind = {
             }, false);
         } else {
             el.addEventListener('touchstart', function(e) {
-                if (binding.modifiers.stop)
-                    e.stopPropagation();
-                if (binding.modifiers.prevent)
-                    e.preventDefault();
+                eventModifier(binding, e)
                 touchstart(e, el);
             }, false);
             if (type === 'move') {
                 el.addEventListener('touchmove', function(e) {
-                    if (binding.modifiers.stop)
-                        e.stopPropagation();
-                    if (binding.modifiers.prevent)
-                        e.preventDefault();
+                    eventModifier(binding, e)
                     touchmove(e, el, type);
                 }, false);
             }
@@ -117,7 +133,7 @@ let bind = {
                         configurable: true
                     }
                 });
-                //e.preventDefault();
+                //eventModifier(binding, e)
                 return touchend(e, el, type);
             }, false);
         }

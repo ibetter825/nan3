@@ -1,6 +1,6 @@
 <template>
     <section class="slider rtive">
-            <ul :class="['slider-cnt', clz.tran]" :style="style" v-left.prevent="{methods: left}" v-right.prevent="{methods: right}">
+            <ul :class="['slider-cnt', clz.tran]" :style="style" v-left.prevent.stop="{methods: left}" v-right.prevent.stop="{methods: right}">
                 <li v-for="(item,index) in data"><img :src="item.img"></li>
                 <div class="clear"></div>
             </ul>
@@ -47,6 +47,7 @@
                 let _this = this
                 let slt = _this.selected
                 _this.selected += x
+                _this.clz.tran = 'tran1'
                 if (slt < -3 || slt >= 0) {
                     if (d === undefined) {
                         _this.selected = 0
@@ -62,8 +63,7 @@
                             _this.selected = 0
                         _this.start()
                     }
-                } else
-                    _this.clz.tran = 'tran1'
+                }
             },
             left: function() {
                 this.slide(-1)
