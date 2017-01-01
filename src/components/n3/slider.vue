@@ -48,18 +48,20 @@
                 let slt = _this.selected
                 _this.selected += x
                 _this.clz.tran = 'tran1'
-                if (slt < -3 || slt >= 0) {
+                if (slt <= -4) {
                     if (d === undefined) {
                         _this.selected = 0
                         clearInterval(_this.timer)
                         _this.clz.tran = ''
-                        setTimeout(function() {
-                            _this.start()
-                        }, 1000)
+                        _this.start()
                     } else {
-                        if (slt < -3 && x === -1)
+                        if (x === -1)
                             _this.selected = -4
-                        else if (slt >= 0 && x === 1)
+                        _this.start()
+                    }
+                } else if (slt >= 0) {
+                    if (d !== undefined) {
+                        if (x === 1)
                             _this.selected = 0
                         _this.start()
                     }
@@ -75,13 +77,16 @@
         watch: {
 
         },
+        mounted: function() {
+            console.log('ASSSSSSS')
+            this.start()
+        },
         created: function() {
             let url = this.prop['url']
             if (url) { //请求后台
                 console.log('从后台请求数据')
             } else
                 this.data = this.prop['data']
-            this.start()
         }
     }
 </script>
