@@ -24,6 +24,10 @@ Object.keys(storage).forEach((key) => {
 import layer from './local/layer'
 Vue.prototype.$layer = layer
 
+//将弹出层封装为vue实例的方法，直接调用就可以了 eg: this.$util.scrollTop()
+import util from './local/util'
+Vue.prototype.$util = util
+
 //引入自定义v-tab指令
 import vtouch from './local/vtouch'
 Object.keys(vtouch).forEach((key) => {

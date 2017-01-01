@@ -13,7 +13,7 @@
 <script>
     //初始化完成以后需要开启定时器，动态播放轮转图
     module.exports = {
-        props: ['slider'],
+        props: ['prop'],
         data() {
             return {
                 data: [],
@@ -76,11 +76,11 @@
 
         },
         created: function() {
-            let url = this.slider['url']
+            let url = this.prop['url']
             if (url) { //请求后台
                 console.log('从后台请求数据')
             } else
-                this.data = this.slider['data']
+                this.data = this.prop['data']
             this.start()
         }
     }

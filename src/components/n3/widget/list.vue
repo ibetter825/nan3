@@ -1,40 +1,28 @@
 <template>
         <section class="widget widget-list">
             <header>
-                <h3 class="mg0 f14 pd10 relative">
+                <h3 class="mg0 f14 pd10 rtive">
                     <i class="iconfont icon-jianguo"></i>
-                    <span>美味坚果</span>
-                    <a class="widget-more f12" href="#">更多></a>
+                    <span>{{ prop.title }}</span>
+                    <a class="widget-more f12" :href="prop.more">更多></a>
                 </h3>
             </header>
             <ul>
-                <li class="widget-cnt">
+                <li class="widget-cnt" v-for="item in data">
                     <section>
                         <div class="widget-list-img">
-                            <router-link :to="{ path: 'goods/detail', query: { plan: 'private' }}"><img src="/static/images/rmd.jpg" alt=""></router-link>
+                            <router-link :to="item.url"><img :src="item.img" :alt="item.name"></router-link>
                         </div>
                         <div></div>
-                        <div class="widget-list-info relative">
-                            <h3 class="f14">哇哈哈<em class="gray f12"> / 500g</em><span class="fr red f16">￥200</span></h3>
-                            <p class="widget-seller f12"><span class="red">自营</span></p>
-                            <p class="widget-desc f12 gray">描述或的合计为降低地价</p>
-                            <span class="widget-cart widget-btn row block absolute">
-                                <i class="iconfont icon-gouwuchetianjia f24 red"></i>
-                            </span>
-                        </div>
-                    </section>
-                </li>
-                <li class="widget-cnt">
-                    <section>
-                        <div class="widget-list-img">
-                            <img src="/static/images/rmd.jpg" alt="">
-                        </div>
-                        <div></div>
-                        <div class="widget-list-info relative">
-                            <h3 class="f14">哇哈哈<em class="gray f12"> / 500g</em><span class="fr red f16">￥200</span></h3>
-                            <p class="widget-seller f12"><span class="red">自营</span></p>
-                            <p class="widget-desc f12 gray">描述或的合计为降低地价</p>
-                            <span class="widget-cart widget-btn row block absolute">
+                        <div class="widget-list-info rtive">
+                            <h3>
+                                <router-link :to="item.url" class="black">{{ item.name }}<em class="gray f12"> / {{ item.weight }}</em></router-link><span class="fr red f16">￥{{ item.price }}</span>
+                            </h3>
+                            <p class="widget-seller">
+                                <router-link :to="item.from.link"><span class="red f12">{{ item.from.name }}</span></router-link>
+                            </p>
+                            <p class="widget-desc f12 gray">{{ item.desc }}</p>
+                            <span class="widget-cart widget-btn row block abte">
                                 <i class="iconfont icon-gouwuchetianjia f24 red"></i>
                             </span>
                         </div>
@@ -45,13 +33,23 @@
         </section>
     </template>
 
-    <script>
-        module.exports = {
-            data(){
-                return {}
-            },
-            components: {
-                
+<script>
+    module.exports = {
+        props: ['prop'],
+        data() {
+            return {
+                data: []
             }
+        },
+        components: {
+
+        },
+        created: function() {
+            let url = this.prop['url']
+            if (url) { //请求后台
+                console.log('先从本地储存空间取数据，如果没有再从后台请求数据，成功后再放入本地')
+            } else
+                this.data = this.prop['data']
         }
-    </script>
+    }
+</script>

@@ -13,7 +13,7 @@
                         <p><span>分类</span></p>
                     </a>
                 </li>
-                <li>
+                <li id="cart">
                     <a href="view/cart.html">
                         <p><i class="iconfont icon-gouwuche"></i></p>
                         <p><span>购物车</span></p>
@@ -28,10 +28,10 @@
             </ul>
         </footer>
     </template>
-    <script>
-        module.exports = {
-            data(){
-                return {}
-            }
+<script>
+    module.exports = {
+        data() {
+            return {}
         }
-    </script>
+    }
+</script>

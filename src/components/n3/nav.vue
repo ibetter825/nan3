@@ -1,45 +1,41 @@
 <template>
-        <nav class="nav">
+        <nav :class="['nav', clz]">
             <ul>
-                <li>
-                    <a href="view/goods/index.html">
-                        <p class="blue"><i class="iconfont icon-nongchanpin f24"></i></p>
-                        <p><span>农副产品</span></p>
+                <li v-for="(r, index) in line">
+                    <a v-for="(item, i) in data" v-if="i >= index * type && i < r * type" :href="[item.url ? item.url : '#']">
+                        <p :class="item.clz"><i :class="'iconfont f24 ' + item.icon"></i></p>
+                        <p><span>{{ item.text }}</span></p>
                     </a>
-                    <a href="#">
-                        <p class="red"><i class="iconfont icon-nongchanpincaigou f24"></i></p>
-                        <p><span>采购中心</span></p>
-                    </a>
-                    <a href="view/service/index.html">
-                        <p class="purple"><i class="iconfont icon-fuwu f24"></i></p>
-                        <p><span>服务中心</span></p>
-                    </a>
-                    <a href="view/groceries/index.html">
-                        <p class="orange"><i class="iconfont icon-riyongp f24"></i></p>
-                        <p><span>杂货市场</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"></a>
-                    <a href="view/menu/index.html">
-                        <p class="red"><i class="iconfont icon-caipu f24"></i></p>
-                        <p><span>家常菜谱</span></p>
-                    </a>
-                    <a href="#">
-                        <p class="cyan"><i class="iconfont icon-shichang f24"></i></p>
-                        <p><span>集市入口</span></p>
-                    </a>
-                    <a href="#"></a>
                 </li>
                 <div class="clear"></div>
             </ul>
         </nav>
     </template>
 
-    <script>
-        module.exports = {
-            data(){
-                return {}
+<script>
+    module.exports = {
+        props: ['prop'],
+        data() {
+            return {
+                clz: '',
+                type: 4,
+                data: []
             }
+        },
+        computed: {
+            line() { //导航条的行数
+                let type = this.prop.type ? this.prop.type : 4 //默认每行四个图标
+                this.type = type
+                type === 5 ? this.clz = 'nav-five' : this.clz = ''
+                return this.data.length / type
+            }
+        },
+        created: function() {
+            let url = this.prop['url']
+            if (url) { //请求后台
+                console.log('先从本地储存空间取数据，如果没有再从后台请求数据，成功后再放入本地')
+            } else
+                this.data = this.prop['data']
         }
-    </script>
+    }
+</script>
