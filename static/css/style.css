@@ -557,17 +557,17 @@ select:-webkit-autofill {
     float: left;
 }
 
-.slider-content,
+.slider-cnt,
 .viewer .viewer-content {
     width: 500%;
 }
 
-.slider-content li,
+.slider-cnt li,
 .viewer-content li {
     width: 20%;
 }
 
-.slider-content img,
+.slider-cnt img,
 .viewer-content img {
     width: 100%;
 }

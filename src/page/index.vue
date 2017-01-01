@@ -1,6 +1,7 @@
 <template>
-  <div>
-      index
+  <div class="index">
+      <n3-slider></n3-slider>
+      <n3-nav></n3-nav>
   </div>
 </template>
 
