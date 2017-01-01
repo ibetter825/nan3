@@ -1,11 +1,7 @@
 <template>
     <section class="slider relative">
             <ul :class="['slider-cnt', clz.tran]" :style="style" v-left.prevent="{methods: left}" v-right.prevent="{methods: right}">
-                <li><img src="/static/images/slider.gif"></li>
-                <li><img src="/static/images/slider.gif"></li>
-                <li><img src="/static/images/slider.gif"></li>
-                <li><img src="/static/images/slider.gif"></li>
-                <li><img src="/static/images/slider.gif"></li>
+                <li v-for="(item,index) in data"><img :src="item.img"></li>
                 <div class="clear"></div>
             </ul>
             <ul class="slider-indicators">
@@ -20,6 +16,7 @@
         props: ['slider'],
         data() {
             return {
+                data: [],
                 timer: false,
                 selected: 0,
                 clz: {
@@ -79,6 +76,11 @@
 
         },
         created: function() {
+            let url = this.slider['url']
+            if (url) { //请求后台
+
+            } else
+                this.data = this.slider['data']
             this.start()
         }
     }
