@@ -117,7 +117,7 @@ let bind = {
                         configurable: true
                     }
                 });
-                e.preventDefault();
+                //e.preventDefault();
                 return touchend(e, el, type);
             }, false);
         }

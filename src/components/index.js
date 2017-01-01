@@ -3,6 +3,9 @@ export default {
     'n3-top': function(resolve) {
         require(['./n3/top.vue'], resolve) //按需异步加载的配置方式
     },
+    'n3-refresh': function(resolve) {
+        require(['./n3/refresh.vue'], resolve)
+    },
     'n3-ad': function(resolve) {
         require(['./n3/ad.vue'], resolve)
     },

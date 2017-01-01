@@ -1,5 +1,5 @@
 <template>
-    <section class="slider relative">
+    <section class="slider rtive">
             <ul :class="['slider-cnt', clz.tran]" :style="style" v-left.prevent="{methods: left}" v-right.prevent="{methods: right}">
                 <li v-for="(item,index) in data"><img :src="item.img"></li>
                 <div class="clear"></div>
