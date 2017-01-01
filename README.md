@@ -8,6 +8,11 @@
 # install dependencies
 npm install
 
+# install plugin
+npm install vuex -D
+cnpm install vue-resource -D
+npm install babel-polyfill -D //IE下requires a Promise polyfill in this browser错误的解决方法
+
 # serve with hot reload at localhost:8080
 npm run dev
 

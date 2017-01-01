@@ -2,7 +2,10 @@ import Vue from 'vue'
 // 引用路由
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
-    //入口
+
+import Polyfill from 'babel-polyfill'
+
+//入口
 import App from './App.vue'
 // 引用路由配置文件
 import routes from './config/routes'
