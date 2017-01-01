@@ -58,20 +58,24 @@ function touchend(e, self, type) {
     //事件类型 tap 点击, long 长点击, up 上滑, down 下滑, left 左滑, right 右滑
     if (!isType(self, type)) return;
     //setTimeout(function() {
-    self.handler(e);
+    self.handler[type](e);
     //}, 100)
 }
 
+let handler = {}
+
 let bind = {
     bind: function(el, binding, vnode) {
+        let type = binding.name
         let value = binding.value;
         el.evObj = {};
-        el.handler = function(e) { //This directive.handler
+        handler[type] = function(e) { //This directive.handler
             if (!value && el.href && !binding.modifiers.prevent) return window.location = el.href;
             value.event = e;
             value.evObj = el.evObj;
             value.methods.call(this, value);
         };
+        el.handler = handler
         if (isPc()) {
             el.addEventListener('click', function(e) {
                 if (!value && el.href && !binding.modifiers.prevent) return window.location = el.href;
@@ -96,7 +100,7 @@ let bind = {
                     },
                 });
                 e.preventDefault();
-                return touchend(e, el, binding.name);
+                return touchend(e, el, type);
             }, false);
         }
     }
