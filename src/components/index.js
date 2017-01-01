@@ -19,13 +19,13 @@ export default {
         require(['./n3/viewer.vue'], resolve)
     },
     'n3-widget-bulk': function(resolve) {
-        require(['./n3/widgetBulk.vue'], resolve)
+        require(['./n3/widget/bulk.vue'], resolve)
     },
     'n3-widget-card': function(resolve) {
-        require(['./n3/widgetCard.vue'], resolve)
+        require(['./n3/widget/card.vue'], resolve)
     },
     'n3-widget-list': function(resolve) {
-        require(['./n3/widgetList.vue'], resolve)
+        require(['./n3/widget/list.vue'], resolve)
     },
     'n3-goods-info': function(resolve) {
         require(['./n3/goods/info.vue'], resolve)
