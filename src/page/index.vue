@@ -2,7 +2,7 @@
     <div class="index">
         <n3-top></n3-top>
         <n3-refresh :refresh="refresh" :style="style"></n3-refresh>
-        <section  :class="['main', clz.tran]" v-move.prevent="{methods: move}" :style="style">
+        <section  :class="['main', clz.tran]" v-move="{methods: move}" :style="style">
             <n3-slider :prop="slider"></n3-slider>
             <n3-nav :prop="nav"></n3-nav>
             <div class="divider"></div>
@@ -164,13 +164,11 @@
                 this.refresh.state = 0
                 let eo = e.evObj
                 if (eo.moving) {
-                    console.log('moving')
                     this.clz.tran = ''
                     let t = eo.distanceY * -1
                     this.y = t <= 0 ? 0 : t
                     if (t > 60) this.refresh.state = 1
                 } else {
-                    console.log('end')
                     this.clz.tran = 'tran05'
                     this.y = 0
                     this.refresh.state = 2
