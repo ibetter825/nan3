@@ -1,7 +1,10 @@
 export default {
     //n3組件
+    'n3-top': function(resolve) {
+        require(['./n3/top.vue'], resolve) //按需异步加载的配置方式
+    },
     'n3-ad': function(resolve) {
-        require(['./n3/ad.vue'], resolve) //按需异步加载的配置方式
+        require(['./n3/ad.vue'], resolve)
     },
     'n3-footer': function(resolve) {
         require(['./n3/footer.vue'], resolve)

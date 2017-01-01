@@ -78,7 +78,7 @@
         created: function() {
             let url = this.slider['url']
             if (url) { //请求后台
-
+                console.log('从后台请求数据')
             } else
                 this.data = this.slider['data']
             this.start()

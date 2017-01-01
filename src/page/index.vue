@@ -1,5 +1,7 @@
 <template>
   <div class="index">
+      <n3-top></n3-top>
+      <div class="divider divider5"></div>
       <n3-slider :slider="slider"></n3-slider>
       <n3-nav></n3-nav>
   </div>

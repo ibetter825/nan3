@@ -35,6 +35,9 @@ function isType(self, type) {
         case 'right':
             res = evObj.distanceX < 0 && Math.abs(evObj.distanceY) < 100;
             break
+        case 'move':
+            res = Math.abs(evObj.distanceX) > 10 || Math.abs(evObj.distanceY) > 10;
+            break
     }
     return res
 }
@@ -49,33 +52,39 @@ function touchstart(e, self) {
     self.time = +new Date();
 }
 
+function touchmove(e, self, type) {
+    let touches = e.changedTouches[0];
+    let evObj = self.evObj;
+    evObj.moving = true //true参数只是用来做一个标记，只有在move事件中使用，用于判断是否moving
+    evObj.distanceX = evObj.pageX - touches.pageX;
+    evObj.distanceY = evObj.pageY - touches.pageY;
+    self.handler[type](e);
+}
+
 function touchend(e, self, type) {
     let touches = e.changedTouches[0];
     let evObj = self.evObj;
+    evObj.moving = false
     self.time = +new Date() - self.time;
     evObj.distanceX = evObj.pageX - touches.pageX;
     evObj.distanceY = evObj.pageY - touches.pageY;
-    //事件类型 tap 点击, long 长点击, up 上滑, down 下滑, left 左滑, right 右滑
+    //事件类型 tap 点击, long 长点击, up 上滑, down 下滑, left 左滑, right 右滑, move 移动
     if (!isType(self, type)) return;
-    //setTimeout(function() {
     self.handler[type](e);
-    //}, 100)
 }
-
-let handler = {}
 
 let bind = {
     bind: function(el, binding, vnode) {
+        if (!el.handler) el.handler = {}
         let type = binding.name
         let value = binding.value;
         el.evObj = {};
-        handler[type] = function(e) { //This directive.handler
+        el.handler[type] = function(e) { //This directive.handler
             if (!value && el.href && !binding.modifiers.prevent) return window.location = el.href;
             value.event = e;
             value.evObj = el.evObj;
             value.methods.call(this, value);
         };
-        el.handler = handler
         if (isPc()) {
             el.addEventListener('click', function(e) {
                 if (!value && el.href && !binding.modifiers.prevent) return window.location = el.href;
@@ -90,6 +99,15 @@ let bind = {
                     e.preventDefault();
                 touchstart(e, el);
             }, false);
+            if (type === 'move') {
+                el.addEventListener('touchmove', function(e) {
+                    if (binding.modifiers.stop)
+                        e.stopPropagation();
+                    if (binding.modifiers.prevent)
+                        e.preventDefault();
+                    touchmove(e, el, type);
+                }, false);
+            }
             el.addEventListener('touchend', function(e) {
                 Object.defineProperties(e, { // 重写currentTarget对象 与jq相同
                     "currentTarget": {
@@ -97,7 +115,7 @@ let bind = {
                         writable: true,
                         enumerable: true,
                         configurable: true
-                    },
+                    }
                 });
                 e.preventDefault();
                 return touchend(e, el, type);
@@ -112,5 +130,6 @@ export default {
     left: bind,
     right: bind,
     up: bind,
-    down: bind
+    down: bind,
+    move: bind
 }
