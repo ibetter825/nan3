@@ -369,17 +369,17 @@ select:-webkit-autofill {
 }
 
 .tran01 {
-    transition: all 0.1s;
-    -moz-transition: all 0.1s;
-    -webkit-transition: all 0.1s;
-    -o-transition: all 0.1s;
+    transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
 }
 
 .tran05 {
-    transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    -o-transition: all 0.5s;
+    transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
 }
 
 .tran1 {
@@ -478,8 +478,6 @@ select:-webkit-autofill {
     top: -10px;
     left: -10px;
     z-index: 1990;
-    /*transform: rotate(30deg);
-    -webkit-transform: rotate(30deg);*/
 }
 
 .content {

@@ -48,15 +48,6 @@
                     current: cur,
                     target: '#cart'
                 })
-
-                // let target = this.$util.offset('#cart')
-                // let ptop = target.offsetParent ? target.offsetParent.offsetTop : 0
-                // let top = ptop + target.offsetTop
-                // let left = target.offsetLeft + target.offsetWidth / 2
-                // this.$store.dispatch('ball_end', {
-                //     left: left + 'px',
-                //     top: top + 'px'
-                // })
             }
         },
         created: function() {
