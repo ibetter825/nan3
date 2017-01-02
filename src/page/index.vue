@@ -160,18 +160,18 @@
                 alert('下拉刷新')
             },
             move: function(e) {
-                if (this.$util.scrollTop() > 0) return
                 this.refresh.state = 0
                 let eo = e.evObj
+                let t = eo.distanceY * -1
                 if (eo.moving) {
                     this.clz.tran = ''
-                    let t = eo.distanceY * -1
                     this.y = t <= 0 ? 0 : t
                     if (t > 60) this.refresh.state = 1
                 } else {
                     this.clz.tran = 'tran05'
                     this.y = 0
                     this.refresh.state = 2
+                    if (t > 60) window.location.reload()
                 }
             }
         }

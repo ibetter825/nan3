@@ -107,7 +107,7 @@ let bind = {
             value.evObj = el.evObj;
             value.methods.call(this, value);
         };
-        if (isPc()) {
+        if (isPc() && type === 'tap') {
             el.addEventListener('click', function(e) {
                 if (!value && el.href && !binding.modifiers.prevent) return window.location = el.href;
                 value.event = e;
@@ -133,7 +133,7 @@ let bind = {
                         configurable: true
                     }
                 });
-                //eventModifier(binding, e)
+                eventModifier(binding, e)
                 return touchend(e, el, type);
             }, false);
         }
