@@ -22,7 +22,7 @@
                                 <router-link :to="item.from.link"><span class="red f12">{{ item.from.name }}</span></router-link>
                             </p>
                             <p class="widget-desc f12 gray">{{ item.desc }}</p>
-                            <span class="widget-cart widget-btn row block abte">
+                            <span class="widget-cart widget-btn row block abte" v-tap.stop="{methods: cart, id: 10001}">
                                 <i class="iconfont icon-gouwuchetianjia f24 red"></i>
                             </span>
                         </div>
@@ -41,8 +41,23 @@
                 data: []
             }
         },
-        components: {
+        methods: {
+            cart: function(p) { //添加到购物车，做一个动画效果，飞到购物车内
+                let cur = p.event.currentTarget
+                this.$store.dispatch('ball_init', {
+                    current: cur,
+                    target: '#cart'
+                })
 
+                // let target = this.$util.offset('#cart')
+                // let ptop = target.offsetParent ? target.offsetParent.offsetTop : 0
+                // let top = ptop + target.offsetTop
+                // let left = target.offsetLeft + target.offsetWidth / 2
+                // this.$store.dispatch('ball_end', {
+                //     left: left + 'px',
+                //     top: top + 'px'
+                // })
+            }
         },
         created: function() {
             let url = this.prop['url']

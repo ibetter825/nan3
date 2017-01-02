@@ -39,6 +39,9 @@ export default {
     'n3-goods-info': function(resolve) {
         require(['./n3/goods/info.vue'], resolve)
     },
+    'n3-ball': function(resolve) {
+        require(['./n3/ball.vue'], resolve)
+    },
 
     //layer-mobile組件
     'layer-mobile': function(resolve) {
