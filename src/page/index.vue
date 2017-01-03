@@ -6,7 +6,7 @@
             <n3-slider :prop="slider"></n3-slider>
             <n3-nav :prop="nav"></n3-nav>
             <div class="divider"></div>
-            <n3-ad :prop="ad[0]"></n3-ad>
+            <n3-advert :prop="advert[0]"></n3-advert>
             <div class="divider"></div>
             <n3-widget-list :prop="widgetList[0]"></n3-widget-list>
             <div class="divider"></div>
@@ -88,7 +88,7 @@
                     }, {}]
                 }
             },
-            ad() {
+            advert() {
                 return [{
                     url: '#',
                     img: '/static/images/slider.gif',

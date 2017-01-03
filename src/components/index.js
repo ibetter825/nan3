@@ -6,8 +6,8 @@ export default {
     'n3-refresh': function(resolve) {
         require(['./n3/refresh.vue'], resolve)
     },
-    'n3-ad': function(resolve) {
-        require(['./n3/ad.vue'], resolve)
+    'n3-advert': function(resolve) {
+        require(['./n3/advert.vue'], resolve)
     },
     'n3-footer': function(resolve) {
         require(['./n3/footer.vue'], resolve)
