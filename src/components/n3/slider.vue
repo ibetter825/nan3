@@ -68,11 +68,9 @@
                 }
             },
             left: function() {
-                console.log('left')
                 this.slide(-1)
             },
             right: function() {
-                console.log('right')
                 this.slide(1)
             },
             move: function(e) {
