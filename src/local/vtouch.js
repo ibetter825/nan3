@@ -116,7 +116,7 @@ let bind = {
             }, false);
         } else {
             el.addEventListener('touchstart', function(e) {
-                //eventModifier(binding, e)
+                eventModifier(binding, e)
                 touchstart(e, el);
             }, false);
             if (type === 'move') {
@@ -134,7 +134,8 @@ let bind = {
                         configurable: true
                     }
                 });
-                eventModifier(binding, e)
+                if(e.cancelable)
+                    eventModifier(binding, e)
                 return touchend(e, el, type);
             }, false);
         }
