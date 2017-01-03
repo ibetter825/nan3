@@ -2,7 +2,7 @@
     <div class="index">
         <n3-top></n3-top>
         <n3-refresh :refresh="refresh" :style="style"></n3-refresh>
-        <section class="main">
+        <section :class="['main', clz.tran]" v-move="{methods: move}" :style="style">
             <n3-slider :prop="slider"></n3-slider>
             <n3-nav :prop="nav"></n3-nav>
             <div class="divider"></div>
@@ -18,17 +18,30 @@
         <n3-ball></n3-ball>
     </div>
 </template>
-
 <script>
     module.exports = {
         data() {
             return {
+                y: 0,
+                clz: {
+                    tran: ''
+                },
                 refresh: {
                     state: 0
                 }
             }
         },
         computed: {
+            style() { //下拉需要的style
+                let dis = 'translateY(' + this.y + 'px)'
+                return {
+                    'transform': dis,
+                    '-webkit-transform': dis,
+                    '-moz-transform': dis,
+                    '-ms-transform': dis,
+                    '-o-transform': dis
+                }
+            },
             slider() { //传递给slider组件的数据，如果url === null, 则直接填充数据data，反之则通过url地址以及param去请求后台获取
                 return {
                     url: null,
@@ -142,11 +155,13 @@
             }
         },
         methods: {
-            down: function() {
+            down: function () {
                 //下拉刷新
                 alert('下拉刷新')
             },
-            move: function(e) {
+            move: function (e) {
+                if(this.$util.scrollTop() === 0)
+                document.body.style.overflow = 'hidden'
                 this.refresh.state = 0
                 let eo = e.evObj
                 let t = eo.distanceY * -1
@@ -158,7 +173,8 @@
                     this.clz.tran = 'tran05'
                     this.y = 0
                     this.refresh.state = 2
-                    if (t > 60) window.location.reload()
+                    //if (t > 60) window.location.reload()
+                    document.body.style.overflow = 'auto'
                 }
             }
         }
