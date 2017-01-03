@@ -24,16 +24,16 @@ function isType(self, type) {
             res = self.time > 500 && Math.abs(evObj.distanceX) < 2 && Math.abs(evObj.distanceY) < 2;
             break
         case 'up':
-            res = Math.abs(evObj.distanceX) < 100 && evObj.distanceY > 0;
+            res = Math.abs(evObj.distanceX) < 50 && evObj.distanceY > 0;
             break
         case 'down':
-            res = Math.abs(evObj.distanceX) < 100 && evObj.distanceY < 0;
+            res = Math.abs(evObj.distanceX) < 50 && evObj.distanceY < 0;
             break
         case 'left':
-            res = evObj.distanceX > 0 && Math.abs(evObj.distanceY) < 100;
+            res = evObj.distanceX > 0 && Math.abs(evObj.distanceY) < 50;
             break
         case 'right':
-            res = evObj.distanceX < 0 && Math.abs(evObj.distanceY) < 100;
+            res = evObj.distanceX < 0 && Math.abs(evObj.distanceY) < 50;
             break
         case 'move':
             res = Math.abs(evObj.distanceX) > 10 || Math.abs(evObj.distanceY) > 10;

@@ -75,8 +75,10 @@
                 console.log('right')
                 this.slide(1)
             },
-            move: function() {
-                return false
+            move: function(e) {
+                //上级存在move方法，在本级中会覆盖器方法，调用父级传递过来的方法就可以了
+                let fn = this.prop.move
+                if (fn) fn(e)
             }
         },
         watch: {
