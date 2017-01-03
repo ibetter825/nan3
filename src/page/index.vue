@@ -23,26 +23,12 @@
     module.exports = {
         data() {
             return {
-                y: 0,
-                clz: {
-                    tran: ''
-                },
                 refresh: {
                     state: 0
                 }
             }
         },
         computed: {
-            style() { //下拉需要的style
-                let dis = 'translateY(' + this.y + 'px)'
-                return {
-                    'transform': dis,
-                    '-webkit-transform': dis,
-                    '-moz-transform': dis,
-                    '-ms-transform': dis,
-                    '-o-transform': dis
-                }
-            },
             slider() { //传递给slider组件的数据，如果url === null, 则直接填充数据data，反之则通过url地址以及param去请求后台获取
                 return {
                     url: null,
