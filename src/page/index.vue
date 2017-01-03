@@ -2,7 +2,7 @@
     <div class="index">
         <n3-top></n3-top>
         <n3-refresh :refresh="refresh" :style="style"></n3-refresh>
-        <section  :class="['main', clz.tran]" v-move="{methods: move}" :style="style">
+        <section class="main">
             <n3-slider :prop="slider"></n3-slider>
             <n3-nav :prop="nav"></n3-nav>
             <div class="divider"></div>
