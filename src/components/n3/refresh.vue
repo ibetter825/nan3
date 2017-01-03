@@ -1,5 +1,5 @@
 <template>
-    <div class="refresh abte">
+    <div :class="['refresh', 'abte', refresh.tran]">
         <p class="f10 abte">
             <img src="/static/images/loader0.gif" alt="refresh"> <span>{{ content.text }}</span>
         </p>

@@ -2,7 +2,7 @@
     <div class="index">
         <n3-top></n3-top>
         <n3-refresh :refresh="refresh" :style="style"></n3-refresh>
-        <section :class="['main', clz.tran]" v-move="{methods: move}" :style="style">
+        <section :class="['main', clz.tran]" v-move.self="{methods: move}" :style="style">
             <n3-slider :prop="slider"></n3-slider>
             <n3-nav :prop="nav"></n3-nav>
             <div class="divider"></div>
@@ -27,7 +27,8 @@
                     tran: ''
                 },
                 refresh: {
-                    state: 0
+                    state: 0,
+                    tran: ''
                 }
             }
         },
@@ -155,26 +156,35 @@
             }
         },
         methods: {
-            down: function () {
+            down: function() {
                 //下拉刷新
                 alert('下拉刷新')
             },
-            move: function (e) {
-                if(this.$util.scrollTop() === 0)
-                document.body.style.overflow = 'hidden'
-                this.refresh.state = 0
+            move: function(e) {
+                let _this = this
                 let eo = e.evObj
                 let t = eo.distanceY * -1
+                if (t < 0) return false //向上滑动不做操作
+                if (_this.$util.scrollTop() <= 0)
+                    document.body.style.overflowY = 'hidden'
+                _this.refresh.state = 0
                 if (eo.moving) {
-                    this.clz.tran = ''
-                    this.y = t <= 0 ? 0 : t
+                    _this.clz.tran = ''
+                    _this.refresh.tran = ''
+                    _this.y = t <= 0 ? 0 : t
                     if (t > 60) this.refresh.state = 1
                 } else {
-                    this.clz.tran = 'tran05'
-                    this.y = 0
-                    this.refresh.state = 2
-                    //if (t > 60) window.location.reload()
-                    document.body.style.overflow = 'auto'
+                    _this.clz.tran = 'tran05'
+                    _this.y = 60 //等刷新完成以后设置为0
+                    _this.refresh.state = 2
+                    _this.refresh.tran = 'tran05'
+                        //if (t > 60) window.location.reload()
+                    setTimeout(function() {
+                        _this.y = 0
+                        setTimeout(function() {
+                            document.body.style.overflowY = 'auto'
+                        }, 500);
+                    }, 1000);
                 }
             }
         }

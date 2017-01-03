@@ -70,7 +70,6 @@ function touchend(e, self, type) {
     evObj.distanceY = evObj.pageY - touches.pageY;
     //事件类型 tap 点击, long 长点击, up 上滑, down 下滑, left 左滑, right 右滑, move 移动
     if (!isType(self, type)) return;
-    console.log('cancelable:'+e.cancelable)
     self.handler[type](e);
 }
 /**
@@ -116,12 +115,12 @@ let bind = {
             }, false);
         } else {
             el.addEventListener('touchstart', function(e) {
-                eventModifier(binding, e)
+                if (e.cancelable) eventModifier(binding, e)
                 touchstart(e, el);
             }, false);
             if (type === 'move') {
                 el.addEventListener('touchmove', function(e) {
-                    eventModifier(binding, e)
+                    if (e.cancelable) eventModifier(binding, e)
                     touchmove(e, el, type);
                 }, false);
             }
@@ -134,8 +133,7 @@ let bind = {
                         configurable: true
                     }
                 });
-                if(e.cancelable)
-                    eventModifier(binding, e)
+                if (e.cancelable) eventModifier(binding, e)
                 return touchend(e, el, type);
             }, false);
         }
