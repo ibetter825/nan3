@@ -51,7 +51,7 @@
                 if (slt <= -4) {
                     if (d === undefined) {
                         _this.selected = 0
-                        clearInterval(_this.timer)
+                        //clearInterval(_this.timer)
                         _this.clz.tran = ''
                         _this.start()
                     } else {
@@ -68,9 +68,11 @@
                 }
             },
             left: function() {
+                console.log('left')
                 this.slide(-1)
             },
             right: function() {
+                console.log('right')
                 this.slide(1)
             }
         },
