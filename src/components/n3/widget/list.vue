@@ -22,7 +22,7 @@
                                 <router-link :to="item.from.link"><span class="red f12">{{ item.from.name }}</span></router-link>
                             </p>
                             <p class="widget-desc f12 gray">{{ item.desc }}</p>
-                            <span class="widget-cart widget-btn row block abte" v-tap.stop="{methods: cart, id: 10001}">
+                            <span class="widget-cart widget-btn row block abte" v-tap.prevent.stop="{methods: cart, id: 10001}">
                                 <i class="iconfont icon-gouwuchetianjia f24 red"></i>
                             </span>
                         </div>
