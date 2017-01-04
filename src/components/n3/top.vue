@@ -1,6 +1,6 @@
 <template>
     <ul class="top pd10 bg-white">
-        <li class="logo f16">南山网</li>
+        <li class="logo f16">SDOG</li>
         <li>
             <a class="wrap-block" href="">
                 <i class="iconfont icon-36"></i>
