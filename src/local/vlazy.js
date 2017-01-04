@@ -1,22 +1,19 @@
 // // 触发, 即弹出文字
 // dom.dispatchEvent(evt)
 const LOADING_IMG = '/static/images/loader0.gif'
-const SCREEN_HEIGHT = window.screen.availHeight
+const CLIENT_HEIGHT = document.documentElement.clientHeight // window.screen.availHeight
 // listen事件执行的方法
 function listen (e) {
   let el = e.target
-  let etop = el.getBoundingClientRect().top
-  console.log(SCREEN_HEIGHT + '  ' +etop)
-  if (etop > SCREEN_HEIGHT) {
-    el.src = el.getAttribute('data-url')
-    el.setAttribute('data-lazy', 'loaded') // 给改变元素属性，用于查询遍历
-    el.removeAttribute('data-url')
-    // 移除事件监听
-    if (window.removeEventListener)
-      el.removeEventListener('listen', listen, false)
-    else if (window.detachEvent)
-      el.detachEvent('onlisten', listen)
-  }
+
+  el.src = el.getAttribute('data-url')
+  el.setAttribute('data-lazy', 'loaded') // 给改变元素属性，用于查询遍历
+  el.removeAttribute('data-url')
+  // 移除事件监听
+  if (window.removeEventListener)
+    el.removeEventListener('listen', listen, false)
+  else if (window.detachEvent)
+    el.detachEvent('onlisten', listen)
 }
 
 // 创建事件
@@ -27,8 +24,17 @@ evt.initEvent('listen', false, false)
 // 添加监听事件
 window.addEventListener('scroll', function () {
   let imgs = document.querySelectorAll('img[data-lazy=unload]')
-  for (let i = 0, l = imgs.length; i < l; i++)
-    imgs[i].dispatchEvent(evt); // 触发事件
+  let el = null
+  for (let i = 0, l = imgs.length; i < l; i++) {
+      el = imgs[i]
+    let etop = el.getBoundingClientRect().top
+    let ebottom = el.getBoundingClientRect().bottom
+    console.log(CLIENT_HEIGHT + '  ' + etop + '  ' + ebottom)
+    if (etop > CLIENT_HEIGHT) {
+      imgs[i].dispatchEvent(evt); // 触发事件
+      return
+    }
+  }
 }, false)
 
 export default {
