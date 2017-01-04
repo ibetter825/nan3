@@ -36,7 +36,10 @@ window.addEventListener('scroll', function () {
     }
   }
 }, false)
-
+function isInView(el){
+    let etop = el.getBoundingClientRect().top
+    return etop < 0 ? false : CLIENT_HEIGHT - etop > 0
+}
 export default {
   bind: function (el, binding, vnode) {
     // [lazy-unload]
@@ -48,5 +51,10 @@ export default {
       el.addEventListener('listen', listen, false)
     else if (window.attachEvent)
       el.attachEvent('onlisten', listen)
+
+      console.log('bind')
+  },
+  inserted: function(el){
+      if(isInView(el)) el.dispatchEvent(evt); // 触发事件
   }
 }
