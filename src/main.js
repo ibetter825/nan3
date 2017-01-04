@@ -35,6 +35,9 @@ import vtouch from './local/vtouch'
 Object.keys(vtouch).forEach((key) => {
     Vue.directive(`${key}`, vtouch[key])
 })
+//自定义v-lazy懒加载指令
+import vlazy from './local/vlazy'
+Vue.directive('lazy', vlazy)
 
 //引入公用组件的文件夹，文件夹里面的index.js存有所有组件的引用
 import components from './components/'
