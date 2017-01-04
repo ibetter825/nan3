@@ -7,7 +7,7 @@
                     <a class="widget-more f12" :href="prop.more">更多></a>
                 </h3>
             </header>
-            <ul>
+            <ul class="rtive">
                 <li class="widget-cnt" v-for="item in data">
                     <section>
                         <div class="widget-list-img">
@@ -29,6 +29,7 @@
                     </section>
                 </li>
                 <div class="clear"></div>
+                <layer-mobile-loading v-if="loader.show" :prop="loader"></layer-mobile-loading>
             </ul>
         </section>
     </template>
@@ -38,7 +39,8 @@
         props: ['prop'],
         data() {
             return {
-                data: []
+                data: [],
+                loader: {show: false}
             }
         },
         methods: {
@@ -51,11 +53,17 @@
             }
         },
         created: function() {
-            let url = this.prop['url']
+            let _this = this
+            _this.loader.show = true
+            let url = _this.prop['url']
             if (url) { //请求后台
                 console.log('先从本地储存空间取数据，如果没有再从后台请求数据，成功后再放入本地')
-            } else
-                this.data = this.prop['data']
+            } else {
+                _this.data = _this.prop['data']
+                setTimeout(function() {
+                    _this.loader.show = false
+                }, 1000);
+            }
         }
     }
 </script>
