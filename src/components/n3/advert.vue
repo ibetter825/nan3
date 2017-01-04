@@ -1,5 +1,5 @@
 <template>
-        <div class="ad">
+        <div class="advert">
             <a class="wrap-block" :href="prop.url">
                 <img :src="prop.img" :alt="prop.text">
             </a>

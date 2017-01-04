@@ -509,13 +509,13 @@ select:-webkit-autofill {
     line-height: 16px;
 }
 
-.ad {
+.advert {
     width: 100%;
     height: 100px;
     overflow: hidden;
 }
 
-.ad img {
+.advert img {
     width: 100%;
 }
 
