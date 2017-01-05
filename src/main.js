@@ -14,9 +14,11 @@ import routes from './config/routes'
 //vuex
 import store from './store/'
 
+//绘制动画的方法
+import './local/requestAnimFrame'
+
 // 引用自定义存储方法文件
 import storage from './local/storage'
-// 引用自定义存储方法文件
 // 将storage方法绑定到全局 使用方法为在vue实例中调用 eg: this.$localStorage()
 Object.keys(storage).forEach((key) => {
     Vue.prototype[key] = storage[key]

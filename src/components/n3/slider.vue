@@ -2,7 +2,8 @@
     <section class="slider rtive">
             <ul :class="['slider-cnt', clz.tran]" :style="style">
                 <li v-for="item in data">
-                    <router-link :to="item.link"><img :src="item.img"></router-link>
+                    <router-link v-if="item.link !== undefined" :to="item.link"><img :src="item.img"></router-link>
+                    <img v-if="item.link === undefined" :src="item.img">
                 </li>
                 <div class="clear"></div>
             </ul>

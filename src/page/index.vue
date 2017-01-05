@@ -1,6 +1,19 @@
 <template>
     <div class="index">
-        <n3-top></n3-top>
+        <n3-top>
+            <li class="logo f16" slot="left">SDOG</li>
+            <li slot="right">
+                <a class="wrap-block" href="">
+                    <i class="iconfont icon-36"></i>
+                </a>
+            </li>
+            <li class="search-container rtive" slot="center">
+                <p class="f12">
+                    <i class="iconfont icon-sousuo f12"></i>
+                    <span>搜索</span>
+                </p>
+            </li>
+        </n3-top>
         <n3-refresh :refresh="refresh" :style="style"></n3-refresh>
         <section :class="['main', clz.tran]" v-move="{methods: move}" :style="style">
             <n3-slider :prop="slider"></n3-slider>
@@ -112,8 +125,7 @@
                         url: '/static/data/widget_tight_0.json',
                         param: null
                     }],
-                    bulk: [
-                        {
+                    bulk: [{
                             title: '热门商品',
                             more: '#',
                             url: '/static/data/widget_bulk_0.json',
