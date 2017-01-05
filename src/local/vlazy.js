@@ -5,6 +5,7 @@ const TAG_NAME_IMG = 'IMG'
 const LOADING_IMG = '/static/images/loader0.gif'
 const CLIENT_HEIGHT = document.documentElement.clientHeight // window.screen.availHeight
 let LAST_SCROLL_TOP = 0 //记录上一次滚动的scrollTop 用于判断滚动方向
+
 // listen事件执行的方法
 function listen (e) {
   let el = e.target
@@ -36,9 +37,8 @@ window.addEventListener('scroll', function () {
     let etop = el.getBoundingClientRect().top
     let ebottom = el.getBoundingClientRect().bottom
     let height = ebottom - etop//元素的高度
-    
-    
-    if ((isDown && etop > CLIENT_HEIGHT) || (!isDown && ebottom > -50)) {
+
+    if ((isDown && etop <= CLIENT_HEIGHT + height) || (!isDown && ebottom >= -10)) {
       lazies[i].dispatchEvent(evt); // 触发事件
       return
     }
