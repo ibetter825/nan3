@@ -1,0 +1,41 @@
+ [{
+     "link": {
+         "path": "goods/detail",
+         "query": {
+             "id": 10001
+         }
+     },
+     "img": "http://www.0411mcw.com/data/afficheimg/20161024xincgv.jpg"
+ }, {
+     "link": {
+         "path": "goods/detail",
+         "query": {
+             "id": 10001
+         }
+     },
+     "img": "/static/images/slider.gif"
+ }, {
+     "link": {
+         "path": "goods/detail",
+         "query": {
+             "id": 10001
+         }
+     },
+     "img": "/static/images/slider.gif"
+ }, {
+     "link": {
+         "path": "goods/detail",
+         "query": {
+             "id": 10001
+         }
+     },
+     "img": "/static/images/slider.gif"
+ }, {
+     "link": {
+         "path": "goods/detail",
+         "query": {
+             "id": 10001
+         }
+     },
+     "img": "/static/images/slider.gif"
+ }]

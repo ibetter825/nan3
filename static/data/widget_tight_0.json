@@ -1,7 +1,7 @@
 [
     [{
         "cols": 2,
-        "url": {
+        "link": {
             "path": "goods/detail",
             "query": {
                 "id": 10001
@@ -11,37 +11,37 @@
     },
     {
         "cols": 1,
-        "url": {
+        "link": {
             "path": "goods/detail",
             "query": {
                 "id": 10002
             }
         },
-        "img": "/static/images/goods.jpg"
+        "img": "http://source.0411mcw.com/data/afficheimg/1452294926322512942.jpg"
     },
     {
         "cols": 1,
-        "url": {
+        "link": {
             "path": "goods/detail",
             "query": {
                 "id": 10003
             }
         },
-        "img": "/static/images/goods.jpg"
+        "img": "http://source.0411mcw.com/data/afficheimg/1452293392383758689.jpg"
     },
     {
         "cols": 1,
-        "url": {
+        "link": {
             "path": "goods/detail",
             "query": {
                 "id": 10004
             }
         },
-        "img": "/static/images/goods.jpg"
+        "img": "http://source.0411mcw.com/data/afficheimg/1452303887925448050.jpg"
     }],
     [{
         "cols": 3,
-        "url": {
+        "link": {
             "path": "goods/detail",
             "query": {
                 "id": 10005
@@ -51,17 +51,17 @@
     },
     {
         "cols": 1,
-        "url": {
+        "link": {
             "path": "goods/detail",
             "query": {
                 "id": 10006
             }
         },
-        "img": "/static/images/goods.jpg"
+        "img": "http://source.0411mcw.com/data/afficheimg/1452283218843132460.jpg"
     },
     {
         "cols": 1,
-        "url": {
+        "link": {
             "path": "goods/detail",
             "query": {
                 "id": 10007

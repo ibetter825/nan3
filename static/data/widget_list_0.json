@@ -1,6 +1,6 @@
 [{
-    "img": "/static/images/rmd.jpg",
-    "url": {
+    "img": "http://www.0411mcw.com/images/201412/thumb_img/188_thumb_G_1418796899455.jpg",
+    "link": {
         "path": "goods/detail",
         "query": {
             "id": 10001
@@ -17,8 +17,8 @@
     },
     "desc": "描述或的合计为降低地价"
 }, {
-    "img": "/static/images/rmd.jpg",
-    "url": {
+    "img": "http://www.0411mcw.com/images/201503/thumb_img/371_thumb_G_1425914635469.jpg",
+    "link": {
         "path": "goods/detail",
         "query": {
             "id": 10001

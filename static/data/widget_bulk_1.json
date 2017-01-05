@@ -1,0 +1,54 @@
+[
+    [{
+        "link": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10001
+            }
+        },
+        "img": "/static/images/goods.jpg",
+        "name": "玉米",
+        "weight": "500g",
+        "price": 100,
+        "marketPrice": 200
+    },
+    {
+        "link": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10002
+            }
+        },
+        "img": "/static/images/goods.jpg",
+        "name": "包谷",
+        "weight": "500g",
+        "price": 200,
+        "marketPrice": 300
+    }],
+    [{
+        "link": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10001
+            }
+        },
+        "img": "/static/images/goods.jpg",
+        "name": "玉米",
+        "weight": "500g",
+        "price": 100,
+        "marketPrice": 200
+    },
+    {
+        "link": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10002
+            }
+        },
+        "img": "/static/images/goods.jpg",
+        "name": "包谷",
+        "weight": "500g",
+        "price": 200,
+        "marketPrice": 300
+    }]
+]

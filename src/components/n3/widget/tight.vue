@@ -10,7 +10,7 @@
             <ul class="rtive">
                 <li class="widget-cnt" v-for="row in data">
                     <div v-for="col in row" :class="'widget-cnt-'+col.cols">
-                        <router-link :to="'#'" class="wrap-block" v-lazy="col.img"><img></router-link>
+                        <router-link :to="col.link" class="wrap-block" v-lazy="col.img"><img></router-link>
                     </div>
                 </li>
                 <div class="clear"></div>

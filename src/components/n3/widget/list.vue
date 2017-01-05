@@ -11,12 +11,12 @@
                 <li class="widget-cnt" v-for="item in data">
                     <section>
                         <div class="widget-list-img" v-lazy="item.img">
-                            <router-link :to="item.url"><img></router-link>
+                            <router-link :to="item.link"><img></router-link>
                         </div>
                         <div></div>
                         <div class="widget-list-info rtive">
                             <h3>
-                                <router-link :to="item.url" class="black">{{ item.name }}<em class="gray f12"> / {{ item.weight }}</em></router-link><span class="fr red f16">￥{{ item.price }}</span>
+                                <router-link :to="item.link" class="black">{{ item.name }}<em class="gray f12"> / {{ item.weight }}</em></router-link><span class="fr red f16">￥{{ item.price }}</span>
                             </h3>
                             <p class="widget-seller">
                                 <router-link :to="item.from.link"><span class="red f12">{{ item.from.name }}</span></router-link>

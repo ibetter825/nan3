@@ -19,6 +19,7 @@ function listen (e) {
   addListener(img, 'load', function () {
     el.setAttribute('data-lazy', 'loaded') // 给改变元素属性，用于查询遍历
     el.removeAttribute('data-url')
+    el.style.background = ''
   }, false)
 
   // 加载失败

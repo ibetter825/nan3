@@ -1,7 +1,9 @@
 <template>
     <section class="slider rtive">
             <ul :class="['slider-cnt', clz.tran]" :style="style" v-left.prevent.stop="{methods: left}" v-right.prevent.stop="{methods: right}" v-move.prevent.stop="{methods: move}">
-                <li v-for="(item,index) in data"><img :src="item.img"></li>
+                <li v-for="item in data">
+                    <router-link :to="item.link"><img :src="item.img"></router-link>
+                </li>
                 <div class="clear"></div>
             </ul>
             <ul class="slider-indicators">
@@ -87,11 +89,16 @@
             this.start()
         },
         created: function() {
-            let url = this.prop['url']
+            let _this = this
+            let url = _this.prop['url']
             if (url) { //请求后台
-                console.log('从后台请求数据')
+                _this.$http.get(url).then(function(response){
+                    _this.data = response.body
+                }, function(response){
+                    console.error(response.body)
+                })
             } else
-                this.data = this.prop['data']
+                _this.data = _this.prop['data']
         }
     }
 </script>
