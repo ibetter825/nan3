@@ -16,10 +16,7 @@ function listen (e) {
   el.setAttribute('data-lazy', 'loaded') // 给改变元素属性，用于查询遍历
   el.removeAttribute('data-url')
   // 移除事件监听
-  if (window.removeEventListener)
-    el.removeEventListener('listen', listen, false)
-  else if (window.detachEvent)
-    el.detachEvent('onlisten', listen)
+  removeListener(el, 'listen', listen, false)
 }
 
 // 创建事件
@@ -31,20 +28,37 @@ evt.initEvent('listen', false, false)
 window.addEventListener('scroll', function () {
   let isDown = isScrollDown()
   let lazies = document.querySelectorAll('[data-lazy=unload]')
-  let el = null
+  let el = null, etop = 0, ebottom = 0, height = 0
   for (let i = 0, l = lazies.length; i < l; i++) {
       el = lazies[i]
-    let etop = el.getBoundingClientRect().top
-    let ebottom = el.getBoundingClientRect().bottom
-    let height = ebottom - etop//元素的高度
+    etop = el.getBoundingClientRect().top
+    ebottom = el.getBoundingClientRect().bottom
+    height = ebottom - etop//元素的高度
 
-    if ((isDown && etop <= CLIENT_HEIGHT + height) || (!isDown && ebottom >= -10)) {
+    if ((isDown && etop >= 0 && etop <= CLIENT_HEIGHT) || (!isDown && ebottom >= -10)) {
       lazies[i].dispatchEvent(evt); // 触发事件
       return
     }
   }
 }, false)
-
+/**
+ * 添加事件监听
+ */
+function addListener(el, type, fn, capture){
+  if (window.addEventListener)
+      el.addEventListener(type, fn, capture)
+    else if (window.attachEvent)
+      el.attachEvent('on'+type, fn)
+}
+/**
+ * 移除监听事件
+ */
+function removeListener(el, type, fn, capture){
+  if (window.removeEventListener)
+    el.removeEventListener(type, fn, capture)
+  else if (window.detachEvent)
+    el.detachEvent('on'+type, fn)
+}
 /**
  * 是否向下滚动
  */
@@ -72,11 +86,7 @@ export default {
     else
       el.src = LOADING_IMG
     // 监听listen事件
-    if (window.addEventListener)
-      el.addEventListener('listen', listen, false)
-    else if (window.attachEvent)
-      el.attachEvent('onlisten', listen)
-      console.log('bind')
+    addListener(el, 'listen', listen, false)
   },
   inserted: function(el){
       if(isInView(el)) el.dispatchEvent(evt); // 触发事件
