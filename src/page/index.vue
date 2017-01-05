@@ -8,9 +8,9 @@
             <div class="divider"></div>
             <n3-advert :prop="advert[0]"></n3-advert>
             <div class="divider"></div>
-            <n3-widget-list :prop="widgetList[0]"></n3-widget-list>
+            <n3-widget-list :prop="widget.list[0]"></n3-widget-list>
             <div class="divider"></div>
-            <n3-widget-tight></n3-widget-tight>
+            <n3-widget-tight :prop="widget.tight[0]"></n3-widget-tight>
         </section>
         <div class="divider"></div>
         <div class="divider divider5"></div>
@@ -110,58 +110,29 @@
                     text: '卖水果了'
                 }]
             },
-            widgetList() {
-                return [{
-                    title: '美味坚果',
-                    more: '#',
-                    url: null,
-                    param: null,
-                    data: [{
-                        img: '/static/images/rmd.jpg',
-                        url: {
-                            path: 'goods/detail',
-                            query: {
-                                id: 10001
-                            }
-                        },
-                        name: '哇哈哈',
-                        weight: '500g',
-                        price: 200,
-                        from: {
-                            name: '自营',
-                            link: {
-                                path: '/goods/detail'
-                            }
-                        },
-                        desc: '描述或的合计为降低地价'
-                    }, {
-                        img: '/static/images/rmd.jpg',
-                        url: {
-                            path: 'goods/detail',
-                            query: {
-                                id: 10001
-                            }
-                        },
-                        name: '哇哈哈2',
-                        weight: '500g',
-                        price: 240,
-                        from: {
-                            name: '伤不起水果店',
-                            link: {
-                                path: '/goods/detail'
-                            }
-                        },
-                        desc: '描述或的合计为降低地价'
+            widget() {
+                return {
+                    list: [{
+                        title: '美味坚果',
+                        more: '#',
+                        url: '/static/data/index_widget_list_0.json',
+                        param: null
+                    }],
+                    tight: [{
+                        title: '热门推荐',
+                        more: '#',
+                        url: '/static/data/index_widget_tight_0.json',
+                        param: null
                     }]
-                }]
+                }
             }
         },
         methods: {
-            down: function() {
+            down: function () {
                 //下拉刷新
                 alert('下拉刷新')
             },
-            move: function(e) { //由于子组件slider也有touch事件，需要将move方法传递过去，让其执行
+            move: function (e) { //由于子组件slider也有touch事件，需要将move方法传递过去，让其执行
                 let _this = this
                 let eo = e.evObj
                 let t = eo.distanceY * -1
@@ -182,7 +153,7 @@
                         _this.y = 60 //等刷新完成以后设置为0
                         _this.refresh.state = 2
                         _this.refresh.tran = 'tran05'
-                        setTimeout(function() {
+                        setTimeout(function () {
                             _this.y = 0
                         }, 1000);
                     } else

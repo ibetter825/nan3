@@ -1,0 +1,37 @@
+[{
+    "img": "/static/images/rmd.jpg",
+    "url": {
+        "path": "goods/detail",
+        "query": {
+            "id": 10001
+        }
+    },
+    "name": "哇哈哈",
+    "weight": "500g",
+    "price": 200,
+    "from": {
+        "name": "自营",
+        "link": {
+            "path": "/goods/detail"
+        }
+    },
+    "desc": "描述或的合计为降低地价"
+}, {
+    "img": "/static/images/rmd.jpg",
+    "url": {
+        "path": "goods/detail",
+        "query": {
+            "id": 10001
+        }
+    },
+    "name": "哇哈哈2",
+    "weight": "500g",
+    "price": 240,
+    "from": {
+        "name": "伤不起水果店",
+        "link": {
+            "path": "/goods/detail"
+        }
+    },
+    "desc": "描述或的合计为降低地价"
+}]

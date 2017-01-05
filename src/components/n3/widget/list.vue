@@ -10,8 +10,8 @@
             <ul class="rtive">
                 <li class="widget-cnt" v-for="item in data">
                     <section>
-                        <div class="widget-list-img">
-                            <router-link :to="item.url"><img :src="item.img" :alt="item.name"></router-link>
+                        <div class="widget-list-img" v-lazy="item.img">
+                            <router-link :to="item.url"><img></router-link>
                         </div>
                         <div></div>
                         <div class="widget-list-info rtive">
@@ -54,16 +54,18 @@
         },
         created: function() {
             let _this = this
-            _this.loader.show = true
             let url = _this.prop['url']
             if (url) { //请求后台
+                _this.loader.show = true
                 console.log('先从本地储存空间取数据，如果没有再从后台请求数据，成功后再放入本地')
-            } else {
-                _this.data = _this.prop['data']
-                setTimeout(function() {
+                _this.$http.get(url).then(function(response){
+                    _this.data = response.body
                     _this.loader.show = false
-                }, 1000);
-            }
+                }, function(response){
+                    console.error(response.body)
+                })
+            } else
+                _this.data = _this.prop['data']
         }
     }
 </script>

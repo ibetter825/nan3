@@ -1,0 +1,72 @@
+[
+    [{
+        "cols": 2,
+        "url": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10001
+            }
+        },
+        "img": "/static/images/goods.jpg"
+    },
+    {
+        "cols": 1,
+        "url": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10002
+            }
+        },
+        "img": "/static/images/goods.jpg"
+    },
+    {
+        "cols": 1,
+        "url": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10003
+            }
+        },
+        "img": "/static/images/goods.jpg"
+    },
+    {
+        "cols": 1,
+        "url": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10004
+            }
+        },
+        "img": "/static/images/goods.jpg"
+    }],
+    [{
+        "cols": 3,
+        "url": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10005
+            }
+        },
+        "img": "/static/images/goods.jpg"
+    },
+    {
+        "cols": 1,
+        "url": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10006
+            }
+        },
+        "img": "/static/images/goods.jpg"
+    },
+    {
+        "cols": 1,
+        "url": {
+            "path": "goods/detail",
+            "query": {
+                "id": 10007
+            }
+        },
+        "img": "/static/images/goods.jpg"
+    }]
+]
