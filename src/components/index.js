@@ -36,6 +36,9 @@ export default {
     'n3-widget-tight': function(resolve) {
         require(['./n3/widget/tight.vue'], resolve)
     },
+    'n3-sect': function(resolve) {
+        require(['./n3/sect.vue'], resolve)
+    },
     'n3-goods-info': function(resolve) {
         require(['./n3/goods/info.vue'], resolve)
     },

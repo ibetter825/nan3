@@ -2,36 +2,36 @@
     <footer :class="['footer', type === 0 ? 'pd10' : '']">
         <ul v-if="type === 0">
             <li>
-                <a class="selected" href="">
+                <router-link :class="[prop['selected'] === 'index' ? 'selected' : '']" :to="{path: '/'}">
                     <p><i class="iconfont icon-shouye"></i></p>
                     <p><span>首页</span></p>
-                </a>
+                </router-link>
             </li>
             <li>
-                <a href="view/goods/type.html">
+                <a :class="[prop['selected'] === 'category' ? 'selected' : '']" href="view/goods/type.html">
                     <p><i class="iconfont icon-fenlei"></i></p>
                     <p><span>分类</span></p>
                 </a>
             </li>
-            <li id="cart">
+            <li :class="[prop['selected'] === 'cart' ? 'selected' : '']" id="cart">
                 <a href="view/cart.html">
                     <p><i class="iconfont icon-gouwuche"></i></p>
                     <p><span>购物车</span></p>
                 </a>
             </li>
             <li>
-                <a href="view/user/zone.html">
+                <router-link :class="[prop['selected'] === 'zone' ? 'selected' : '']" :to="{path: '/user/zone', query: {id: 10001}}">
                     <p><i class="iconfont icon-gerenzhongxin"></i></p>
                     <p><span>个人中心</span></p>
-                </a>
+                </router-link>
             </li>
         </ul>
         <ul v-if="type === 1">
             <li>
-                <a class="selected" href="../../index.html">
+                <router-link :to="{path: '/'}">
                     <p><i class="iconfont icon-shouye"></i></p>
                     <p><span>首页</span></p>
-                </a>
+                </router-link>
             </li>
             <li>
                 <a href="">

@@ -31,7 +31,7 @@
         </section>
         <div class="divider"></div>
         <div class="divider divider5"></div>
-        <n3-footer></n3-footer>
+        <n3-footer :prop="footer"></n3-footer>
         <n3-ball></n3-ball>
     </div>
 </template>
@@ -46,6 +46,9 @@
                 refresh: {
                     state: 0,
                     tran: ''
+                },
+                footer: {
+                    selected: 'index'
                 }
             }
         },

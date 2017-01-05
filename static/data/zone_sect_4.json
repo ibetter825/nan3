@@ -1,0 +1,42 @@
+[
+    {
+        "icon": "iconfont icon-daifukuan gray",
+        "name": "待付款",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "iconfont icon-icon077 gray",
+        "name": "待发货",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "iconfont icon-daishouhuo gray",
+        "name": "待收货",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "iconfont icon-daipingjia gray",
+        "name": "待评价",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    }
+]
