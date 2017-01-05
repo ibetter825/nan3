@@ -1,7 +1,7 @@
 <template>
         <div class="advert">
-            <a class="wrap-block" :href="prop.url">
-                <img v-lazy="prop.img">
+            <a class="wrap-block" v-lazy="prop.img" :href="prop.url">
+                <img>
             </a>
         </div>
     </template>

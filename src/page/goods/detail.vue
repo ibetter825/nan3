@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="detail">
+        <n3-top></n3-top>
         <n3-advert :prop="advert[0]"></n3-advert>
         <n3-advert :prop="advert[1]"></n3-advert>
         <n3-advert :prop="advert[2]"></n3-advert>
