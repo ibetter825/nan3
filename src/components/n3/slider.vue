@@ -1,6 +1,6 @@
 <template>
     <section class="slider rtive">
-            <ul :class="['slider-cnt', clz.tran]" :style="style" v-left.prevent.stop="{methods: left}" v-right.prevent.stop="{methods: right}" v-move.prevent.stop="{methods: move}">
+            <ul :class="['slider-cnt', clz.tran]" :style="style">
                 <li v-for="item in data">
                     <router-link :to="item.link"><img :src="item.img"></router-link>
                 </li>
@@ -14,6 +14,7 @@
 
 <script>
     //初始化完成以后需要开启定时器，动态播放轮转图
+    //v-left.prevent.stop="{methods: left}" v-right.prevent.stop="{methods: right}" v-move.prevent.stop="{methods: move}"
     module.exports = {
         props: ['prop'],
         data() {
