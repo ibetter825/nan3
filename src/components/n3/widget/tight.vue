@@ -30,13 +30,16 @@
         methods: {
             load: function(lazy){
                 let _this = this
+                if(_this.loader) _this.loader.show = true
                 let url = _this.prop['url']
                 if (url) { //请求后台
                     _this.$http.get(url).then(function (response) {
                         _this.data = response.body
                         if(lazy) _this.$el.handler.success()
+                        if(_this.loader) _this.loader.show = false
                     }, function (response) {
                         if(lazy) _this.$el.handler.error()
+                        if(_this.loader) _this.loader.show = false
                         console.error(response.body)
                     })
                 } else
