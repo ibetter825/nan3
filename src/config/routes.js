@@ -14,6 +14,10 @@ let frame = function(resolve) {
         require(['../frame/subroute.vue'], resolve) //按需异步加载的配置方式
     }
 
+let category = function(resolve){
+    require(['../page/category.vue'], resolve)
+}
+
 // 引入子页面
 let goodsDetail = function(resolve) {
     require(['../page/goods/detail.vue'], resolve)
@@ -28,6 +32,11 @@ export default [{
         path: '/',
         component: index,
         name: 'index'
+    },
+    {
+        path: '/category',
+        component: category,
+        name: 'category'
     },
     {
         path: '/layer',//测试用，到时候删除

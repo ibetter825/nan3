@@ -1,6 +1,6 @@
 <template>
     <div :class="clz">
-        <div v-if="prop === undefined" class="layui-m-layercont">
+        <div v-if="prop === undefined" class="layui-m-layercont" :style="options.style">
             <i></i>
             <i class="layui-m-layerload"></i>
             <i></i>
@@ -15,6 +15,9 @@
     module.exports = {
         props: ['prop'],
         computed: {
+            options() {
+                return this.$store.state.layer.options
+            },
             clz(){
                 //type 默认为1,即是layer父组件调用
                 //type 为2时，即是其他父组件调用，自定义

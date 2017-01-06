@@ -8,10 +8,10 @@
                 </router-link>
             </li>
             <li>
-                <a :class="[prop['selected'] === 'category' ? 'selected' : '']" href="view/goods/type.html">
+                <router-link :class="[prop['selected'] === 'category' ? 'selected' : '']" :to="{path: '/category'}">
                     <p><i class="iconfont icon-fenlei"></i></p>
                     <p><span>分类</span></p>
-                </a>
+                </router-link>
             </li>
             <li :class="[prop['selected'] === 'cart' ? 'selected' : '']" id="cart">
                 <a href="view/cart.html">

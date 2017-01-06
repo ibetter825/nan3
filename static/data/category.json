@@ -1,0 +1,1272 @@
+[
+    {
+        "id": "hot",
+        "icon": "icon-huo",
+        "text": "热门分类",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },
+    {
+        "id": "shuiguo",
+        "icon": "icon-shuiguo",
+        "text": "水&emsp;&emsp;果",
+        "children": [
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },
+    {
+        "id": "shucai",
+        "icon": "icon-shucai",
+        "text": "蔬&emsp;&emsp;菜",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },{
+        "id": "rouqing",
+        "icon": "icon-roulei",
+        "text": "肉&emsp;&emsp;禽",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },{
+        "id": "shuichan",
+        "icon": "icon-shuichanhaixian",
+        "text": "水&emsp;&emsp;产",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },{
+        "id": "liangyou",
+        "icon": "icon-shuichanhaixian",
+        "text": "粮油调料",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },{
+        "id": "xiuxian",
+        "icon": "icon-jianguo",
+        "text": "休闲食品",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },{
+        "id": "shougong",
+        "icon": "icon-shuichanhaixian",
+        "text": "手工制品",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },{
+        "id": "xianhua",
+        "icon": "icon-hua",
+        "text": "鲜&emsp;&emsp;花",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },
+    {
+        "id": "chaye",
+        "icon": "icon-yekong",
+        "text": "茶&emsp;&emsp;叶",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    },
+    {
+        "id": "gaodian",
+        "icon": "icon-shuichanhaixian",
+        "text": "糕&emsp;&emsp;点",
+        "children": [
+            {
+                "id": "guaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "瓜茄果实类"
+            },
+            {
+                "id": "gjl",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "根茎类"
+            },
+            {
+                "id": "lvye",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "绿叶类"
+            },
+            {
+                "id": "junlei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "食用菌类"
+            },
+            {
+                "id": "youjiguaguo",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机瓜果实类"
+            },
+            {
+                "id": "tiaowei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "调味类"
+            },
+            {
+                "id": "guoshilei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "果实类"
+            },
+            {
+                "id": "youjigenjinglei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机根茎类"
+            },
+            {
+                "id": "youjilvyelei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "有机绿叶类"
+            },
+            {
+                "id": "doulei",
+                "link": {
+                    "path": "#",
+                    "query": {
+                        "id": 10001
+                    }
+                },
+                "icon": "icon-shucai",
+                "text": "豆类"
+            }
+        ]
+    }
+]
