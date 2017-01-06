@@ -27,7 +27,7 @@
             <div class="divider"></div>
             <n3-widget-bulk :prop="widget.bulk[0]"></n3-widget-bulk>
             <div class="divider"></div>
-            <n3-widget-bulk :prop="widget.bulk[1]"></n3-widget-bulk>
+            <n3-widget-bulk :prop="widget.bulk[1]" v-lazy.component="{data: widget.bulk[1]}"></n3-widget-bulk>
         </section>
         <div class="divider"></div>
         <div class="divider divider5"></div>
@@ -49,6 +49,35 @@
                 },
                 footer: {
                     selected: 'index'
+                },
+                widget: {
+                    list: [{
+                        title: '美味坚果',
+                        more: '#',
+                        url: '/static/data/widget_list_0.json',
+                        param: null
+                    }],
+                    tight: [{
+                        title: '热门推荐',
+                        more: '#',
+                        url: '/static/data/widget_tight_0.json',
+                        param: null
+                    }],
+                    bulk: [{
+                            title: '热门商品',
+                            more: '#',
+                            url: '/static/data/widget_bulk_0.json',
+                            param: null
+                        },
+                        {
+                            lazy: true,
+                            type: 2,
+                            title: '热门商品2',
+                            more: '#',
+                            url: '/static/data/widget_bulk_1.json',
+                            param: null
+                        }
+                    ]
                 }
             }
         },
@@ -113,36 +142,6 @@
                     img: '/static/images/slider.gif',
                     text: '卖水果了'
                 }]
-            },
-            widget() {
-                return {
-                    list: [{
-                        title: '美味坚果',
-                        more: '#',
-                        url: '/static/data/widget_list_0.json',
-                        param: null
-                    }],
-                    tight: [{
-                        title: '热门推荐',
-                        more: '#',
-                        url: '/static/data/widget_tight_0.json',
-                        param: null
-                    }],
-                    bulk: [{
-                            title: '热门商品',
-                            more: '#',
-                            url: '/static/data/widget_bulk_0.json',
-                            param: null
-                        },
-                        {
-                            type: 2,
-                            title: '热门商品2',
-                            more: '#',
-                            url: '/static/data/widget_bulk_1.json',
-                            param: null
-                        }
-                    ]
-                }
             }
         },
         methods: {

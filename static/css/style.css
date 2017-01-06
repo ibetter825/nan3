@@ -734,6 +734,7 @@ select:-webkit-autofill {
 
 .widget ul {
     padding: 2.5px 5px;
+    min-height: 27px;
 }
 
 .widget li {

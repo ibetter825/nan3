@@ -116,7 +116,9 @@ export default {
       el.setAttribute('data-type', 'component')
       el.handler = {
         lazy: function () { // This directive.handler
-          value.methods.call(this, value)
+          //value.methods.call(this, value)
+          //data必须要放在组件的data中才会触发watch事件
+          value.data.lazy = !value.data.lazy //通知对应的子菜单更新数据，watch
         },
         success: function(){
           el.setAttribute('data-lazy', 'loaded')
