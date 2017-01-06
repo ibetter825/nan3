@@ -1,5 +1,7 @@
 <template>
   <section class="content">
-    <router-view keep-alive></router-view>
+    <transition name="fade">
+      <router-view keep-alive></router-view>
+    </transition>
   </section>
 </template>

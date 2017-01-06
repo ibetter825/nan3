@@ -24,12 +24,6 @@
                 data: []
             }
         },
-        computed: {
-
-        },
-        methods: {
-
-        },
         created: function () {
             let _this = this
             let url = _this.prop['url']

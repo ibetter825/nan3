@@ -405,22 +405,37 @@ select:-webkit-autofill {
 
 
 /*过渡*/
-
+/*从左至右*/
 .slide-lr-enter-active {
     transition: all .3s ease;
 }
-
 .slide-lr-leave-active {
     transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
-
 .slide-lr-enter,
 .slide-lr-leave-active {
     transform: translateX(-100%);
     opacity: 0;
 }
-
-
+/*从右至左*/
+.slide-rl-enter-active {
+    transition: all .3s ease;
+}
+.slide-rl-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-rl-enter,
+.slide-rl-leave-active {
+    transform: translateX(100%);
+    opacity: 0;
+}
+/*淡入淡出*/
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
 /*动画*/
 
 

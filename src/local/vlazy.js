@@ -106,6 +106,8 @@ export default {
     addListener(el, 'listen', listen, false)
   },
   inserted: function (el) {
-    if (isInView(el)) el.dispatchEvent(evt); // 触发事件
+    setTimeout(function() {
+      if (isInView(el)) el.dispatchEvent(evt); // 触发事件
+    }, 500);//由于路由加入了过渡效果，因此需要在过渡完成后才能获取元素位置，过渡效果时间为0.3s
   }
 }
