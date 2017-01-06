@@ -26,7 +26,7 @@
                 </header>
                 <n3-sect :prop="sect[0]"></n3-sect>
                 <n3-sect :prop="sect[1]"></n3-sect>
-                <n3-sect-list :prop="sect[2]"></n3-sect-list>
+                <n3-sect-list :prop="sect[2]" v-lazy.component="{methods: lazy, data: sect[2]}"></n3-sect-list>
             </section>
             <div class="divider"></div>
             <div class="divider divider5"></div>
@@ -62,6 +62,7 @@
                         }
                     },
                     {
+                        lazy: true,
                         url: '/static/data/zone_sect_list.json',
                         title: {
                             hide: true,
@@ -78,6 +79,9 @@
         methods: {
             back: function () {
                 window.history.back()
+            },
+            lazy: function(params){
+                params.data.lazy = false//通知对应的子组件加载数据
             }
         },
         created() {

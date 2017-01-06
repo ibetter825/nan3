@@ -10,24 +10,30 @@ let LAST_SCROLL_TOP = 0 // 记录上一次滚动的scrollTop 用于判断滚动�
 // listen事件执行的方法
 function listen (e) {
   let el = e.target
-  let img = el
-  if (el.tagName !== TAG_NAME_IMG)
-    img = el.getElementsByTagName('img')[0]
-  img.src = el.getAttribute('data-url')
+  let type = el.getAttribute('data-type')
+  if (type === 'component') {
+      el.handler.lazy()//调用绑定的事件
+      //el.setAttribute('data-lazy', 'loaded') // 给改变元素属性，用于查询遍历
+  }else {
+    let img = el
+    if (el.tagName !== TAG_NAME_IMG)
+      img = el.getElementsByTagName('img')[0]
+    img.src = el.getAttribute('data-url')
 
-  // 加载成功
-  addListener(img, 'load', function () {
-    el.setAttribute('data-lazy', 'loaded') // 给改变元素属性，用于查询遍历
-    el.removeAttribute('data-url')
-    el.style.background = ''
-  }, false)
+    // 加载成功
+    addListener(img, 'load', function () {
+      el.setAttribute('data-lazy', 'loaded') // 给改变元素属性，用于查询遍历
+      el.removeAttribute('data-url')
+      el.style.background = ''
+    }, false)
 
-  // 加载失败
-  addListener(img, 'error', function () {
-    el.setAttribute('data-lazy', 'error') // 给改变元素属性，用于查询遍历
-    el.style.background = 'url(' + ERROR_IMG + ') no-repeat center'
-    img.style.visibility = 'hidden'
-  }, false)
+    // 加载失败
+    addListener(img, 'error', function () {
+      el.setAttribute('data-lazy', 'error') // 给改变元素属性，用于查询遍历
+      el.style.background = 'url(' + ERROR_IMG + ') no-repeat center'
+      img.style.visibility = 'hidden'
+    }, false)
+  }
 
   // 移除事件监听
   removeListener(el, 'listen', listen, false)
@@ -97,17 +103,41 @@ export default {
   bind: function (el, binding, vnode) {
     // 指定为container时需要
     el.setAttribute('data-lazy', 'unload') // 给元素添加属性，用于查询遍历
-    el.setAttribute('data-url', binding.value)
-    if (el.tagName !== TAG_NAME_IMG)
-      el.style.background = 'url(' + LOADING_IMG + ') no-repeat center'
-    else
-      el.src = LOADING_IMG
+    /**
+     * 懒加载的对象：
+     *  1.图片
+     *    ① img v
+     *    ② img的父级 v
+     *    ③ 多个img的父级 x
+     *  2.组件的数据 v
+     */
+    if (binding.modifiers.component) { // 组件数据懒加载
+      let value = binding.value
+      el.setAttribute('data-type', 'component')
+      el.handler = {
+        lazy: function () { // This directive.handler
+          value.methods.call(this, value)
+        },
+        success: function(){
+          el.setAttribute('data-lazy', 'loaded')
+        },
+        error: function(){
+          el.setAttribute('data-lazy', 'error')
+        }
+      }
+    }else {
+      el.setAttribute('data-url', binding.value)
+      if (el.tagName !== TAG_NAME_IMG)
+        el.style.background = 'url(' + LOADING_IMG + ') no-repeat center'
+      else
+        el.src = LOADING_IMG
+    }
     // 监听listen事件
     addListener(el, 'listen', listen, false)
   },
   inserted: function (el) {
-    setTimeout(function() {
+    setTimeout(function () {
       if (isInView(el)) el.dispatchEvent(evt); // 触发事件
-    }, 500);//由于路由加入了过渡效果，因此需要在过渡完成后才能获取元素位置，过渡效果时间为0.3s
+    }, 500); // 由于路由加入了过渡效果，因此需要在过渡完成后才能获取元素位置，过渡效果时间为0.3s
   }
 }
