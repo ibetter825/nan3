@@ -31,6 +31,7 @@
                         <p v-html="item.text"></p>
                     </div>
                 </li>
+                <div class="clear"></div>
             </ul>
         </section>
         <layer-mobile v-if="layer.show"></layer-mobile>
