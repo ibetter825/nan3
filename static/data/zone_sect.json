@@ -1,0 +1,72 @@
+[
+    {
+        "icon": "icon-jushoucang red",
+        "name": "商品收藏",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "icon-shoucang red",
+        "name": "店铺收藏",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "icon-zuji red",
+        "name": "我的足迹",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "icon-yiguanzhu green",
+        "name": "关注商家",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "icon-youhuiquan orange",
+        "name": "优惠券",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "icon-2 red",
+        "name": "我是商家",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    },
+    {
+        "icon": "icon-jifen red",
+        "name": "我的积分",
+        "link": {
+            "path": "#",
+            "query": {
+                "id": 10001
+            }
+        }
+    }
+]

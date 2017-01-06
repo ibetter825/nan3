@@ -1,6 +1,6 @@
 [
     {
-        "icon": "iconfont icon-daifukuan gray",
+        "icon": "icon-daifukuan gray",
         "name": "待付款",
         "link": {
             "path": "#",
@@ -10,7 +10,7 @@
         }
     },
     {
-        "icon": "iconfont icon-icon077 gray",
+        "icon": "icon-icon077 gray",
         "name": "待发货",
         "link": {
             "path": "#",
@@ -20,7 +20,7 @@
         }
     },
     {
-        "icon": "iconfont icon-daishouhuo gray",
+        "icon": "icon-daishouhuo gray",
         "name": "待收货",
         "link": {
             "path": "#",
@@ -30,7 +30,7 @@
         }
     },
     {
-        "icon": "iconfont icon-daipingjia gray",
+        "icon": "icon-daipingjia gray",
         "name": "待评价",
         "link": {
             "path": "#",

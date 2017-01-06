@@ -25,6 +25,8 @@
                 </ul>
             </header>
             <n3-sect :prop="sect[0]"></n3-sect>
+            <n3-sect :prop="sect[1]"></n3-sect>
+            <n3-sect-list :prop="sect[2]"></n3-sect-list>
         </section>
         <div class="divider"></div>
         <div class="divider divider5"></div>
@@ -51,6 +53,21 @@
                                 },
                                 text: '全部订单'
                             }
+                        }
+                    },
+                    {
+                        url: '/static/data/zone_sect.json',
+                        title: {
+                            icon: 'icon-gongju',
+                            text: '常用工具'
+                        }
+                    },
+                    {
+                        url: '/static/data/zone_sect_list.json',
+                        title: {
+                            hide: true,
+                            icon: 'icon-wodedingdan',
+                            text: '我的订单'
                         }
                     }
                 ],

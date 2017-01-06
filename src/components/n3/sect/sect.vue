@@ -1,13 +1,13 @@
 <template>
     <section :class="['sect', clz]">
         <p class="sect-title pd10"><i :class="['iconfont', prop.title.icon]"></i><span>&nbsp;{{prop.title.text}}</span>
-            <router-link class="fr f12" :to="prop.title.more.link">{{prop.title.more.text}}&gt;</router-link>
+            <router-link v-if="prop.more" class="fr f12" :to="prop.title.more.link">{{prop.title.more.text}}&gt;</router-link>
         </p>
         <ul class="sect-cnt f12">
             <li v-for="item in data">
                 <router-link :to="item.link">
                     <p class="sect-cnt-icon">
-                        <i :class="item.icon"></i>
+                        <i :class="['iconfont', item.icon]"></i>
                     </p>
                     <p class="sect-cnt-name">{{item.name}}</p>
                 </router-link>
