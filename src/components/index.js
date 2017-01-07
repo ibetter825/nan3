@@ -48,7 +48,12 @@ export default {
     'n3-ball': function(resolve) {
         require(['./n3/ball.vue'], resolve)
     },
-
+    'n3-detail-action': function(resolve) {
+        require(['./n3/detail/action.vue'], resolve)
+    },
+    'n3-detail-service': function(resolve) {
+        require(['./n3/detail/service.vue'], resolve)
+    },
     //layer-mobile組件
     'layer-mobile': function(resolve) {
         require(['./layer/mobile/layer.vue'], resolve)

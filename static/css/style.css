@@ -375,6 +375,13 @@ select:-webkit-autofill {
     -o-transition: all 0.1s linear;
 }
 
+.tran03 {
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+}
+
 .tran05 {
     transition: all 0.5s linear;
     -moz-transition: all 0.5s linear;
@@ -437,6 +444,23 @@ select:-webkit-autofill {
 .slide-rl-enter,
 .slide-rl-leave-active {
     transform: translateX(100%);
+    opacity: 0;
+}
+
+
+/*从下到上*/
+
+.slide-du-enter-active {
+    transition: all .3s ease;
+}
+
+.slide-du-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-du-enter,
+.slide-du-leave-active {
+    transform: translateY(100%);
     opacity: 0;
 }
 
@@ -641,17 +665,17 @@ select:-webkit-autofill {
 }
 
 .slider-cnt,
-.viewer .viewer-content {
+.viewer .viewer-cnt {
     width: 500%;
 }
 
 .slider-cnt li,
-.viewer-content li {
+.viewer-cnt li {
     width: 20%;
 }
 
 .slider-cnt img,
-.viewer-content img {
+.viewer-cnt img {
     width: 100%;
 }
 
@@ -1100,7 +1124,8 @@ select:-webkit-autofill {
     height: 40px;
 }
 
-.footer a {
+.footer a,
+.footer span {
     display: block;
     width: 100%;
     height: 100%;
@@ -1207,33 +1232,38 @@ select:-webkit-autofill {
     text-align: right;
 }
 
-.goods .service,
-.goods .sales,
-.goods .addr {
+.detail .service,
+.detail .sales,
+.detail .addr {
     padding: 5px 20px;
     background: #FCFCFC;
 }
 
-.goods .service {
+.detail .service {
     border-bottom: 1px solid #E9E9E9;
 }
 
-.goods .service li,
-.goods .sales li {
+.detail .modal {
+    padding: 0;
+    border: 0;
+}
+
+.detail .service li,
+.detail .sales li {
     margin-left: 5px;
     line-height: 24px;
 }
 
-.goods .service li:first-child,
-.goods .service li:nth-last-child(2),
-.goods .sales li:first-child,
-.goods .sales li:nth-last-child(2),
-.goods .addr li:first-child,
-.goods .addr li:nth-last-child(2) {
+.detail .service li:first-child,
+.detail .service li:nth-last-child(2),
+.detail .sales li:first-child,
+.detail .sales li:nth-last-child(2),
+.detail .addr li:first-child,
+.detail .addr li:nth-last-child(2) {
     margin-left: 0;
 }
 
-.goods .sales li:nth-last-child(2) {
+.detail .sales li:nth-last-child(2) {
     height: 26px;
     line-height: 26px;
     right: 20px;
@@ -1241,34 +1271,34 @@ select:-webkit-autofill {
     margin-top: -13px;
 }
 
-.goods .sales p {
+.detail .sales p {
     padding: 0 2px;
 }
 
-.goods .sales .type {
+.detail .sales .type {
     padding: 2px;
     border: 1px solid #FF9E1A;
     border-radius: 2px;
 }
 
-.goods .sales .cnt {
+.detail .sales .cnt {
     padding-left: 8px;
 }
 
-.goods .addr li {
+.detail .addr li {
     margin-left: 5px;
     line-height: 28px;
 }
 
-.goods .appraise h4 {
+.detail .appraise h4 {
     font-weight: normal;
 }
 
-.goods .appraise-tags {
+.detail .appraise-tags {
     padding: 5px 0;
 }
 
-.goods .appraise-tags li {
+.detail .appraise-tags li {
     margin: 2px;
     float: left;
     border-radius: 10px;
@@ -1276,37 +1306,37 @@ select:-webkit-autofill {
     background: #FDECEA;
 }
 
-.goods .appraise-tags .bad {
+.detail .appraise-tags .bad {
     background: #F5F5F5;
 }
 
-.goods .appraise-tags .selected {
+.detail .appraise-tags .selected {
     background: #FF5000;
     color: #fff;
 }
 
-.goods .appraise-tags .more {
+.detail .appraise-tags .more {
     text-align: center;
 }
 
-.goods .appraise .avatar {
+.detail .appraise .avatar {
     border: 1px solid #E9E9E9;
     padding: 2px;
     border-radius: 50px;
     overflow: hidden;
 }
 
-.goods .appraise .avatar .img {
+.detail .appraise .avatar .img {
     width: 24px;
     height: 24px;
 }
 
-.goods .appraise .username {
+.detail .appraise .username {
     line-height: 30px;
     padding-left: 10px;
 }
 
-.goods .appraise-imgs li {
+.detail .appraise-imgs li {
     display: inline-block;
     width: 60px;
     height: 60px;
@@ -1314,91 +1344,91 @@ select:-webkit-autofill {
     overflow: hidden;
 }
 
-.goods .appraise-imgs img {
+.detail .appraise-imgs img {
     height: 100%;
 }
 
-.goods .appraise-more {
+.detail .appraise-more {
     text-align: center;
     height: 70px;
 }
 
-.goods .appraise-more span {
+.detail .appraise-more span {
     line-height: 30px;
     border-radius: 5px;
     border: 1px solid #FF5000;
     color: #FF5000;
 }
 
-.goods .shop-logo {
+.detail .shop-logo {
     overflow: hidden;
     padding: 2px;
     border: 1px solid #E9E9E9;
 }
 
-.goods .shop-logo img {
+.detail .shop-logo img {
     width: 50px;
     height: 50px;
     overflow: hidden;
 }
 
-.goods .shop-name {
+.detail .shop-name {
     padding: 2px 10px;
 }
 
-.goods .shop-name p:first-child {
+.detail .shop-name p:first-child {
     line-height: 30px;
 }
 
-.goods .shop-cnt {
+.detail .shop-cnt {
     height: 80px;
 }
 
-.goods .shop-cnt li {
+.detail .shop-cnt li {
     width: 33.3%;
     height: 100%;
     float: left;
 }
 
-.goods .shop-cnt div {
+.detail .shop-cnt div {
     height: 100%;
     border-right: 1px solid #EDEDED;
     text-align: center;
     padding-top: 7px;
 }
 
-.goods .shop-cnt div p:first-child {
+.detail .shop-cnt div p:first-child {
     line-height: 30px;
 }
 
-.goods .shop-more {
+.detail .shop-more {
     height: 30px;
 }
 
-.goods .shop-more li {
+.detail .shop-more li {
     width: 50%;
     height: 100%;
     float: left;
 }
 
-.goods .shop-more li:first-child {
+.detail .shop-more li:first-child {
     text-align: right;
     padding-right: 20px;
 }
 
-.goods .shop-more li:last-child {
+.detail .shop-more li:last-child {
     text-align: left;
     padding-left: 20px;
 }
 
-.goods .shop-more span {
+.detail .shop-more span {
     line-height: 30px;
     border-radius: 5px;
     border: 1px solid #FF5000;
     color: #FF5000;
 }
 
-.goods .goods-info {
+.detail .goods-info {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -1593,14 +1623,28 @@ select:-webkit-autofill {
     -webkit-transform: scale(1, 1);
 }
 
-.goods .action {
+.detail .modal {
     width: 100%;
-    height: 80%;
+    height: 70%;
     bottom: 0;
     background: #FAFAFA;
-    transform: translateY(110%);
-    -ms-transform: translateY(110%);
-    -webkit-transform: translateY(110%);
+}
+
+.detail .modal-btn {
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+}
+
+.detail .modal-btn li {
+    width: 50%;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+}
+
+.detail .modal-btn .confirm {
+    width: 100%;
 }
 
 .goods .action-header {
@@ -1665,24 +1709,6 @@ select:-webkit-autofill {
 .goods .action-count .disable {
     background: #E9E9E9;
     color: #B0B0B0;
-}
-
-.goods .action-btn {
-    height: 50px;
-    width: 100%;
-    bottom: 0;
-}
-
-.goods .action-btn li {
-    width: 50%;
-    text-align: center;
-    line-height: 50px;
-    float: left;
-}
-
-.goods .action-btn .confirm {
-    width: 100%;
-    display: none;
 }
 
 

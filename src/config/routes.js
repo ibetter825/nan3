@@ -26,7 +26,7 @@ let frame = function(resolve) {
 
 // 引入子页面
 let goodsDetail = function(resolve) {
-    require(['../page/goods/detail.vue'], resolve)
+    require(['../page/detail/goods/detail.vue'], resolve)
 }
 
 let userZone = function(resolve) {

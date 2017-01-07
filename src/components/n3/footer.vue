@@ -46,9 +46,9 @@
                 </a>
             </li>
             <li class="bg-orange">
-                <a href="" class="white">
+                <span class="white" @click="cart">
                     加入购物车
-                </a>
+                </span>
             </li>
             <li class="bg-red">
                 <a href="" class="white">
@@ -70,6 +70,12 @@
                 if (this.prop && this.prop.type)
                     t = this.prop.type
                 return t
+            }
+        },
+        methods: {
+            cart: function() {
+                let cart = this.prop.cart
+                if (cart) cart()
             }
         }
     }

@@ -1,9 +1,9 @@
 <template>
     <section class="slider rtive">
             <ul :class="['slider-cnt', clz.tran]" :style="style">
-                <li v-for="item in data">
+                <li v-for="(item, index) in data">
                     <router-link v-if="item.link !== undefined" :to="item.link"><img :src="item.img"></router-link>
-                    <img v-if="item.link === undefined" :src="item.img">
+                    <img v-if="item.link === undefined" @click="click(index)" :src="item.img">
                 </li>
                 <div class="clear"></div>
             </ul>
@@ -44,6 +44,10 @@
             start: function() {
                 if (this.timer !== false) clearInterval(this.timer)
                 this.timer = setInterval(this.slide, 5000)
+            },
+            click: function(index) {
+                if (this.prop.methods && this.prop.methods.click)
+                    this.prop.methods.click(index)
             },
             slide: function(d) {
                 let x = -1
@@ -94,9 +98,10 @@
             let _this = this
             let url = _this.prop['url']
             if (url) { //请求后台
-                _this.$http.get(url).then(function(response){
+                _this.$http.get(url).then(function(response) {
                     _this.data = response.body
-                }, function(response){
+                    _this.prop.data = response.body
+                }, function(response) {
                     console.error(response.body)
                 })
             } else

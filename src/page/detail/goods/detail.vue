@@ -30,9 +30,14 @@
                     <div class="clear"></div>
                 </ul>
             </section>
+            <n3-detail-service :prop="service[0]"></n3-detail-service>
+        </ul>
         </section>
         <div class="divider divider5"></div>
         <n3-footer :prop="footer"></n3-footer>
+        <n3-detail-action v-if="action.show" :prop="action"></n3-detail-action>
+        <n3-viewer v-if="viewer.show" :prop="viewer"></n3-viewer>
+        <n3-detail-service v-if="service[1].show" :prop="service[1]"></n3-detail-service>
     </div>
 </template>
 <script>
@@ -40,24 +45,54 @@
         data() {
             return {
                 title: '圣诞树大户大叔的宿舍的',
+                slider: {
+                    url: '/static/data/detail_slider.json',
+                    param: null,
+                    methods: {
+                        click: this.click
+                    }
+                },
                 price: 250,
                 marketPrice: 1250,
+                service: [{
+                    type: 0, //缩略版
+                    methods: {
+                        click: this.sshow
+                    }
+                }, {
+                    show: false,
+                    type: 1 //完整版
+                }],
                 footer: {
-                    type: 1
+                    type: 1,
+                    cart: this.cart //添加到购物车的事件
+                },
+                action: {
+                    show: false
+                },
+                viewer: {
+                    show: false,
+                    data: []
                 }
             }
         },
         computed: {
-            slider() { //传递给slider组件的数据，如果url === null, 则直接填充数据data，反之则通过url地址以及param去请求后台获取
-                return {
-                    url: '/static/data/detail_slider.json',
-                    param: null
-                }
-            }
+
         },
         methods: {
             back: function() {
                 window.history.back()
+            },
+            click: function() { //点击幻灯图时的事件
+                if (this.viewer.data.length === 0)
+                    this.viewer.data = this.slider.data
+                this.viewer.show = true
+            },
+            cart: function() {
+                this.action.show = true
+            },
+            sshow: function() {
+                this.service[1].show = true
             }
         },
         created: function() {
