@@ -9,13 +9,19 @@ let storage = function(resolve) {
     require(['../page/storage.vue'], resolve)
 }
 
+
+
+let category = function(resolve) {
+    require(['../page/category.vue'], resolve)
+}
+
+let search = function(resolve) {
+    require(['../page/search.vue'], resolve)
+}
+
 // 引入子路由
 let frame = function(resolve) {
-        require(['../frame/subroute.vue'], resolve) //按需异步加载的配置方式
-    }
-
-let category = function(resolve){
-    require(['../page/category.vue'], resolve)
+    require(['../frame/subroute.vue'], resolve) //按需异步加载的配置方式
 }
 
 // 引入子页面
@@ -23,7 +29,7 @@ let goodsDetail = function(resolve) {
     require(['../page/goods/detail.vue'], resolve)
 }
 
-let userZone = function(resolve){
+let userZone = function(resolve) {
     require(['../page/user/zone.vue'], resolve)
 }
 
@@ -39,12 +45,17 @@ export default [{
         name: 'category'
     },
     {
-        path: '/layer',//测试用，到时候删除
+        path: '/search',
+        component: search,
+        name: 'search'
+    },
+    {
+        path: '/layer', //测试用，到时候删除
         component: layer,
         name: 'layer'
     },
     {
-        path: '/storage',//测试使用，到时候删除
+        path: '/storage', //测试使用，到时候删除
         component: storage,
         name: 'storage'
     },

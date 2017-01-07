@@ -1,7 +1,7 @@
 <template>
     <div class="detail goods">
         <n3-top>
-            <li class="back" slot="left"><i class="iconfont icon-xiangzuojiantou f18"></i></li>
+            <li class="back" @click="back" slot="left"><i class="iconfont icon-xiangzuojiantou f18"></i></li>
             <li slot="right">
                 <a class="wrap-block" href="">
                     <i class="iconfont icon-others"></i>
@@ -55,7 +55,12 @@
                 }
             }
         },
-        created: function () {
+        methods: {
+            back: function() {
+                window.history.back()
+            }
+        },
+        created: function() {
             console.log(this.$route.query.id)
         }
     }

@@ -1,6 +1,6 @@
 <template>
-    <div class="category">
-        <n3-top :prop="top">
+    <div class="category" :style="style">
+        <n3-top>
             <li class="back" @click="back" slot="left"><i class="iconfont icon-xiangzuojiantou f18"></i></li>
             <li slot="right">
                 <a class="wrap-block" href="">
@@ -41,22 +41,23 @@
     module.exports = {
         data() {
             return {
+                style: {},
                 layer: {
                     show: false
                 },
                 selected: 0,
-                left: [],//左边的数据
-                right: []//右边的数据
+                left: [], //左边的数据
+                right: [] //右边的数据
             }
         },
         methods: {
-            back: function () {
+            back: function() {
                 window.history.back()
             },
-            load: function(id){//实际使用的时候id不是index
+            load: function(id) { //实际使用的时候id不是index
                 let url = '/static/data/category.json'
                 let params = {}
-                if(id !== undefined)
+                if (id !== undefined)
                     params.id = id
                 let _this = this
                 _this.layer.show = true
@@ -68,9 +69,9 @@
                     },
                     shade: false
                 })
-                _this.$http.get(url, params).then(function(response){
-                    if(id !== undefined) {
-                        setTimeout(function(){
+                _this.$http.get(url, params).then(function(response) {
+                    if (id !== undefined) {
+                        setTimeout(function() {
                             _this.right = _this.left[id].children
                             _this.layer.show = false
                         }, 1000)
@@ -79,13 +80,14 @@
                         _this.left = response.body
                         _this.load(0)
                     }
-                }, function(response){
+                }, function(response) {
                     console.error('load error')
                 })
             }
         },
-        created: function(){
+        created: function() {
             this.load()
+            this.style.minHeight = (document.documentElement.clientHeight - 50) + 'px'
         }
     }
 </script>

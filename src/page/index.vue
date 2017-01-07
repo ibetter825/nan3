@@ -8,10 +8,12 @@
                 </a>
             </li>
             <li class="search-container rtive" slot="center">
-                <p class="f12">
-                    <i class="iconfont icon-sousuo f12"></i>
-                    <span>搜索</span>
-                </p>
+                <router-link :to="{path: '/search'}">
+                    <p class="f12">
+                        <i class="iconfont icon-sousuo f12"></i>
+                        <span>搜索</span>
+                    </p>
+                </router-link>
             </li>
         </n3-top>
         <n3-refresh :refresh="refresh" :style="style"></n3-refresh>
@@ -64,20 +66,18 @@
                         param: null
                     }],
                     bulk: [{
-                            title: '热门商品',
-                            more: '#',
-                            url: '/static/data/widget_bulk_0.json',
-                            param: null
-                        },
-                        {
-                            lazy: true,
-                            type: 2,
-                            title: '热门商品2',
-                            more: '#',
-                            url: '/static/data/widget_bulk_1.json',
-                            param: null
-                        }
-                    ]
+                        title: '热门商品',
+                        more: '#',
+                        url: '/static/data/widget_bulk_0.json',
+                        param: null
+                    }, {
+                        lazy: true,
+                        type: 2,
+                        title: '热门商品2',
+                        more: '#',
+                        url: '/static/data/widget_bulk_1.json',
+                        param: null
+                    }]
                 }
             }
         },
@@ -145,11 +145,11 @@
             }
         },
         methods: {
-            down: function () {
+            down: function() {
                 //下拉刷新
                 alert('下拉刷新')
             },
-            move: function (e) { //由于子组件slider也有touch事件，需要将move方法传递过去，让其执行
+            move: function(e) { //由于子组件slider也有touch事件，需要将move方法传递过去，让其执行
                 let _this = this
                 let eo = e.evObj
                 let t = eo.distanceY * -1
@@ -170,7 +170,7 @@
                         _this.y = 60 //等刷新完成以后设置为0
                         _this.refresh.state = 2
                         _this.refresh.tran = 'tran05'
-                        setTimeout(function () {
+                        setTimeout(function() {
                             _this.y = 0
                         }, 1000);
                     } else
