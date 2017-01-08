@@ -4,11 +4,57 @@
             <ul v-if="prop.type === 0" class="service f12" @click="click">
                 <li class="fl"><i class="iconfont icon-roundcheck red"></i> 坏单包退</li>
                 <li class="fl"><i class="iconfont icon-roundcheck red"></i> 正品保证</li>
+                <li class="fl"><i class="iconfont icon-roundcheck red"></i> 正品保证</li>
                 <li class="fr"><i class="iconfont icon-xiangyoujiantou"></i></li>
                 <div class="clear"></div>
             </ul>
             <div v-if="prop.type === 1" class="shade shade-darker" @click.self="hide">
                 <section class="service modal abte tran03" :style="style">
+                    <div class="modal-cnt">
+                        <h4 class="text-center red">基础服务</h4>
+                        <div class="pd5-20">
+                            <div class="rtive">
+                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <p class="pd5-0">全国联保</p>
+                                <p class="f12 gray">商品在线报修，直达品牌售后</p>
+                            </div>
+                            <div class="rtive">
+                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <p class="pd5-0">全国联保</p>
+                                <p class="f12 gray">商品在线报修，直达品牌售后</p>
+                            </div>
+                            <div class="rtive">
+                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <p class="pd5-0">全国联保</p>
+                                <p class="f12 gray">商品在线报修，直达品牌售后</p>
+                            </div>
+                            <div class="rtive">
+                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <p class="pd5-0">全国联保</p>
+                                <p class="f12 gray">商品在线报修，直达品牌售后</p>
+                            </div>
+                            <div class="rtive">
+                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <p class="pd5-0">全国联保</p>
+                                <p class="f12 gray">商品在线报修，直达品牌售后</p>
+                            </div>
+                            <div class="rtive">
+                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <p class="pd5-0">全国联保</p>
+                                <p class="f12 gray">商品在线报修，直达品牌售后</p>
+                            </div>
+                            <div class="rtive">
+                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <p class="pd5-0">全国联保</p>
+                                <p class="f12 gray">商品在线报修，直达品牌售后</p>
+                            </div>
+                            <div class="rtive">
+                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <p class="pd5-0">全国联保</p>
+                                <p class="f12 gray">商品在线报修，直达品牌售后</p>
+                            </div>
+                        </div>
+                    </div>
                     <ul class="modal-btn white abte">
                         <li class="confirm bg-red" @click.self="hide">完成</li>
                     </ul>
@@ -59,9 +105,11 @@
         },
         created() {
             let _this = this
-            setTimeout(function() {
-                _this.y = 0
-            }, 16);
+            if (_this.prop.type === 1) {
+                setTimeout(function() {
+                    _this.y = 0
+                }, 16);
+            }
         }
     }
 </script>

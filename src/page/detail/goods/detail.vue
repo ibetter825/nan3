@@ -31,6 +31,7 @@
                 </ul>
             </section>
             <n3-detail-service :prop="service[0]"></n3-detail-service>
+            <n3-detail-sales :prop="sales[0]"></n3-detail-sales>
         </ul>
         </section>
         <div class="divider divider5"></div>
@@ -38,6 +39,7 @@
         <n3-detail-action v-if="action.show" :prop="action"></n3-detail-action>
         <n3-viewer v-if="viewer.show" :prop="viewer"></n3-viewer>
         <n3-detail-service v-if="service[1].show" :prop="service[1]"></n3-detail-service>
+        <n3-detail-sales v-if="sales[1].show" :prop="sales[1]"></n3-detail-sales>
     </div>
 </template>
 <script>
@@ -57,7 +59,16 @@
                 service: [{
                     type: 0, //缩略版
                     methods: {
-                        click: this.sshow
+                        click: this.serviceShow
+                    }
+                }, {
+                    show: false,
+                    type: 1 //完整版
+                }],
+                sales: [{
+                    type: 0, //缩略版
+                    methods: {
+                        click: this.salesShow
                     }
                 }, {
                     show: false,
@@ -91,8 +102,11 @@
             cart: function() {
                 this.action.show = true
             },
-            sshow: function() {
+            serviceShow: function() {
                 this.service[1].show = true
+            },
+            salesShow: function() {
+                this.sales[1].show = true
             }
         },
         created: function() {

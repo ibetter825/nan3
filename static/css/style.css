@@ -242,6 +242,10 @@ select:-webkit-autofill {
     padding: 5px 10px;
 }
 
+.pd5-20 {
+    padding: 5px 20px;
+}
+
 .pd10 {
     padding: 10px;
 }
@@ -340,6 +344,10 @@ select:-webkit-autofill {
     -ms-text-overflow: clip;
     -o-text-overflow: clip;
     text-overflow: clip;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .hide {
@@ -1250,7 +1258,7 @@ select:-webkit-autofill {
 
 .detail .service li,
 .detail .sales li {
-    margin-left: 5px;
+    margin-left: 30px;
     line-height: 24px;
 }
 
@@ -1628,6 +1636,41 @@ select:-webkit-autofill {
     height: 70%;
     bottom: 0;
     background: #FAFAFA;
+}
+
+.detail .modal-cnt {
+    height: 100%;
+    border-width: 10px 0 60px 0;
+    border-style: solid;
+    border-color: #FAFAFA;
+    overflow: auto;
+}
+
+.detail .modal-cnt h4 {
+    padding-top: 10px;
+}
+
+.detail .modal-cnt .abte {
+    display: block;
+    height: 100%;
+    width: 30px;
+    top: 0;
+}
+
+.detail .modal-cnt .rtive {
+    padding-top: 4px;
+}
+
+.detail .modal-cnt i {
+    top: 8px;
+}
+
+.detail .modal-cnt p {
+    padding-left: 30px;
+}
+
+.detail .modal-cnt h4 {
+    font-weight: normal;
 }
 
 .detail .modal-btn {

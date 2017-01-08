@@ -43,7 +43,7 @@ export default {
         require(['./n3/sect/list.vue'], resolve)
     },
     'n3-goods-info': function(resolve) {
-        require(['./n3/goods/info.vue'], resolve)
+        require(['./n3/detail/goods/info.vue'], resolve)
     },
     'n3-ball': function(resolve) {
         require(['./n3/ball.vue'], resolve)
@@ -54,6 +54,10 @@ export default {
     'n3-detail-service': function(resolve) {
         require(['./n3/detail/service.vue'], resolve)
     },
+    'n3-detail-sales': function(resolve) {
+        require(['./n3/detail/sales.vue'], resolve)
+    },
+
     //layer-mobile組件
     'layer-mobile': function(resolve) {
         require(['./layer/mobile/layer.vue'], resolve)
