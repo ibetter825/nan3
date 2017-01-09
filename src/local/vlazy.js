@@ -21,14 +21,14 @@ function listen (e) {
     img.src = el.getAttribute('data-url')
 
     // 加载成功
-    addListener(img, 'load', function () {
+    $util.addListener(img, 'load', function () {
       el.setAttribute('data-lazy', 'loaded') // 给改变元素属性，用于查询遍历
       el.removeAttribute('data-url')
       el.style.background = ''
     }, false)
 
     // 加载失败
-    addListener(img, 'error', function () {
+    $util.addListener(img, 'error', function () {
       el.setAttribute('data-lazy', 'error') // 给改变元素属性，用于查询遍历
       el.style.background = 'url(' + ERROR_IMG + ') no-repeat center'
       img.style.visibility = 'hidden'
@@ -36,7 +36,7 @@ function listen (e) {
   }
 
   // 移除事件监听
-  removeListener(el, 'listen', listen, false)
+  $util.removeListener(el, 'listen', listen, false)
 }
 
 // 创建事件
@@ -45,7 +45,7 @@ var evt = document.createEvent('HTMLEvents')
 evt.initEvent('listen', false, false)
 
 // 添加监听事件
-window.addEventListener('scroll', function () {
+$util.addListener(window, 'scroll', function () {
   let isDown = isScrollDown()
   let lazies = document.querySelectorAll('[data-lazy=unload]')
   let el = null, etop = 0, ebottom = 0, height = 0
@@ -64,24 +64,7 @@ window.addEventListener('scroll', function () {
     }
   }
 }, false)
-/**
- * 添加事件监听
- */
-function addListener (el, type, fn, capture) {
-  if (window.addEventListener)
-    el.addEventListener(type, fn, capture)
-  else if (window.attachEvent)
-    el.attachEvent('on' + type, fn)
-}
-/**
- * 移除监听事件
- */
-function removeListener (el, type, fn, capture) {
-  if (window.removeEventListener)
-    el.removeEventListener(type, fn, capture)
-  else if (window.detachEvent)
-    el.detachEvent('on' + type, fn)
-}
+
 /**
  * 是否向下滚动
  */
@@ -135,7 +118,7 @@ export default {
         el.src = LOADING_IMG
     }
     // 监听listen事件
-    addListener(el, 'listen', listen, false)
+    $util.addListener(el, 'listen', listen, false)
   },
   inserted: function (el) {
     setTimeout(function () {
