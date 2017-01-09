@@ -1,34 +1,41 @@
 <template>
     <transition name="fade">
-        <div class="shade shade-darker" @click.self="hide">
-            <section class="action modal abte tran03" :style="style">
-                <div class="action-header">
-                    <div class="rtive">
-                        <img src="/static/images/detail_0.jpg" alt="">
+        <div>
+            <ul v-if="prop.type === 0" class="choose f12" @click="prop.click">
+                <li class="fl black">配送至：滨江区</li>
+                <li class="fr"><i class="iconfont icon-xiangyoujiantou"></i></li>
+                <div class="clear"></div>
+            </ul>
+            <div v-if="prop.type === 1" class="shade shade-darker" @click.self="hide">
+                <section class="action modal abte tran03" :style="style">
+                    <div class="action-header">
+                        <div class="rtive">
+                            <img src="/static/images/detail_0.jpg" alt="">
+                        </div>
+                        <div>
+                            <p class="orange f24"><span class="f16">￥</span>250</p>
+                            <p class="gray f12">库存2017件</p>
+                        </div>
                     </div>
-                    <div>
-                        <p class="orange f24"><span class="f16">￥</span>250</p>
-                        <p class="gray f12">库存2017件</p>
+                    <div class="">
+                        <!--此处不同的商品内容不同-->
                     </div>
-                </div>
-                <div class="">
-                    <!--此处不同的商品内容不同-->
-                </div>
-                <!--购买数量-->
-                <div class="action-count pd10">
-                    <span class="fl">购买数量</span>
-                    <span class="f16 fr">
-                        <i class="iconfont icon-jianhao disable"></i>
-                        <i class="buy-num">2</i>
-                        <i class="iconfont icon-jiahao1 light-gray"></i>
-                    </span>
-                </div>
-                <ul class="modal-btn white abte">
-                    <li class="bg-orange" v-if="!prop.confirm">加入购物车</li>
-                    <li class="bg-red" v-if="!prop.confirm">立即购买</li>
-                    <li class="confirm bg-red" v-if="prop.confirm">确认</li>
-                </ul>
-            </section>
+                    <!--购买数量-->
+                    <div class="action-count pd10">
+                        <span class="fl">购买数量</span>
+                        <span class="f16 fr">
+                            <i class="iconfont icon-jianhao disable"></i>
+                            <i class="buy-num">2</i>
+                            <i class="iconfont icon-jiahao1 light-gray"></i>
+                        </span>
+                    </div>
+                    <ul class="modal-btn white abte">
+                        <li class="bg-orange" v-if="!prop.confirm">加入购物车</li>
+                        <li class="bg-red" v-if="!prop.confirm">立即购买</li>
+                        <li class="confirm bg-red" v-if="prop.confirm">确认</li>
+                    </ul>
+                </section>
+            </div>
         </div>
     </transition>
 </template>
@@ -60,7 +67,6 @@
                 setTimeout(function() {
                     _this.prop.show = false
                 }, 200);
-
             }
         },
         watch: {

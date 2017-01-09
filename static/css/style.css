@@ -1242,7 +1242,7 @@ select:-webkit-autofill {
 
 .detail .service,
 .detail .sales,
-.detail .addr {
+.detail .choose {
     padding: 5px 20px;
     background: #FCFCFC;
 }
@@ -1266,8 +1266,8 @@ select:-webkit-autofill {
 .detail .service li:nth-last-child(2),
 .detail .sales li:first-child,
 .detail .sales li:nth-last-child(2),
-.detail .addr li:first-child,
-.detail .addr li:nth-last-child(2) {
+.detail .choose li:first-child,
+.detail .choose li:nth-last-child(2) {
     margin-left: 0;
 }
 
@@ -1293,13 +1293,14 @@ select:-webkit-autofill {
     padding-left: 8px;
 }
 
-.detail .addr li {
+.detail .choose li {
     margin-left: 5px;
     line-height: 28px;
 }
 
 .detail .appraise h4 {
     font-weight: normal;
+    padding-bottom: 10px;
 }
 
 .detail .appraise-tags {

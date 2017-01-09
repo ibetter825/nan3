@@ -20,8 +20,8 @@
                     <p class="f12">分享</p>
                 </div>
                 <div class="price">
-                    <p class="f24"><i class="f16 orange">￥</i><span class="orange">{{price}}</span></p>
-                    <p class="gray f12"><i>价格</i><span class="through">￥{{marketPrice}}</span></p>
+                    <p class="f24"><i class="f16 orange">￥</i><span class="orange">{{ price }}</span></p>
+                    <p class="gray f12"><i>价格</i><span class="through">￥{{ marketPrice }}</span></p>
                 </div>
                 <ul class="info gray f12">
                     <li class="fl">快递:￥0</li>
@@ -32,11 +32,14 @@
             </section>
             <n3-detail-service :prop="service[0]"></n3-detail-service>
             <n3-detail-sales :prop="sales[0]"></n3-detail-sales>
-        </ul>
+            <div class="divider"></div>
+            <n3-detail-action :prop="action[0]"></n3-detail-action>
+            <div class="divider"></div>
+            <n3-detail-appraise :prop="appraise"></n3-detail-appraise>
         </section>
         <div class="divider divider5"></div>
         <n3-footer :prop="footer"></n3-footer>
-        <n3-detail-action v-if="action.show" :prop="action"></n3-detail-action>
+        <n3-detail-action v-if="action[1].show" :prop="action[1]"></n3-detail-action>
         <n3-viewer v-if="viewer.show" :prop="viewer"></n3-viewer>
         <n3-detail-service v-if="service[1].show" :prop="service[1]"></n3-detail-service>
         <n3-detail-sales v-if="sales[1].show" :prop="sales[1]"></n3-detail-sales>
@@ -78,8 +81,18 @@
                     type: 1,
                     cart: this.cart //添加到购物车的事件
                 },
-                action: {
-                    show: false
+                action: [{
+                        type: 0,
+                        show: true,
+                        click: this.cart
+                    },
+                    {
+                        type: 1,
+                        show: false
+                    }
+                ],
+                appraise: {
+                    type: 0
                 },
                 viewer: {
                     show: false,
@@ -91,25 +104,25 @@
 
         },
         methods: {
-            back: function() {
+            back: function () {
                 window.history.back()
             },
-            click: function() { //点击幻灯图时的事件
+            click: function () { //点击幻灯图时的事件
                 if (this.viewer.data.length === 0)
                     this.viewer.data = this.slider.data
                 this.viewer.show = true
             },
-            cart: function() {
-                this.action.show = true
+            cart: function () {
+                this.action[1].show = true
             },
-            serviceShow: function() {
+            serviceShow: function () {
                 this.service[1].show = true
             },
-            salesShow: function() {
+            salesShow: function () {
                 this.sales[1].show = true
             }
         },
-        created: function() {
+        created: function () {
             console.log(this.$route.query.id)
         }
     }

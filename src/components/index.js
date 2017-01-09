@@ -57,7 +57,9 @@ export default {
     'n3-detail-sales': function(resolve) {
         require(['./n3/detail/sales.vue'], resolve)
     },
-
+    'n3-detail-appraise': function(resolve){
+        require(['./n3/detail/appraise.vue'], resolve)
+    },
     //layer-mobile組件
     'layer-mobile': function(resolve) {
         require(['./layer/mobile/layer.vue'], resolve)

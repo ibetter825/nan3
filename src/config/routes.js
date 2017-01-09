@@ -29,6 +29,10 @@ let goodsDetail = function(resolve) {
     require(['../page/detail/goods/detail.vue'], resolve)
 }
 
+let appraise = function(resolve) {
+    require(['../page/detail/appraise.vue'], resolve)
+}
+
 let userZone = function(resolve) {
     require(['../page/user/zone.vue'], resolve)
 }
@@ -58,6 +62,11 @@ export default [{
         path: '/storage', //测试使用，到时候删除
         component: storage,
         name: 'storage'
+    },
+    {
+        path: '/appraise',
+        component: appraise,
+        name: 'appraise'
     },
     {
         path: '/goods',
