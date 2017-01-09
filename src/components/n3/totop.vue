@@ -12,7 +12,7 @@
                 let _util = _this.$util
                 let target = document.body || document.documentElement
                 let _run = function(){
-                    target.scrollTop-=20
+                    target.scrollTop -= 20
                     if(target.scrollTop > 0) requestAnimationFrame(_run)
                 }
                 _run()
