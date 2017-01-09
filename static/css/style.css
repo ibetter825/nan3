@@ -1672,7 +1672,23 @@ select:-webkit-autofill {
 .detail .modal-cnt h4 {
     font-weight: normal;
 }
+.detail .sales .modal-cnt .rtive {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E9E9E9;
+}
 
+.detail .sales .modal-cnt .abte {
+    height: auto;
+    top: 2px;
+}
+.detail .sales .modal-cnt p {
+    padding-left: 40px;
+    line-height: 20px;
+}
+.detail .modal-cnt .during {
+    display: block;
+    line-height: 16px;
+}
 .detail .modal-btn {
     height: 50px;
     width: 100%;

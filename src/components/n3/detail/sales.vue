@@ -13,6 +13,17 @@
             </ul>
             <div v-if="prop.type === 1" class="shade shade-darker" @click.self="hide">
                 <section class="sales modal abte tran03" :style="style">
+                    <div class="modal-cnt">
+                        <div class="pd5-10">
+                            <div class="rtive f12">
+                                <span class="type red abte f10">促销</span>
+                                <p class="gray">
+                                    商品在线报修，直达品牌售后
+                                    <span class="during f10 light-gray">2016-12-30 - 2017-01-31</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     <ul class="modal-btn white abte">
                         <li class="confirm bg-red" @click.self="hide">完成</li>
                     </ul>
