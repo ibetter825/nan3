@@ -37,6 +37,9 @@ import vtouch from './local/vtouch'
 Object.keys(vtouch).forEach((key) => {
     Vue.directive(`${key}`, vtouch[key])
 })
+import touch from './local/touch'
+Vue.directive('touch', touch)
+
 //自定义v-lazy懒加载指令
 import vlazy from './local/vlazy'
 Vue.directive('lazy', vlazy)
