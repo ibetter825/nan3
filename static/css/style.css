@@ -574,14 +574,14 @@ select:-webkit-autofill {
     background: #F4F4F4;
 }
 
-.refresh {
+.cushion {
     width: 100%;
     height: 50px;
     top: 0;
     color: #9B9B9B;
 }
 
-.refresh p {
+.cushion p {
     width: 100%;
     bottom: 20px;
     text-align: center;

@@ -40,6 +40,8 @@ function touchstart (e, self) {
   evObj.pageX = touches.pageX
   evObj.pageY = touches.pageY
   evObj.isStart = true
+  evObj.isMoving = false
+  evObj.isEnd = true
   evObj.clientX = touches.clientX
   evObj.clientY = touches.clientY
   self.time = +new Date()
@@ -53,6 +55,7 @@ function touchmove (e, self) {
   let evObj = self.evObj
   evObj.isStart = false
   evObj.isMoving = true
+  evObj.isEnd = false
   evObj.distanceX = evObj.pageX - touches.pageX
   evObj.distanceY = evObj.pageY - touches.pageY
   evObj.type = getType(self)

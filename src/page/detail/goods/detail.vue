@@ -9,7 +9,8 @@
             </li>
             <li class="title" slot="center">{{title}}</li>
         </n3-top>
-        <section class="main">
+        <n3-cushion :prop="cushion" :style="style"></n3-cushion>
+        <section class="main" v-touch="{methods: touch}" :style="style">
             <n3-slider :prop="slider"></n3-slider>
             <section class="header pd10-20 rtive">
                 <h1 class="mg0 f18">
@@ -36,6 +37,9 @@
             <n3-detail-action :prop="action[0]"></n3-detail-action>
             <div class="divider"></div>
             <n3-detail-appraise :prop="appraise"></n3-detail-appraise>
+            <div class="divider"></div>
+            <!--店家-->
+            <n3-detail-shop :prop="shop"></n3-detail-shop>
         </section>
         <div class="divider divider5"></div>
         <n3-footer :prop="footer"></n3-footer>
@@ -49,6 +53,7 @@
     module.exports = {
         data() {
             return {
+                y: 0,
                 title: '圣诞树大户大叔的宿舍的',
                 slider: {
                     url: '/static/data/detail_slider.json',
@@ -59,6 +64,10 @@
                 },
                 price: 250,
                 marketPrice: 1250,
+                cushion: {
+                    state: 0,
+                    tran: ''
+                },
                 service: [{
                     type: 0, //缩略版
                     methods: {
@@ -94,6 +103,13 @@
                 appraise: {
                     type: 0
                 },
+                shop: {
+                    url: '/static/data/detail_shop.json',
+                    param: {
+                        id: 's10001'
+                    },
+                    data: null
+                },
                 viewer: {
                     show: false,
                     data: []
@@ -101,7 +117,16 @@
             }
         },
         computed: {
-
+            style() { //下拉需要的style
+                let dis = 'translateY(' + this.y + 'px)'
+                return {
+                    'transform': dis,
+                    '-webkit-transform': dis,
+                    '-moz-transform': dis,
+                    '-ms-transform': dis,
+                    '-o-transform': dis
+                }
+            },
         },
         methods: {
             back: function () {
@@ -120,6 +145,35 @@
             },
             salesShow: function () {
                 this.sales[1].show = true
+            },
+            touch: function (e) {
+                let _this = this
+                let ev = e.evObj
+                let t = ev.distanceY * -1
+                if (ev.isStart) {
+                    console.log('start')
+                    return
+                } else if (ev.isEnd) {
+                    console.log('end')
+                    document.body.style.overflowY = 'auto'
+                    if (t > 60) {
+                        _this.y = 60 //等刷新完成以后设置为0
+                        _this.cushion.state = 2
+                        setTimeout(function() {
+                            _this.y = 0
+                        }, 1000);
+                    } else
+                        _this.y = 0
+                } else {
+                    console.log('moving')
+                    if (ev.type === 'down') {
+                        if (_this.$util.scrollTop() <= 0)
+                            document.body.style.overflowY = 'hidden'
+                        _this.y = t <= 0 ? 0 : t
+                        if (t > 60) _this.cushion.state = 1
+                    }else
+                        return
+                }
             }
         },
         created: function () {

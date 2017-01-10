@@ -1,5 +1,5 @@
 <template>
-    <div class="totop" @click="totop" :style="style" v-touch.prevent="{methods: touch}">
+    <div class="totop" :style="style" v-touch.prevent="{methods: touch}">
         <i class="iconfont icon-xiangshangjiantou"></i>
     </div>
 </template>
@@ -31,8 +31,7 @@
         },
         methods: {
             totop: function () { //返回顶部
-                let _this = this
-                let _util = _this.$util
+                let _util = this.$util
                 let target = document.body || document.documentElement
                 let _run = function () {
                     target.scrollTop -= 20

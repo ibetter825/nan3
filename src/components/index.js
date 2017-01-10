@@ -6,8 +6,8 @@ export default {
     'n3-totop': function(resolve) {
         require(['./n3/totop.vue'], resolve) //按需异步加载的配置方式
     },
-    'n3-refresh': function(resolve) {
-        require(['./n3/refresh.vue'], resolve)
+    'n3-cushion': function(resolve) {
+        require(['./n3/cushion.vue'], resolve)
     },
     'n3-advert': function(resolve) {
         require(['./n3/advert.vue'], resolve)
@@ -62,6 +62,9 @@ export default {
     },
     'n3-detail-appraise': function(resolve){
         require(['./n3/detail/appraise.vue'], resolve)
+    },
+    'n3-detail-shop': function(resolve) {
+        require(['./n3/detail/shop.vue'], resolve)
     },
     //layer-mobile組件
     'layer-mobile': function(resolve) {

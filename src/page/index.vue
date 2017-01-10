@@ -16,7 +16,7 @@
                 </router-link>
             </li>
         </n3-top>
-        <n3-refresh :refresh="refresh" :style="style"></n3-refresh>
+        <n3-cushion :prop="cushion" :style="style"></n3-cushion>
         <section :class="['main', clz.tran]" v-move="{methods: move}" :style="style">
             <n3-slider :prop="slider"></n3-slider>
             <n3-nav :prop="nav"></n3-nav>
@@ -45,7 +45,7 @@
                 clz: {
                     tran: ''
                 },
-                refresh: {
+                cushion: {
                     state: 0,
                     tran: ''
                 },
@@ -155,21 +155,21 @@
                 let t = eo.distanceY * -1
                 if (t < 0) return false //向上滑动不做操作
 
-                _this.refresh.state = 0
+                _this.cushion.state = 0
                 if (eo.moving) {
                     if (_this.$util.scrollTop() <= 0)
                         document.body.style.overflowY = 'hidden'
                     _this.clz.tran = ''
-                    _this.refresh.tran = ''
+                    _this.cushion.tran = ''
                     _this.y = t <= 0 ? 0 : t
-                    if (t > 60) this.refresh.state = 1
+                    if (t > 60) _this.cushion.state = 1
                 } else {
                     document.body.style.overflowY = 'auto'
                     _this.clz.tran = 'tran05'
                     if (t > 60) {
                         _this.y = 60 //等刷新完成以后设置为0
-                        _this.refresh.state = 2
-                        _this.refresh.tran = 'tran05'
+                        _this.cushion.state = 2
+                        _this.cushion.tran = 'tran05'
                         setTimeout(function() {
                             _this.y = 0
                         }, 1000);
