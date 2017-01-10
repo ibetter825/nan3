@@ -50,7 +50,7 @@
                 let _this = this
                 let count = 0
                 let lth = _this.data.length
-                if (_this.selected === lth - 1) {
+                if (_this.selected >= lth - 1) {
                     _this.dis = 0
                     _this.selected = 0
                 } else {
@@ -62,7 +62,7 @@
                         else {
                             _this.selected++
 
-                                if (_this.selected === lth - 1)
+                                if (_this.selected >= lth - 1)
                                     _this.start()
                         }
                     }
