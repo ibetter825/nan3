@@ -60,7 +60,6 @@
                         if (count < 20)
                             requestAnimationFrame(_run)
                         else {
-                            console.log(_this.selected)
                             _this.selected++
 
                                 if (_this.selected === lth - 1)
@@ -83,12 +82,11 @@
                     if (Math.abs(ev.distanceX / 20) > 5) {
                         if (ev.type === 'left' && _this.selected !== 4) {
                             _this.selected++
-                            flg = 1
+                                flg = 1
                         } else if (ev.type === 'right' && _this.selected !== 0)
                             _this.selected--
-                    } else {
-                        if (ev.type === 'left') flg = -1
-                    }
+                    } else
+                    if (ev.type === 'left') flg = -1
 
                     let _run = function () {
                         if (flg === 1) {
@@ -110,11 +108,7 @@
                 }
             }
         },
-        watch: {
-
-        },
         mounted: function () {
-            console.log('ASSSSSSS')
             this.start()
         },
         created: function () {
