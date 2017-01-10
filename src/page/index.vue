@@ -17,7 +17,7 @@
             </li>
         </n3-top>
         <n3-cushion :prop="cushion" :style="style"></n3-cushion>
-        <section :class="['main', clz.tran]" v-move="{methods: move}" :style="style">
+        <section class="main" v-touch="{methods: touch}" :style="style">
             <n3-slider :prop="slider"></n3-slider>
             <n3-nav :prop="nav"></n3-nav>
             <div class="divider"></div>
@@ -145,37 +145,44 @@
             }
         },
         methods: {
-            down: function() {
-                //下拉刷新
-                alert('下拉刷新')
-            },
-            move: function(e) { //由于子组件slider也有touch事件，需要将move方法传递过去，让其执行
+            touch: function (e) {
                 let _this = this
-                let eo = e.evObj
-                let t = eo.distanceY * -1
-                if (t < 0) return false //向上滑动不做操作
-
-                _this.cushion.state = 0
-                if (eo.moving) {
-                    if (_this.$util.scrollTop() <= 0)
-                        document.body.style.overflowY = 'hidden'
-                    _this.clz.tran = ''
-                    _this.cushion.tran = ''
-                    _this.y = t <= 0 ? 0 : t
-                    if (t > 60) _this.cushion.state = 1
-                } else {
+                let ev = e.evObj
+                let t = ev.distanceY * -1
+                if (ev.isStart) {
+                    return
+                } else if (ev.isEnd) {
                     document.body.style.overflowY = 'auto'
-                    _this.clz.tran = 'tran05'
+                    let lmt = 60
+                    let _run = function(){
+                        _this.y-= lmt === 60 ? 10 : 5
+                        if(_this.y >= lmt) requestAnimationFrame(_run)
+                        else {
+                            _this.y = lmt
+                            if(lmt === 60){
+                                setTimeout(function () {
+                                    lmt = 0
+                                    _run()
+                                }, 1000);
+                            }
+                        }
+                    }
                     if (t > 60) {
-                        _this.y = 60 //等刷新完成以后设置为0
+                        _run()
                         _this.cushion.state = 2
-                        _this.cushion.tran = 'tran05'
-                        setTimeout(function() {
-                            _this.y = 0
-                        }, 1000);
+                    } else {
+                        lmt = 0
+                        _run()
+                    }
+                } else {
+                    if (ev.type === 'down') {
+                        if (_this.$util.scrollTop() <= 0) {
+                            document.body.style.overflowY = 'hidden'
+                            _this.y = t <= 0 ? 0 : t
+                            if (t > 60) _this.cushion.state = 1
+                        }
                     } else
-                        _this.y = 0
-
+                        return
                 }
             }
         }

@@ -151,27 +151,38 @@
                 let ev = e.evObj
                 let t = ev.distanceY * -1
                 if (ev.isStart) {
-                    console.log('start')
                     return
                 } else if (ev.isEnd) {
-                    console.log('end')
                     document.body.style.overflowY = 'auto'
+                    let lmt = 60
+                    let _run = function(){
+                        _this.y-= lmt === 60 ? 10 : 5
+                        if(_this.y >= lmt) requestAnimationFrame(_run)
+                        else {
+                            _this.y = lmt
+                            if(lmt === 60){
+                                setTimeout(function () {
+                                    lmt = 0
+                                    _run()
+                                }, 1000);
+                            }
+                        }
+                    }
                     if (t > 60) {
-                        _this.y = 60 //等刷新完成以后设置为0
+                        _run()
                         _this.cushion.state = 2
-                        setTimeout(function() {
-                            _this.y = 0
-                        }, 1000);
-                    } else
-                        _this.y = 0
+                    } else {
+                        lmt = 0
+                        _run()
+                    }
                 } else {
-                    console.log('moving')
                     if (ev.type === 'down') {
-                        if (_this.$util.scrollTop() <= 0)
+                        if (_this.$util.scrollTop() <= 0) {
                             document.body.style.overflowY = 'hidden'
-                        _this.y = t <= 0 ? 0 : t
-                        if (t > 60) _this.cushion.state = 1
-                    }else
+                            _this.y = t <= 0 ? 0 : t
+                            if (t > 60) _this.cushion.state = 1
+                        }
+                    } else
                         return
                 }
             }
