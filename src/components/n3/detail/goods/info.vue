@@ -1,6 +1,6 @@
 <template>
     <section class="goods-info">
-        <ul class="info-tab">
+        <ul class="info-tab" :style="tab.style">
             <li :class="[selected === 0 ? 'selected' : '']">
                 <span class="block">图文详情</span>
             </li>
@@ -65,6 +65,13 @@
         props: ['prop'],
         data() {
             return {
+                tab: {
+                    style: {
+                        position: '',
+                        top: '',
+                        zIndex: ''
+                    }
+                },
                 selected: 0,
                 dis: 0,
                 allshow: false,
@@ -107,7 +114,8 @@
                     return
                 } else if (ev.isMoving) {
                     _this.allshow = true
-                    _this.dis = _this.selected * 33.3333 + ev.distanceX / 33.3333
+                    if (Math.abs(ev.distanceX) > 20)
+                        _this.dis = _this.selected * 33.3333 + ev.distanceX / 33.3333
                 } else {
                     let flg = -1
                     if (Math.abs(ev.distanceX) > 20) {
@@ -144,7 +152,19 @@
         created() {
             let _this = this
             _this.$scroll.register('detail_info_scroll', function () {
-                console.log('scrolling')
+                    let list = document.getElementsByClassName('goods-info')
+                    if(list.length > 0) {
+                        if(list[0].getBoundingClientRect().top <= 100){
+                            _this.tab.style['position'] = 'fixed'
+                            _this.tab.style['top'] = '50px'
+                            _this.tab.style['zIndex'] = 1
+                        }else{
+                             _this.tab.style['position'] = ''
+                            _this.tab.style['top'] = ''
+                            _this.tab.style['zIndex'] = ''
+                        }
+                    }else
+                        _this.$scroll.remove('detail_info_scroll')
             })
         }
     }

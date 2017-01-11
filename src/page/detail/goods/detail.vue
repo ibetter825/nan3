@@ -41,9 +41,10 @@
             <!--店家-->
             <n3-detail-shop :prop="shop"></n3-detail-shop>
             <div class="divider"></div>
-            <!--商品详情-->
-            <n3-goods-info :prop="info"></n3-goods-info>
         </section>
+        <!--商品详情-->
+        <n3-goods-info :prop="info"></n3-goods-info>
+        
         <div class="divider divider5"></div>
         <n3-footer :prop="footer"></n3-footer>
         <n3-detail-action v-if="action[1].show" :prop="action[1]"></n3-detail-action>
@@ -196,7 +197,7 @@
         },
         watch: {
             '$route' (to, from) {
-                console.log(to.query.id+':')
+                console.log(to.query.id + ':')
                 //当路由发生变化时，获取参数重新加载数据
             }
         },
