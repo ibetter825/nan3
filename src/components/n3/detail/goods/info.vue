@@ -142,9 +142,10 @@
             }
         },
         created() {
-            this.$util.addListener(document, 'scroll', function () {
-                console.log('scroll')
-            }, false)
+            let _this = this
+            _this.$scroll.register('detail_info_scroll', function () {
+                console.log('scrolling')
+            })
         }
     }
 </script>

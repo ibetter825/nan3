@@ -20,13 +20,13 @@
     created() {
       let _this = this
       let _util = _this.$util
-      _util.addListener(window.document, 'scroll', function () {
-        //返回顶部代码
+      _this.$scroll.register('app_scroll', function () {
+          //返回顶部代码
         if (_util.scrollTop() > 200)
           _this.totop.show = true
         else
           _this.totop.show = false
-      }, false)
+      })
     }
   }
 </script>

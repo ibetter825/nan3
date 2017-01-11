@@ -24,6 +24,10 @@ Object.keys(storage).forEach((key) => {
     Vue.prototype[key] = storage[key]
 })
 
+//全局监听documengscroll事件
+import scroll from './local/scroll'
+Vue.prototype.$scroll = scroll
+
 //将弹出层封装为vue实例的方法，直接调用就可以了 eg: this.$layer(options)
 import layer from './local/layer'
 Vue.prototype.$layer = layer
