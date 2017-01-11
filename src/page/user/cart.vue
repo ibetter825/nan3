@@ -433,10 +433,6 @@
             //当前登录用户的id存在sessionStorage中
             this.$layer({
                 type: 2,
-                style: {
-                    position: 'relative',
-                    left: '50px'
-                },
                 shade: true
             })
         }
