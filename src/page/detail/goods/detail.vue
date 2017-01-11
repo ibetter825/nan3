@@ -44,7 +44,7 @@
         </section>
         <!--商品详情-->
         <n3-goods-info :prop="info"></n3-goods-info>
-        
+
         <div class="divider divider5"></div>
         <n3-footer :prop="footer"></n3-footer>
         <n3-detail-action v-if="action[1].show" :prop="action[1]"></n3-detail-action>
@@ -203,6 +203,7 @@
         },
         created: function () {
             console.log(this.$route.query.id)
+            document.body.scrollTop = 0
         }
     }
 </script>
