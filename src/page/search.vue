@@ -68,7 +68,7 @@
         },
         methods: {
             back: function() {
-                window.history.back()
+                this.$router.go(-1)
             }
         },
         directives: {

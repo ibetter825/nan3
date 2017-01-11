@@ -52,7 +52,7 @@
         },
         methods: {
             back: function() {
-                window.history.back()
+                this.$router.go(-1)
             },
             load: function(id) { //实际使用的时候id不是index
                 let url = '/static/data/category.json'

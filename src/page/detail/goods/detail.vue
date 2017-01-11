@@ -138,7 +138,7 @@
         },
         methods: {
             back: function () {
-                window.history.back()
+                this.$router.go(-1)
             },
             click: function () { //点击幻灯图时的事件
                 if (this.viewer.data.length === 0)
