@@ -34,7 +34,6 @@
                 <div class="clear"></div>
             </ul>
         </section>
-        <layer-mobile v-if="layer.show"></layer-mobile>
     </div>
 </template>
 <script>
@@ -42,9 +41,6 @@
         data() {
             return {
                 style: {},
-                layer: {
-                    show: false
-                },
                 selected: 0,
                 left: [], //左边的数据
                 right: [] //右边的数据
@@ -60,7 +56,6 @@
                 if (id !== undefined)
                     params.id = id
                 let _this = this
-                _this.layer.show = true
                 _this.$layer({
                     type: 2,
                     style: {
@@ -73,7 +68,7 @@
                     if (id !== undefined) {
                         setTimeout(function() {
                             _this.right = _this.left[id].children
-                            _this.layer.show = false
+                            _this.$layer(false)
                         }, 1000)
                         _this.selected = id
                     } else {

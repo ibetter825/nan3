@@ -416,7 +416,7 @@
 <script>
     //跳动的小球，用于添加购物车的动画效果
     module.exports = {
-        data () {
+        data() {
             return {
                 footer: {
                     selected: 'cart'
@@ -428,9 +428,17 @@
                 this.$router.go(-1)
             }
         },
-        created(){
+        created() {
             //组件创建完成以后，查询当前登录用户的购物车记录
             //当前登录用户的id存在sessionStorage中
+            this.$layer({
+                type: 2,
+                style: {
+                    position: 'relative',
+                    left: '50px'
+                },
+                shade: true
+            })
         }
     }
 </script>
