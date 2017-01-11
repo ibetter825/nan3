@@ -10,7 +10,6 @@ let storage = function(resolve) {
 }
 
 
-
 let category = function(resolve) {
     require(['../page/category.vue'], resolve)
 }
@@ -35,6 +34,10 @@ let appraise = function(resolve) {
 
 let userZone = function(resolve) {
     require(['../page/user/zone.vue'], resolve)
+}
+
+let userCart = function(resolve) {
+    require(['../page/user/cart.vue'], resolve)
 }
 
 // 配置路由
@@ -80,6 +83,7 @@ export default [{
         component: frame,
         children: [
             { path: 'zone', component: userZone },
+            { path: 'cart', component: userCart }
         ]
     }
 ]

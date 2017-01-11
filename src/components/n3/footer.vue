@@ -13,11 +13,11 @@
                     <p><span>分类</span></p>
                 </router-link>
             </li>
-            <li :class="[prop['selected'] === 'cart' ? 'selected' : '']" id="cart">
-                <a href="view/cart.html">
+            <li id="cart">
+                <router-link :class="[prop['selected'] === 'cart' ? 'selected' : '']" :to="{path: '/user/cart'}">
                     <p><i class="iconfont icon-gouwuche"></i></p>
                     <p><span>购物车</span></p>
-                </a>
+                </router-link>
             </li>
             <li>
                 <router-link :class="[prop['selected'] === 'zone' ? 'selected' : '']" :to="{path: '/user/zone', query: {id: 10001}}">
@@ -34,10 +34,10 @@
                 </router-link>
             </li>
             <li id="cart">
-                <a href="">
+                <router-link :class="[prop['selected'] === 'cart' ? 'selected' : '']" :to="{path: '/user/cart'}">
                     <p><i class="iconfont icon-gouwuche"></i></p>
                     <p><span>购物车</span></p>
-                </a>
+                </router-link>
             </li>
             <li>
                 <a href="">
