@@ -1,7 +1,7 @@
 [
     [{
         "link": {
-            "path": "goods/detail",
+            "path": "/goods/detail",
             "query": {
                 "id": 10001
             }
@@ -14,7 +14,7 @@
     },
     {
         "link": {
-            "path": "goods/detail",
+            "path": "/goods/detail",
             "query": {
                 "id": 10002
             }
@@ -27,7 +27,7 @@
     }],
     [{
         "link": {
-            "path": "goods/detail",
+            "path": "/goods/detail",
             "query": {
                 "id": 10001
             }
@@ -40,7 +40,7 @@
     },
     {
         "link": {
-            "path": "goods/detail",
+            "path": "/goods/detail",
             "query": {
                 "id": 10002
             }

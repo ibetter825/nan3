@@ -33,7 +33,7 @@
                     <p><span>首页</span></p>
                 </router-link>
             </li>
-            <li>
+            <li id="cart">
                 <a href="">
                     <p><i class="iconfont icon-gouwuche"></i></p>
                     <p><span>购物车</span></p>

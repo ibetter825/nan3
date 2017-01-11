@@ -1,10 +1,10 @@
 <template>
     <section :class="['widget widget-bulk', prop.type === 2 ? 'widget-bulk-two' : '']">
-        <header>
+        <header v-if="prop.title">
             <h3 class="mg0 f14 pd10 relative">
                 <i class="iconfont icon-shucai"></i>
                 <span>{{ prop.title }}</span>
-                <a class="widget-more f12" :href="prop.more">更多></a>
+                <a v-if="prop.more" class="widget-more f12" :href="prop.more">更多></a>
             </h3>
         </header>
         <ul class="rtive">

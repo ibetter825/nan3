@@ -1451,9 +1451,9 @@ select:-webkit-autofill {
 .detail .goods-info {
     width: 100%;
     height: 100%;
-    position: fixed;
+    /*position: fixed;
     top: 0;
-    padding: 50px 0 100px 0;
+    padding: 50px 0 100px 0;*/
 }
 
 .slide-goods-info-hide {
@@ -1472,8 +1472,8 @@ select:-webkit-autofill {
     border-top: 1px solid #EDEDED;
     height: 50px;
     width: 100%;
-    position: absolute;
-    top: 0;
+    /*position: absolute;
+    top: 0;*/
 }
 
 .goods .info-tab li {
@@ -1502,11 +1502,12 @@ select:-webkit-autofill {
 
 .goods .info-cnt {
     height: 100%;
+    width: 300%;
     overflow-y: auto;
 }
 
 .goods .info-cnt>li {
-    width: 100%;
+    width: 33.3333%;
     float: left;
 }
 

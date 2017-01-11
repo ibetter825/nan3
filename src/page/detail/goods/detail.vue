@@ -40,6 +40,9 @@
             <div class="divider"></div>
             <!--店家-->
             <n3-detail-shop :prop="shop"></n3-detail-shop>
+            <div class="divider"></div>
+            <!--商品详情-->
+            <n3-goods-info :prop="info"></n3-goods-info>
         </section>
         <div class="divider divider5"></div>
         <n3-footer :prop="footer"></n3-footer>
@@ -47,6 +50,7 @@
         <n3-viewer v-if="viewer.show" :prop="viewer"></n3-viewer>
         <n3-detail-service v-if="service[1].show" :prop="service[1]"></n3-detail-service>
         <n3-detail-sales v-if="sales[1].show" :prop="sales[1]"></n3-detail-sales>
+        <n3-ball></n3-ball>
     </div>
 </template>
 <script>
@@ -86,6 +90,9 @@
                     show: false,
                     type: 1 //完整版
                 }],
+                info: {
+                    id: 10001
+                },
                 footer: {
                     type: 1,
                     cart: this.cart //添加到购物车的事件
@@ -155,12 +162,12 @@
                 } else if (ev.isEnd) {
                     document.body.style.overflowY = 'auto'
                     let lmt = 60
-                    let _run = function(){
-                        _this.y-= lmt === 60 ? 10 : 5
-                        if(_this.y >= lmt) requestAnimationFrame(_run)
+                    let _run = function () {
+                        _this.y -= lmt === 60 ? 10 : 5
+                        if (_this.y >= lmt) requestAnimationFrame(_run)
                         else {
                             _this.y = lmt
-                            if(lmt === 60){
+                            if (lmt === 60) {
                                 setTimeout(function () {
                                     lmt = 0
                                     _run()
@@ -185,6 +192,12 @@
                     } else
                         return
                 }
+            }
+        },
+        watch: {
+            '$route' (to, from) {
+                console.log(to.query.id+':')
+                //当路由发生变化时，获取参数重新加载数据
             }
         },
         created: function () {
