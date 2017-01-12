@@ -11,7 +11,7 @@
         </n3-top>
         <section class="main">
             <ul class="cart-list f12 gray">
-                <li class="cart-item pd5-10" v-for="(shop, index) in data">
+                <li class="cart-item pd5-10" v-for="(shop, index) in data" v-if="shop !== null">
                     <ul class="cart-item-header">
                         <li class="left fl">
                             <span><i class="iconfont icon-square"></i></span>
@@ -117,7 +117,7 @@
                     yes: function () {
                         _this.data[index].list.splice(i, 1)
                         if (_this.data[index].list.length === 0)
-                            _this.data.splice(index, 1)
+                            _this.data.splice(index, 1, null)
                     }
                 })
             }
