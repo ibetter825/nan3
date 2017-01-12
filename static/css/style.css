@@ -1943,6 +1943,7 @@ select:-webkit-autofill {
     height: 90px;
     top: -5px;
     right: -10px;
+    overflow: hidden;
 }
 
 .cart .i-edit li:first-child {
@@ -1957,7 +1958,9 @@ select:-webkit-autofill {
 }
 
 .cart .i-edit li:last-child {
-    margin: 5px 50px 0 0;
+    margin: 5px 50px 5px 0;
+    overflow: hidden;
+    height: 80px;
 }
 
 .cart .i-edit-count {
@@ -1968,7 +1971,9 @@ select:-webkit-autofill {
 }
 
 .cart .i-edit-info {
-    padding-right: 40px;
+    padding: 0 40px 5px 0;
+    height: 40px;
+    line-height: 20px;
 }
 
 .cart .i-edit-info span:last-child {

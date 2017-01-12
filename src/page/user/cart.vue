@@ -11,12 +11,12 @@
         </n3-top>
         <section class="main">
             <ul class="cart-list f12 gray">
-                <li class="cart-item pd5-10" v-for="shop in data">
+                <li class="cart-item pd5-10" v-for="(shop, index) in data">
                     <ul class="cart-item-header">
                         <li class="left fl">
                             <span><i class="iconfont icon-square"></i></span>
                         </li>
-                        <li class="right fr">编辑</li>
+                        <li class="right fr" @click.stop="edit($event, index)">编辑</li>
                         <li class="center">
                             <i class="iconfont icon-shichang f14 orange"></i>
                             <span class="f14"> {{ shop.name }}</span>
@@ -24,7 +24,7 @@
                         </li>
                     </ul>
                     <ul class="cart-item-cnt clear">
-                        <li v-for="item in shop.list">
+                        <li v-for="(item, i) in shop.list">
                             <div class="left fl">
                                 <span><i class="iconfont icon-square"></i></span>
                             </div>
@@ -33,25 +33,25 @@
                                 <div class="cart-item-img">
                                     <img :src="item.img">
                                 </div>
-                                <div class="cart-item-info relative">
-                                    <ul class="i-edit bg-white absolute" v-if="item.editable || shop.editable">
+                                <div class="cart-item-info rtive">
+                                    <ul class="i-edit bg-white abte" v-if="shop.editable">
                                         <li class="fl"></li>
-                                        <li class="fr bg-red white">
+                                        <li class="fr bg-red white" @click.stop="remove(index, i)">
                                             <i class="iconfont icon-lajixiang"></i>
                                         </li>
                                         <li>
                                             <p class="i-edit-count">
                                                 <span class="fl block"><i class="iconfont icon-jianhao light-gray"></i></span>
                                                 <span class="fr block"><i class="iconfont icon-jiahao1 light-gray"></i></span>
-                                                <span class="block"><i class="buy-num">2</i></span>
+                                                <span class="block"><i class="buy-num">{{ item.num }}</i></span>
                                             </p>
-                                            <p class="i-edit-info relative">
+                                            <p class="i-edit-info rtive">
                                                 <span>{{ item.info }}</span>
-                                                <span class="fr absolute"><i class="iconfont icon-xiangxiajiantou"></i></span>
+                                                <span class="fr abte"><i class="iconfont icon-xiangxiajiantou"></i></span>
                                             </p>
                                         </li>
                                     </ul>
-                                    <div class="i-info">
+                                    <div class="i-info" v-if="!shop.editable">
                                         <p>{{ item.name }}</p>
                                         <p class="light-gray">购买类别</p>
                                         <p>
@@ -78,7 +78,7 @@
                     结 算
                 </li>
                 <li>
-                    <p class="settle-p-60"><span class="f12">合计: </span><span class="orange f12">￥</span><span class="orange f24">200</span></p>
+                    <p class="settle-p-60"><span class="f12">合计: </span><span class="orange f12">￥</span><span class="orange f24">0</span></p>
                     <p class="hide">ss</p>
                 </li>
             </ul>
@@ -100,6 +100,26 @@
         methods: {
             back: function () {
                 this.$router.go(-1)
+            },
+            edit: function (e, index) {
+                this.data[index].editable = !this.data[index].editable
+                if (this.data[index].editable)
+                    e.currentTarget.innerHTML = '完成'
+                else
+                    e.currentTarget.innerHTML = '编辑'
+            },
+            remove: function (index, i) {
+                let _this = this
+                _this.$layer({
+                    content: '确定要移除该商品吗？',
+                    btn: ['取消', '确定'],
+                    //skin: 'footer',
+                    yes: function () {
+                        _this.data[index].list.splice(i, 1)
+                        if (_this.data[index].list.length === 0)
+                            _this.data.splice(index, 1)
+                    }
+                })
             }
         },
         created() {
@@ -132,7 +152,6 @@
             }, function (response) {
                 console.error(response.body)
             })
-
         }
     }
 </script>
