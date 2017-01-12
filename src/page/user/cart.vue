@@ -192,7 +192,7 @@
             isAllUnChecked: function (list) {
                 let flg = true
                 for (let i = 0, l = list.length; i < l; i++) {
-                    if (list[i] !== null && list[i].checked) {
+                    if (list[i] !== null && (list[i].checked || list[i].list ? list[i].checked !== false : false)) {
                         flg = false
                         break
                     }
