@@ -121,9 +121,12 @@
                     btn: ['取消', '确定'],
                     //skin: 'footer',
                     yes: function () {
-                        _this.data[index].list.splice(i, 1)
-                        if (_this.data[index].list.length === 0)
+                        let list = _this.data[index].list
+                        let recount = list[i].checked
+                        list.splice(i, 1)
+                        if (list.length === 0)
                             _this.data.splice(index, 1, null)
+                        if(recount) _this.count()
                     }
                 })
             },
