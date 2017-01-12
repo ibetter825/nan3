@@ -2,7 +2,7 @@
         "id": 10001,
         "name": "伤不起水果店",
         "editable": false,
-        "selected": false,
+        "checked": false,
         "list": [{
                 "id": 10001,
                 "name": "华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤",
@@ -10,7 +10,7 @@
                 "price": 250,
                 "num": 1,
                 "info": "颜色分类:CX39036M的温婉大方地方大幅度黑色;尺码:42",
-                "selected": false
+                "checked": false
             },
             {
                 "id": 10002,
@@ -19,7 +19,7 @@
                 "price": 250,
                 "num": 1,
                 "info": "颜色分类:CX39036M的温婉大方地方大幅度黑色;尺码:42",
-                "selected": false
+                "checked": false
             },
             {
                 "id": 10003,
@@ -28,7 +28,7 @@
                 "price": 250,
                 "num": 1,
                 "info": "颜色分类:CX39036M的温婉大方地方大幅度黑色;尺码:42",
-                "selected": false
+                "checked": false
             }
         ]
     },
@@ -36,7 +36,7 @@
         "id": 10002,
         "name": "伤得起水果店",
         "editable": false,
-        "selected": false,
+        "checked": false,
         "list": [{
                 "id": 10004,
                 "name": "华秧安岳黄柠檬新鲜水果二三级皮薄柠檬切片泡茶榨汁酸味十足4斤",
@@ -44,7 +44,7 @@
                 "price": 250,
                 "num": 1,
                 "info": "颜色分类:CX39036M的温婉大方地方大幅度黑色;尺码:42",
-                "selected": false
+                "checked": false
             },
             {
                 "id": 10005,
@@ -53,7 +53,7 @@
                 "price": 250,
                 "num": 1,
                 "info": "颜色分类:CX39036M的温婉大方地方大幅度黑色;尺码:42",
-                "selected": false
+                "checked": false
             },
             {
                 "id": 10006,
@@ -62,7 +62,7 @@
                 "price": 250,
                 "num": 1,
                 "info": "颜色分类:CX39036M的温婉大方地方大幅度黑色;尺码:42",
-                "selected": false
+                "checked": false
             }
         ]
     }

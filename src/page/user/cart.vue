@@ -13,8 +13,10 @@
             <ul class="cart-list f12 gray">
                 <li class="cart-item pd5-10" v-for="(shop, index) in data" v-if="shop !== null">
                     <ul class="cart-item-header">
-                        <li class="left fl">
-                            <span><i class="iconfont icon-square"></i></span>
+                        <li class="left fl" @click.stop="check(shop)">
+                            <span v-if="shop.checked === false"><i class="iconfont icon-square"></i></span>
+                            <span v-if="shop.checked === null"><i class="iconfont icon-squareban"></i></span>
+                            <span v-if="shop.checked === true"><i class="iconfont icon-squarecheck"></i></span>
                         </li>
                         <li class="right fr" @click.stop="edit($event, index)">编辑</li>
                         <li class="center">
@@ -25,8 +27,9 @@
                     </ul>
                     <ul class="cart-item-cnt clear">
                         <li v-for="(item, i) in shop.list">
-                            <div class="left fl">
-                                <span><i class="iconfont icon-square"></i></span>
+                            <div class="left fl" @click.stop="check(item, shop)">
+                                <span v-if="item.checked === false"><i class="iconfont icon-square"></i></span>
+                                <span v-if="item.checked === true"><i class="iconfont icon-squarecheck"></i></span>
                             </div>
                             <div class="right fr"></div>
                             <div class="center">
@@ -70,15 +73,16 @@
             <div class="divider divider5 bg-white"></div>
             <div class="divider divider5 bg-white"></div>
             <ul class="settle fixed bg-white">
-                <li class="fl f16">
-                    <span><i class="iconfont icon-square"></i></span>
+                <li class="fl f16" @click.stop="checkAll">
+                    <span v-if="!checkedAll"><i class="iconfont icon-square"></i></span>
+                    <span v-if="checkedAll"><i class="iconfont icon-squarecheck"></i></span>
                     <span>全选</span>
                 </li>
                 <li class="fr bg-red white f16">
                     结 算
                 </li>
                 <li>
-                    <p class="settle-p-60"><span class="f12">合计: </span><span class="orange f12">￥</span><span class="orange f24">0</span></p>
+                    <p class="settle-p-60"><span class="f12">合计: </span><span class="orange f12">￥</span><span class="orange f24">{{ total }}</span></p>
                     <p class="hide">ss</p>
                 </li>
             </ul>
@@ -91,6 +95,8 @@
     module.exports = {
         data() {
             return {
+                checkedAll: false,
+                total: 0,
                 data: [],
                 footer: {
                     selected: 'cart'
@@ -120,6 +126,78 @@
                             _this.data.splice(index, 1, null)
                     }
                 })
+            },
+            check: function (obj, parent) {
+                if (obj.checked === true || obj.checked === null) {
+                    obj.checked = false
+                    this.checkedAll = false
+                } else
+                    obj.checked = true
+                let list = obj.list
+                if (list) {
+                    list.forEach(function (item) {
+                        item.checked = obj.checked
+                    })
+                } else {
+                    if (obj.checked) { //查看parentlist是否全选中
+                        if (this.isAllChecked(parent.list))
+                            parent.checked = true
+                        else
+                            parent.checked = null
+                    } else {
+                        if (this.isAllUnChecked(parent.list))
+                            parent.checked = false
+                        else
+                            parent.checked = null
+                    }
+                }
+                //重新合计
+                this.count()
+            },
+            checkAll: function () {
+                let _this = this
+                _this.data.forEach(function (shop) {
+                    if (shop.checked !== true) {
+                        _this.check(shop)
+                    }
+                })
+                _this.checkedAll = true
+                _this.count()
+            },
+            count: function(){
+                let count = 0
+                let _this = this
+                let list = []
+                _this.data.forEach(function (shop) {
+                    if(shop.checked !== false) {
+                        list = shop.list
+                        list.forEach(function(item){
+                            if(item.checked)
+                                count += Number(item.price)
+                        })
+                    }
+                })
+                _this.total = count
+            },
+            isAllChecked: function (list) {
+                let flg = true
+                for (let i = 0, l = list.length; i < l; i++) {
+                    if (!list[i].checked) {
+                        flg = false
+                        break
+                    }
+                }
+                return flg
+            },
+            isAllUnChecked: function (list) {
+                let flg = true
+                for (let i = 0, l = list.length; i < l; i++) {
+                    if (list[i].checked) {
+                        flg = false
+                        break
+                    }
+                }
+                return flg
             }
         },
         created() {
