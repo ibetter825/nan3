@@ -28,8 +28,8 @@
                     <ul class="cart-item-cnt clear">
                         <li v-for="(item, i) in shop.list">
                             <div class="left fl" @click.stop="check(item, shop)">
-                                <span v-if="item.checked === false"><i class="iconfont icon-square"></i></span>
-                                <span v-if="item.checked === true"><i class="iconfont icon-squarecheck"></i></span>
+                                <span v-if="!item.checked"><i class="iconfont icon-square"></i></span>
+                                <span v-if="item.checked"><i class="iconfont icon-squarecheck"></i></span>
                             </div>
                             <div class="right fr"></div>
                             <div class="center">
