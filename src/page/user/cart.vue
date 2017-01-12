@@ -158,7 +158,7 @@
                 let _this = this
                 _this.checkedAll = !_this.checkedAll
                 _this.data.forEach(function (shop) {
-                    if (shop.checked !== _this.checkedAll) {
+                    if (shop !== null && shop.checked !== _this.checkedAll) {
                         _this.check(shop)
                     }
                 })
@@ -169,7 +169,7 @@
                 let _this = this
                 let list = []
                 _this.data.forEach(function (shop) {
-                    if(shop.checked !== false) {
+                    if(shop !== null && shop.checked !== false) {
                         list = shop.list
                         list.forEach(function(item){
                             if(item.checked)

@@ -1911,7 +1911,7 @@ select:-webkit-autofill {
 
 .cart .cart-item-cnt>li {
     height: 80px;
-    margin-top: 5px;
+    margin: 5px 0 15px 0;
 }
 
 .cart .cart-item-cnt>li:first-child {
@@ -1962,7 +1962,7 @@ select:-webkit-autofill {
     width: 50px;
     text-align: center;
     line-height: 90px;
-    height: 100%;
+    height: 90px;
 }
 
 .cart .i-edit li:last-child {
