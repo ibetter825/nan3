@@ -182,7 +182,7 @@
             isAllChecked: function (list) {
                 let flg = true
                 for (let i = 0, l = list.length; i < l; i++) {
-                    if (!list[i].checked) {
+                    if (list[i] !== null && !list[i].checked) {
                         flg = false
                         break
                     }
@@ -192,7 +192,7 @@
             isAllUnChecked: function (list) {
                 let flg = true
                 for (let i = 0, l = list.length; i < l; i++) {
-                    if (list[i].checked) {
+                    if (list[i] !== null && list[i].checked) {
                         flg = false
                         break
                     }
