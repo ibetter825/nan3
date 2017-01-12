@@ -6,7 +6,8 @@
             <li slot="center">确认订单</li>
         </n3-top>
         <section class="main">
-            
+            <p>收货地址：如不设置则需要补充</p>
+            <p>订单商品列表</p>
         </section>
     </div>
 </template>
