@@ -40,6 +40,10 @@ let userCart = function(resolve) {
     require(['../page/user/cart.vue'], resolve)
 }
 
+let orderConfirm = function(resolve) {
+    require(['../page/order/confirm.vue'], resolve)
+}
+
 // 配置路由
 export default [{
         path: '/',
@@ -84,6 +88,13 @@ export default [{
         children: [
             { path: 'zone', component: userZone },
             { path: 'cart', component: userCart }
+        ]
+    },
+    {
+        path: '/order',
+        component: frame,
+        children: [
+            { path: 'confirm', component: orderConfirm}
         ]
     }
 ]

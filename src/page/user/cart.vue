@@ -78,7 +78,7 @@
                     <span v-if="checkedAll"><i class="iconfont icon-squarecheck"></i></span>
                     <span>全选</span>
                 </li>
-                <li class="fr bg-red white f16">
+                <li class="fr bg-red white f16" @click.stop="confirm">
                     结 算
                 </li>
                 <li>
@@ -198,6 +198,10 @@
                     }
                 }
                 return flg
+            },
+            confirm: function(){
+                if(!this.isAllUnChecked(this.data))
+                    this.$router.push({path: '/order/confirm'})
             }
         },
         created() {
