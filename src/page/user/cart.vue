@@ -44,8 +44,8 @@
                                         </li>
                                         <li>
                                             <p class="i-edit-count">
-                                                <span class="fl block"><i class="iconfont icon-jianhao light-gray"></i></span>
-                                                <span class="fr block"><i class="iconfont icon-jiahao1 light-gray"></i></span>
+                                                <span class="fl block" @click.stop="calculate(-1, item)"><i class="iconfont icon-jianhao light-gray"></i></span>
+                                                <span class="fr block" @click.stop="calculate(1, item)"><i class="iconfont icon-jiahao1 light-gray"></i></span>
                                                 <span class="block"><i class="buy-num">{{ item.num }}</i></span>
                                             </p>
                                             <p class="i-edit-info rtive">
@@ -128,7 +128,7 @@
                 })
             },
             check: function (obj, parent) {
-                if (obj.checked === true || obj.checked === null) {
+                if (obj.checked) {
                     obj.checked = false
                     this.checkedAll = false
                 } else
@@ -158,11 +158,16 @@
                 let _this = this
                 _this.checkedAll = !_this.checkedAll
                 _this.data.forEach(function (shop) {
-                    if (shop !== null && shop.checked !== _this.checkedAll) {
+                    if (shop !== null && shop.checked !== _this.checkedAll)
                         _this.check(shop)
-                    }
                 })
                 _this.count()
+            },
+            calculate: function(i, item){
+                if(i === -1 && item.num === 1)
+                    return
+                item.num += i
+                this.count()
             },
             count: function(){
                 let count = 0
@@ -173,7 +178,7 @@
                         list = shop.list
                         list.forEach(function(item){
                             if(item.checked)
-                                count += Number(item.price)
+                                count += Number(item.price) * Number(item.num)
                         })
                     }
                 })
