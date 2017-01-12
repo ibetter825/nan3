@@ -14,42 +14,42 @@
                         <h4 class="text-center red">基础服务</h4>
                         <div class="pd5-20">
                             <div class="rtive">
-                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <span class="abte"><i class="iconfont icon-baozhang red f20 rtive"></i></span>
                                 <p class="pd5-0">全国联保</p>
                                 <p class="f12 light-gray">商品在线报修，直达品牌售后</p>
                             </div>
                             <div class="rtive">
-                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <span class="abte"><i class="iconfont icon-baozhang red f20 rtive"></i></span>
                                 <p class="pd5-0">全国联保</p>
                                 <p class="f12 light-gray">商品在线报修，直达品牌售后</p>
                             </div>
                             <div class="rtive">
-                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <span class="abte"><i class="iconfont icon-baozhang red f20 rtive"></i></span>
                                 <p class="pd5-0">全国联保</p>
                                 <p class="f12 light-gray">商品在线报修，直达品牌售后</p>
                             </div>
                             <div class="rtive">
-                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <span class="abte"><i class="iconfont icon-baozhang red f20 rtive"></i></span>
                                 <p class="pd5-0">全国联保</p>
                                 <p class="f12 light-gray">商品在线报修，直达品牌售后</p>
                             </div>
                             <div class="rtive">
-                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <span class="abte"><i class="iconfont icon-baozhang red f20 rtive"></i></span>
                                 <p class="pd5-0">全国联保</p>
                                 <p class="f12 light-gray">商品在线报修，直达品牌售后</p>
                             </div>
                             <div class="rtive">
-                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <span class="abte"><i class="iconfont icon-baozhang red f20 rtive"></i></span>
                                 <p class="pd5-0">全国联保</p>
                                 <p class="f12 light-gray">商品在线报修，直达品牌售后</p>
                             </div>
                             <div class="rtive">
-                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <span class="abte"><i class="iconfont icon-baozhang red f20 rtive"></i></span>
                                 <p class="pd5-0">全国联保</p>
                                 <p class="f12 light-gray">商品在线报修，直达品牌售后</p>
                             </div>
                             <div class="rtive">
-                                <span class="abte"><i class="iconfont icon-squarecheck red f20 rtive"></i></span>
+                                <span class="abte"><i class="iconfont icon-baozhang red f20 rtive"></i></span>
                                 <p class="pd5-0">全国联保</p>
                                 <p class="f12 light-gray">商品在线报修，直达品牌售后</p>
                             </div>
