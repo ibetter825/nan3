@@ -156,12 +156,12 @@
             },
             checkAll: function () {
                 let _this = this
+                _this.checkedAll = !_this.checkedAll
                 _this.data.forEach(function (shop) {
-                    if (shop.checked !== true) {
+                    if (shop.checked !== _this.checkedAll) {
                         _this.check(shop)
                     }
                 })
-                _this.checkedAll = true
                 _this.count()
             },
             count: function(){
