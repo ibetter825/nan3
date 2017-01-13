@@ -13,7 +13,7 @@
                     <div class="fr text-right"><i class="iconfont icon-xiangyoujiantou"></i></div>
                     <div class="f12">收货地址：<span>四川省成都市金牛区交大路222号2栋2单元202号</span></div>
                 </li>
-                <li class="orange">(补充说明类</li>
+                <li class="orange hide">(补充说明)</li>
             </ul>
             <div class="divider"></div>
             <ul class="order-list pd5-10">
