@@ -1874,7 +1874,7 @@ select:-webkit-autofill {
 
 /*购物车 cart*/
 
-.cart .top {
+.cart .top,.confirm .top {
     border-bottom: 1px solid #E8E5DF;
 }
 
@@ -2173,4 +2173,31 @@ select:-webkit-autofill {
     -moz-animation: scale 0.5s 1;
     -webkit-animation: scale 0.5s 1;
     -o-animation: scale 0.5s 1;
+}
+
+/*确认订单 .confirm*/
+.confirm .rec-info {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+.confirm .rec-info li:not(.addr){
+    height: 30px;
+    line-height: 30px;
+    padding-left: 30px;
+}
+
+.confirm .rec-info li:nth-child(2) {
+    height: 50px;
+}
+
+.confirm .rec-info .fl,.confirm .rec-info .fr {
+    width: 30px;
+    line-height: 50px;
+}
+
+.confirm .rec-info .addr>div:last-child {
+    margin: 0 30px;
+    line-height: 20px;
+    padding-top: 5px;
 }
